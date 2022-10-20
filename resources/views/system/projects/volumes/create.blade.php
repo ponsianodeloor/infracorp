@@ -26,7 +26,7 @@
                                 <input type="text" name="item" class="form-control" id="item" placeholder="Ingrese el Item">
                             </div>
                             <div class="form-group">
-                                <x-adminlte-textarea name="descripcion" label="Descripcion" rows=5 igroup-size="sm" placeholder="Insert descripcion...">
+                                <x-adminlte-textarea name="description" label="Descripcion" rows=5 igroup-size="sm" placeholder="Insert descripcion...">
                                     <x-slot name="prependSlot">
                                         <div class="input-group-text bg-dark">
                                             <i class="fas fa-lg fa-file-alt text-lightblue"></i>
@@ -61,120 +61,156 @@
 
                     <div class="card-body">
                         <div class="custom-control custom-switch col-6">
+                            <input type="hidden" name="element_name" value="off">
                             <input type="checkbox" class="custom-control-input" id="element_name" name="element_name">
                             <label class="custom-control-label" for="element_name">Nombre Elemento</label>
                         </div>
+
                         <div class="custom-control custom-switch col-6">
+                            <input type="hidden" name="mc" value="off">
+                            <input type="checkbox" class="custom-control-input" id="mc" name="mc">
+                            <label class="custom-control-label" for="mc">MC</label>
+                        </div>
+
+                        <div class="custom-control custom-switch col-6">
+                            <input type="hidden" name="theta" value="off">
+                            <input type="checkbox" class="custom-control-input" id="theta" name="theta">
+                            <label class="custom-control-label" for="theta">Ø</label>
+                        </div>
+
+                        <div class="custom-control custom-switch col-6">
+                            <input type="hidden" name="a" value="off">
                             <input type="checkbox" class="custom-control-input" id="a" name="a">
                             <label class="custom-control-label" for="a">a</label>
                         </div>
 
 
                         <div class="custom-control custom-switch">
+                            <input type="hidden" name="b" value="off">
                             <input type="checkbox" class="custom-control-input" id="b" name="b">
                             <label class="custom-control-label" for="b">b</label>
                         </div>
 
 
                         <div class="custom-control custom-switch">
+                            <input type="hidden" name="c" value="off">
                             <input type="checkbox" class="custom-control-input" id="c" name="c">
                             <label class="custom-control-label" for="c">c</label>
                         </div>
 
                         <div class="custom-control custom-switch">
+                            <input type="hidden" name="g" value="off">
                             <input type="checkbox" class="custom-control-input" id="g" name="g">
                             <label class="custom-control-label" for="g">g</label>
                         </div>
 
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="perimetro_ml" name="perimetro_ml">
-                            <label class="custom-control-label" for="perimetro_ml">Perimetro (ml)</label>
+                            <input type="hidden" name="perimeter_m" value="off">
+                            <input type="checkbox" class="custom-control-input" id="perimeter_m" name="perimeter_m">
+                            <label class="custom-control-label" for="perimeter_m">Perimetro (m)</label>
                         </div>
 
                         <div class="custom-control custom-switch">
+                            <input type="hidden" name="area_m2" value="off">
                             <input type="checkbox" class="custom-control-input" id="area_m2" name="area_m2">
                             <label class="custom-control-label" for="area_m2">Area (m2)</label>
                         </div>
 
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="volumen_m3" name="volumen_m3">
-                            <label class="custom-control-label" for="volumen_m3">Volumen (m3)</label>
+                            <input type="hidden" name="volume_m3" value="off">
+                            <input type="checkbox" class="custom-control-input" id="volume_m3" name="volume_m3">
+                            <label class="custom-control-label" for="volume_m3">Volumen (m3)</label>
                         </div>
 
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="ubicacion" name="ubicacion">
-                            <label class="custom-control-label" for="ubicacion">Ubicacion</label>
+                            <input type="hidden" name="location" value="off">
+                            <input type="checkbox" class="custom-control-input" id="location" name="location">
+                            <label class="custom-control-label" for="location">Ubicacion</label>
                         </div>
 
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="figura" name="figura">
-                            <label class="custom-control-label" for="figura">Figura</label>
+                            <input type="hidden" name="figure" value="off">
+                            <input type="checkbox" class="custom-control-input" id="figure" name="figure">
+                            <label class="custom-control-label" for="figure">Figura</label>
                         </div>
 
                         <div class="custom-control custom-switch">
+                            <input type="hidden" name="codigo" value="off">
                             <input type="checkbox" class="custom-control-input" id="codigo" name="codigo">
                             <label class="custom-control-label" for="codigo">Codigo</label>
                         </div>
 
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="viajes" name="viajes">
-                            <label class="custom-control-label" for="viajes">Viajes</label>
+                            <input type="hidden" name="travels" value="off">
+                            <input type="checkbox" class="custom-control-input" id="travels" name="travels">
+                            <label class="custom-control-label" for="travels">Viajes</label>
                         </div>
 
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="ingreso_referencial"
-                                   name="ingreso_referencial">
-                            <label class="custom-control-label" for="ingreso_referencial">Ingreso Referencial</label>
+                            <input type="hidden" name="referential_income" value="off">
+                            <input type="checkbox" class="custom-control-input" id="referential_income"
+                                   name="referential_income">
+                            <label class="custom-control-label" for="referential_income">Ingreso Referencial</label>
                         </div>
 
                         <div class="custom-control custom-switch">
+                            <input type="hidden" name="total_m3" value="off">
                             <input type="checkbox" class="custom-control-input" id="total_m3" name="total_m3">
                             <label class="custom-control-label" for="total_m3">Total (m3)</label>
                         </div>
 
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="seccion" name="seccion">
-                            <label class="custom-control-label" for="seccion">Seccion</label>
+                            <input type="hidden" name="section" value="off">
+                            <input type="checkbox" class="custom-control-input" id="section" name="section">
+                            <label class="custom-control-label" for="section">Seccion</label>
                         </div>
 
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="cantidad" name="cantidad">
-                            <label class="custom-control-label" for="cantidad">Cantidad</label>
+                            <input type="hidden" name="amount" value="off">
+                            <input type="checkbox" class="custom-control-input" id="amount" name="amount">
+                            <label class="custom-control-label" for="amount">Cantidad</label>
                         </div>
 
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="peso_masa" name="peso_masa">
-                            <label class="custom-control-label" for="peso_masa">Peso/masa (kg/m)</label>
+                            <input type="hidden" name="weight_mass" value="off">
+                            <input type="checkbox" class="custom-control-input" id="weight_mass" name="weight_mass">
+                            <label class="custom-control-label" for="weight_mass">Peso/masa (kg/m)</label>
                         </div>
 
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="longitud" name="longitud">
-                            <label class="custom-control-label" for="longitud">Longitud (m)</label>
+                            <input type="hidden" name="length_m" value="off">
+                            <input type="checkbox" class="custom-control-input" id="length_m" name="length_m">
+                            <label class="custom-control-label" for="length_m">Longitud (m)</label>
                         </div>
 
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="peso_kg" name="peso_kg">
-                            <label class="custom-control-label" for="peso_kg">Peso (kg)</label>
+                            <input type="hidden" name="weight_kg" value="off">
+                            <input type="checkbox" class="custom-control-input" id="weight_kg" name="weight_kg">
+                            <label class="custom-control-label" for="weight_kg">Peso (kg)</label>
                         </div>
 
                         <div class="custom-control custom-switch">
+                            <input type="hidden" name="num" value="off">
                             <input type="checkbox" class="custom-control-input" id="num" name="num">
                             <label class="custom-control-label" for="num">Num</label>
                         </div>
 
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="long_parcial" name="long_parcial">
-                            <label class="custom-control-label" for="long_parcial">Long Parcial</label>
+                            <input type="hidden" name="part_length" value="off">
+                            <input type="checkbox" class="custom-control-input" id="part_length" name="part_length">
+                            <label class="custom-control-label" for="part_length">Long Parcial</label>
                         </div>
 
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="long_total" name="long_total">
-                            <label class="custom-control-label" for="long_total">Long Total</label>
+                            <input type="hidden" name="total_length" value="off">
+                            <input type="checkbox" class="custom-control-input" id="total_length" name="total_length">
+                            <label class="custom-control-label" for="total_length">Long Total</label>
                         </div>
 
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="observaciones" name="observaciones">
-                            <label class="custom-control-label" for="observaciones">Observaciones</label>
+                            <input type="hidden" name="observations" value="off">
+                            <input type="checkbox" class="custom-control-input" id="observations" name="observations">
+                            <label class="custom-control-label" for="observations">Observaciones</label>
                         </div>
                     </div>
 
