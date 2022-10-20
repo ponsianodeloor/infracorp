@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProjectItem;
+use App\Models\Volume;
 use Illuminate\Http\Request;
 
-class ProjectItemController extends Controller
+class VolumeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ProjectItemController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ProjectItem  $projectItem
+     * @param  \App\Models\Volume  $volume
      * @return \Illuminate\Http\Response
      */
-    public function show(ProjectItem $projectItem)
+    public function show(Volume $volume)
     {
         //
     }
@@ -52,10 +52,10 @@ class ProjectItemController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ProjectItem  $projectItem
+     * @param  \App\Models\Volume  $volume
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProjectItem $projectItem)
+    public function edit(Volume $volume)
     {
         //
     }
@@ -64,10 +64,10 @@ class ProjectItemController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ProjectItem  $projectItem
+     * @param  \App\Models\Volume  $volume
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProjectItem $projectItem)
+    public function update(Request $request, Volume $volume)
     {
         //
     }
@@ -75,10 +75,10 @@ class ProjectItemController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ProjectItem  $projectItem
+     * @param  \App\Models\Volume  $volume
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProjectItem $projectItem)
+    public function destroy(Volume $volume)
     {
         //
     }

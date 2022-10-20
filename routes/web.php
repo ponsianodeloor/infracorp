@@ -29,5 +29,6 @@ Route::middleware([
 
     Route::controller(ProjectController::class)->group(function (){
         Route::get('projects', 'index')->name('projects.index');
+        Route::get('projects/show/{id}', 'show')->name('projects.show');
     });
 });

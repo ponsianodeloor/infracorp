@@ -33,7 +33,7 @@
                         <tr>
                             @foreach($projects as $project)
                                 <td>
-                                    <button type="button" class="btn btn-block bg-gradient-primary">Editar</button>
+                                    <a href="{{route('projects.show', $project->id)}}" class="btn btn-block bg-gradient-primary">Editar</a>
                                 </td>
                                 <td>{{$project->project}}</td>
                                 <td>{{$project->contractor}}</td>

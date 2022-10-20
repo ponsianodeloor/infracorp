@@ -13,7 +13,7 @@ class Project extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function items(){
-        return $this->hasMany(ProjectItem::class);
+    public function volumes(){
+        return $this->hasMany(Volume::class);
     }
 }

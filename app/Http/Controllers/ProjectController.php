@@ -20,8 +20,9 @@ class ProjectController extends Controller
 
     }
 
-    public function show(Project $project){
-
+    public function show($id){
+        $project = Project::findOrFail($id);
+        return view('system.projects.show', compact('project'));
     }
 
     public function edit(Project $project){
