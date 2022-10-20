@@ -75,7 +75,7 @@
                         <div class="tab-pane fade active show" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Anexos de Volumen</h3>
+                                        <a href="{{route('projects.volumes.create', $project)}}" class="btn btn-block btn-success">Nuevo</a>
                                     </div>
                                     <div class="card-body">
                                         <table class="table table-bordered">
@@ -125,5 +125,7 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script>
+
+    </script>
 @stop

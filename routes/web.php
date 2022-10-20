@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\ProjectItemController;
+use App\Http\Controllers\VolumeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,5 +30,9 @@ Route::middleware([
     Route::controller(ProjectController::class)->group(function (){
         Route::get('projects', 'index')->name('projects.index');
         Route::get('projects/show/{id}', 'show')->name('projects.show');
+    });
+
+    Route::controller(VolumeController::class)->group(function (){
+        Route::get('projects/volumes/{project}', 'create')->name('projects.volumes.create');
     });
 });
