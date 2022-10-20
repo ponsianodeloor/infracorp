@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProjectItemController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,4 +26,8 @@ Route::middleware([
     Route::get('/system', function () {
         return view('system.index');
     })->name('system');
+
+    Route::controller(ProjectController::class)->group(function (){
+        Route::get('projects', 'index')->name('projects.index');
+    });
 });
