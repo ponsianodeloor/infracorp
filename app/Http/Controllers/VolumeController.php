@@ -17,6 +17,16 @@ class VolumeController extends Controller
     }
 
     public function store(Request $request){
+        $volume = new Volume();
+
+        $volume->item = $request->item;
+        $volume->code = $request->code;
+        $volume->metric_unit = $request->metric_unit;
+        $volume->project_id = $request->project_id;
+
+        $volume->save();
+
+        return redirect()->route('projects.show', $request->project_id);
 
     }
 

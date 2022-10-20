@@ -34,5 +34,7 @@ Route::middleware([
 
     Route::controller(VolumeController::class)->group(function (){
         Route::get('projects/volumes/{project}', 'create')->name('projects.volumes.create');
+
+        Route::post('project/volumes', 'store')->name('projects.volume.store');
     });
 });
