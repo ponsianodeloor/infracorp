@@ -165,8 +165,7 @@
 
                                                 @if($volume->perimeter_m == 'on')
                                                     <div class="form-group">
-                                                        <label for="perimeter_m">Perimetro</label>
-                                                        <input type="text" name="perimeter_m" class="form-control" placeholder="Ingrese el perimetro">
+                                                        <label for="total_m3">Perimetro (m): Se realiza el calculo entre Unidades * b</label>
                                                     </div>
                                                 @else
                                                     <input type="hidden" name="perimeter_m">
