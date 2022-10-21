@@ -91,7 +91,7 @@
                                             @foreach($project->volumes as $volume)
                                             <tr>
                                                 <td>
-                                                    <a href="{{route('projects.show', $volume->id)}}" class="btn btn-block bg-gradient-primary">Editar</a>
+                                                    <a href="{{route('projects.volumes.edit', $volume->id)}}" class="btn btn-block bg-gradient-primary">Editar</a>
                                                 </td>
                                                 <td>{{$volume->item}}</td>
                                                 <td>{{$volume->code}}</td>

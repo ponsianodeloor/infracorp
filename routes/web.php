@@ -28,13 +28,15 @@ Route::middleware([
     })->name('system');
 
     Route::controller(ProjectController::class)->group(function (){
-        Route::get('projects', 'index')->name('projects.index');
-        Route::get('projects/show/{id}', 'show')->name('projects.show');
+        Route::get('/projects', 'index')->name('projects.index');
+        Route::get('/projects/show/{id}', 'show')->name('projects.show');
     });
 
     Route::controller(VolumeController::class)->group(function (){
-        Route::get('projects/volumes/{project}', 'create')->name('projects.volumes.create');
+        Route::get('/projects/volumes/{project}', 'create')->name('projects.volumes.create');
+        Route::get('/projects/volumes/edit/{volume}', 'edit')->name('projects.volumes.edit');
 
-        Route::post('project/volumes', 'store')->name('projects.volume.store');
+        Route::post('/projects/volumes', 'store')->name('projects.volumes.store');
+        Route::put('/projects/volumes/{volume}', 'update')->name('projects.volumes.update');
     });
 });
