@@ -33,7 +33,8 @@ Route::middleware([
     });
 
     Route::controller(VolumeController::class)->group(function (){
-        Route::get('/projects/volumes/{project}', 'create')->name('projects.volumes.create');
+        Route::get('/projects/volumes/create/{project}', 'create')->name('projects.volumes.create');
+        Route::get('/projects/volumes/{volume}', 'show')->name('projects.volumes.show');
         Route::get('/projects/volumes/edit/{volume}', 'edit')->name('projects.volumes.edit');
 
         Route::post('/projects/volumes', 'store')->name('projects.volumes.store');

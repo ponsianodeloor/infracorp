@@ -52,7 +52,7 @@
     </div>
 
     <div class="row">
-        <div class="col-12 col-sm-6">
+        <div class="col-12">
             <div class="card card-primary card-outline card-tabs">
                 <div class="card-header p-0 pt-1 border-bottom-0">
                     <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
@@ -81,7 +81,7 @@
                                         <table class="table table-bordered">
                                             <thead>
                                             <tr>
-                                                <th style="width: 10px">#</th>
+                                                <th style="width: 200px">#</th>
                                                 <th>Item</th>
                                                 <th>Codigo</th>
                                                 <th>Unidad Metrica</th>
@@ -91,7 +91,8 @@
                                             @foreach($project->volumes as $volume)
                                             <tr>
                                                 <td>
-                                                    <a href="{{route('projects.volumes.edit', $volume->id)}}" class="btn btn-block bg-gradient-primary">Editar</a>
+                                                    <a href="{{route('projects.volumes.edit', $volume->id)}}" class="btn btn-block bg-gradient-primary"> <i class="fa fa-edit"></i>Editar</a>
+                                                    <a href="{{route('projects.volumes.show', $volume)}}" class="btn btn-warning btn-block"> <i class="fa fa-file"></i> Valores <span class="badge bg-success">3</span></a>
                                                 </td>
                                                 <td>{{$volume->item}}</td>
                                                 <td>{{$volume->code}}</td>

@@ -58,7 +58,7 @@ class VolumeController extends Controller
     }
 
     public function show(Volume $volume){
-
+        return view('system.projects.volumes.show', compact('volume'));
     }
 
     public function edit(Volume $volume){
