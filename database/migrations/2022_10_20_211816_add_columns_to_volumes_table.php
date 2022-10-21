@@ -11,9 +11,11 @@ return new class extends Migration
         Schema::table('volumes', function (Blueprint $table) {
 
             $table->text('description')->after('item')->nullable();
+            $table->enum('units', ['on', 'off'])->default('off');
             $table->enum('element_name', ['on', 'off'])->default('off');
             $table->enum('mc', ['on', 'off'])->default('off');
             $table->enum('theta', ['on', 'off'])->default('off');
+            $table->enum('type', ['on', 'off'])->default('off');
             $table->enum('a', ['on', 'off'])->default('off');
             $table->enum('b', ['on', 'off'])->default('off');
             $table->enum('c', ['on', 'off'])->default('off');
@@ -44,9 +46,11 @@ return new class extends Migration
     {
         Schema::table('volumes', function (Blueprint $table) {
             $table->dropColumn('description');
+            $table->dropColumn('units');
             $table->dropColumn('element_name');
             $table->dropColumn('mc');
             $table->dropColumn('theta');
+            $table->dropColumn('type');
             $table->dropColumn('a');
             $table->dropColumn('b');
             $table->dropColumn('c');

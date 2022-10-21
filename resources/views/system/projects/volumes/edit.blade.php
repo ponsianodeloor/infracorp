@@ -63,6 +63,12 @@
 
                     <div class="card-body">
                         <div class="custom-control custom-switch col-6">
+                            <input type="hidden" name="units" value="off">
+                            <input type="checkbox" class="custom-control-input" id="units" name="units" @if($volume->units == 'on') checked @endif />
+                            <label class="custom-control-label" for="units">Unidades</label>
+                        </div>
+
+                        <div class="custom-control custom-switch col-6">
                             <input type="hidden" name="element_name" value="off">
                             <input type="checkbox" class="custom-control-input" id="element_name" name="element_name" @if($volume->element_name == 'on') checked @endif />
                             <label class="custom-control-label" for="element_name">Nombre Elemento</label>
@@ -78,6 +84,12 @@
                             <input type="hidden" name="theta" value="off">
                             <input type="checkbox" class="custom-control-input" id="theta" name="theta" @if($volume->theta == 'on') checked @endif />
                             <label class="custom-control-label" for="theta">Ø</label>
+                        </div>
+
+                        <div class="custom-control custom-switch col-6">
+                            <input type="hidden" name="type" value="off">
+                            <input type="checkbox" class="custom-control-input" id="type" name="type" @if($volume->type == 'on') checked @endif />
+                            <label class="custom-control-label" for="type">Tipo</label>
                         </div>
 
                         <div class="custom-control custom-switch col-6">

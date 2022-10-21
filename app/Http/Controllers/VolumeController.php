@@ -72,9 +72,11 @@ class VolumeController extends Controller
         $volume->description = $request->description;
         $volume->metric_unit = $request->metric_unit;
 
+        $volume->units = $request->units;
         $volume->element_name = $request->element_name;
         $volume->mc = $request->mc;
         $volume->theta = $request->theta;
+        $volume->type = $request->type;
         $volume->a = $request->a;
         $volume->b = $request->b;
         $volume->c = $request->c;

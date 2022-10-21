@@ -63,154 +63,236 @@
                                 <input type="text" name="element_name" class="form-control" placeholder="Ingrese el nombre del elemento">
                             </div>
                         @else
-                            <input type="hidden" name="element_name" value="">
+                            <input type="hidden" name="element_name">
                         @endif
 
-                        <div class="custom-control custom-switch col-6">
-                            <input type="hidden" name="mc" value="off">
-                            <input type="checkbox" class="custom-control-input" id="mc" name="mc" @if($volume->mc == 'on') checked @endif />
-                            <label class="custom-control-label" for="mc">MC</label>
-                        </div>
+                        @if($volume->mc == 'on')
+                            <div class="form-group">
+                                <label for="mc">MC</label>
+                                <input type="text" name="mc" class="form-control" placeholder="Ingrese el MC">
+                            </div>
+                        @else
+                            <input type="hidden" name="mc">
+                        @endif
 
-                        <div class="custom-control custom-switch col-6">
-                            <input type="hidden" name="theta" value="off">
-                            <input type="checkbox" class="custom-control-input" id="theta" name="theta" @if($volume->theta == 'on') checked @endif />
-                            <label class="custom-control-label" for="theta">Ø</label>
-                        </div>
+                        @if($volume->theta == 'on')
+                            <div class="form-group">
+                                <label for="theta">Ø</label>
+                                <input type="text" name="theta" class="form-control" placeholder="Ingrese el Ø">
+                            </div>
+                        @else
+                            <input type="hidden" name="theta">
+                        @endif
 
-                        <div class="custom-control custom-switch col-6">
-                            <input type="hidden" name="a" value="off">
-                            <input type="checkbox" class="custom-control-input" id="a" name="a" @if($volume->a == 'on') checked @endif />
-                            <label class="custom-control-label" for="a">a</label>
-                        </div>
+                        @if($volume->type == 'on')
+                            <div class="form-group">
+                                <label for="type">Tipo</label>
+                                <input type="text" name="type" class="form-control" placeholder="Ingrese el tipo">
+                            </div>
+                        @else
+                            <input type="hidden" name="type">
+                        @endif
 
+                        @if($volume->a == 'on')
+                            <div class="form-group">
+                                <label for="a">a</label>
+                                <input type="text" name="a" class="form-control" placeholder="Ingrese la altura">
+                            </div>
+                        @else
+                            <input type="hidden" name="a">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="b" value="off">
-                            <input type="checkbox" class="custom-control-input" id="b" name="b" @if($volume->b == 'on') checked @endif />
-                            <label class="custom-control-label" for="b">b</label>
-                        </div>
+                        @if($volume->b == 'on')
+                            <div class="form-group">
+                                <label for="b">b</label>
+                                <input type="text" name="b" class="form-control" placeholder="Ingrese la base">
+                            </div>
+                        @else
+                            <input type="hidden" name="b">
+                        @endif
 
+                        @if($volume->c == 'on')
+                            <div class="form-group">
+                                <label for="c">c</label>
+                                <input type="text" name="c" class="form-control" placeholder="Ingrese la c">
+                            </div>
+                        @else
+                            <input type="hidden" name="c">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="c" value="off">
-                            <input type="checkbox" class="custom-control-input" id="c" name="c" @if($volume->c == 'on') checked @endif />
-                            <label class="custom-control-label" for="c">c</label>
-                        </div>
+                        @if($volume->g == 'on')
+                            <div class="form-group">
+                                <label for="g">g</label>
+                                <input type="text" name="g" class="form-control" placeholder="Ingrese la g">
+                            </div>
+                        @else
+                            <input type="hidden" name="g">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="g" value="off">
-                            <input type="checkbox" class="custom-control-input" id="g" name="g" @if($volume->g == 'on') checked @endif />
-                            <label class="custom-control-label" for="g">g</label>
-                        </div>
+                        @if($volume->perimeter_m == 'on')
+                            <div class="form-group">
+                                <label for="perimeter_m">Perimetro</label>
+                                <input type="text" name="perimeter_m" class="form-control" placeholder="Ingrese el perimetro">
+                            </div>
+                        @else
+                            <input type="hidden" name="perimeter_m">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="perimeter_m" value="off">
-                            <input type="checkbox" class="custom-control-input" id="perimeter_m" name="perimeter_m" @if($volume->perimeter_m == 'on') checked @endif />
-                            <label class="custom-control-label" for="perimeter_m">Perimetro (m)</label>
-                        </div>
+                        @if($volume->area_m2 == 'on')
+                            <div class="form-group">
+                                <label for="area_m2">Area m2</label>
+                                <input type="text" name="area_m2" class="form-control" placeholder="Ingrese el area m2">
+                            </div>
+                        @else
+                            <input type="hidden" name="area_m2">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="area_m2" value="off">
-                            <input type="checkbox" class="custom-control-input" id="area_m2" name="area_m2" @if($volume->area_m2 == 'on') checked @endif />
-                            <label class="custom-control-label" for="area_m2">Area (m2)</label>
-                        </div>
+                        @if($volume->volume_m3 == 'on')
+                            <div class="form-group">
+                                <label for="volume_m3">Volume m3</label>
+                                <input type="text" name="volume_m3" class="form-control" placeholder="Ingrese el Volumen m3">
+                            </div>
+                        @else
+                            <input type="hidden" name="volume_m3">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="volume_m3" value="off">
-                            <input type="checkbox" class="custom-control-input" id="volume_m3" name="volume_m3" @if($volume->volume_m3 == 'on') checked @endif />
-                            <label class="custom-control-label" for="volume_m3">Volumen (m3)</label>
-                        </div>
+                        @if($volume->location == 'on')
+                            <div class="form-group">
+                                <label for="location">Ubicacion</label>
+                                <input type="text" name="location" class="form-control" placeholder="Ingrese la ubicacion">
+                            </div>
+                        @else
+                            <input type="hidden" name="location">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="location" value="off">
-                            <input type="checkbox" class="custom-control-input" id="location" name="location" @if($volume->location == 'on') checked @endif />
-                            <label class="custom-control-label" for="location">Ubicacion</label>
-                        </div>
+                        @if($volume->figure == 'on')
+                            <div class="form-group">
+                                <label for="figure">Figura</label>
+                                <input type="text" name="figure" class="form-control" placeholder="Ingrese la figura">
+                            </div>
+                        @else
+                            <input type="hidden" name="figure">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="figure" value="off">
-                            <input type="checkbox" class="custom-control-input" id="figure" name="figure" @if($volume->figure == 'on') checked @endif />
-                            <label class="custom-control-label" for="figure">Figura</label>
-                        </div>
+                        @if($volume->codigo == 'on')
+                            <div class="form-group">
+                                <label for="codigo">Codigo</label>
+                                <input type="text" name="codigo" class="form-control" placeholder="Ingrese el codigo">
+                            </div>
+                        @else
+                            <input type="hidden" name="codigo">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="codigo" value="off">
-                            <input type="checkbox" class="custom-control-input" id="codigo" name="codigo" @if($volume->codigo == 'on') checked @endif />
-                            <label class="custom-control-label" for="codigo">Codigo</label>
-                        </div>
+                        @if($volume->travels == 'on')
+                            <div class="form-group">
+                                <label for="travels">Viajes</label>
+                                <input type="text" name="travels" class="form-control" placeholder="Ingrese la cantidad de viajes">
+                            </div>
+                        @else
+                            <input type="hidden" name="travels">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="travels" value="off">
-                            <input type="checkbox" class="custom-control-input" id="travels" name="travels" @if($volume->travels == 'on') checked @endif />
-                            <label class="custom-control-label" for="travels">Viajes</label>
-                        </div>
+                        @if($volume->referential_income == 'on')
+                            <div class="form-group">
+                                <label for="referential_income">Ingreso Referencial</label>
+                                <input type="text" name="referential_income" class="form-control" placeholder="Ingreso referencial">
+                            </div>
+                        @else
+                            <input type="hidden" name="referential_income">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="referential_income" value="off">
-                            <input type="checkbox" class="custom-control-input" id="referential_income" name="referential_income" @if($volume->referential_income == 'on') checked @endif />
-                            <label class="custom-control-label" for="referential_income">Ingreso Referencial</label>
-                        </div>
+                        @if($volume->total_m3 == 'on')
+                            <div class="form-group">
+                                <label for="total_m3">Total (m3): Se realiza el calculo entre Volumen (m3) y Viajes</label>
+                            </div>
+                        @else
+                            <input type="hidden" name="total_m3">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="total_m3" value="off">
-                            <input type="checkbox" class="custom-control-input" id="total_m3" name="total_m3" @if($volume->total_m3 == 'on') checked @endif />
-                            <label class="custom-control-label" for="total_m3">Total (m3)</label>
-                        </div>
+                        @if($volume->section == 'on')
+                            <div class="form-group">
+                                <label for="section">Seccion</label>
+                                <input type="text" name="section" class="form-control" placeholder="Ingreso de Seccion">
+                            </div>
+                        @else
+                            <input type="hidden" name="section">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="section" value="off">
-                            <input type="checkbox" class="custom-control-input" id="section" name="section" @if($volume->section == 'on') checked @endif />
-                            <label class="custom-control-label" for="section">Seccion</label>
-                        </div>
+                        @if($volume->amount == 'on')
+                            <div class="form-group">
+                                <label for="amount">Cantidad</label>
+                                <input type="text" name="amount" class="form-control" placeholder="Ingrese la cantidad">
+                            </div>
+                        @else
+                            <input type="hidden" name="amount">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="amount" value="off">
-                            <input type="checkbox" class="custom-control-input" id="amount" name="amount" @if($volume->amount == 'on') checked @endif />
-                            <label class="custom-control-label" for="amount">Cantidad</label>
-                        </div>
+                        @if($volume->weight_mass == 'on')
+                            <div class="form-group">
+                                <label for="weight_mass">Peso/Masa (kg/m)</label>
+                                <input type="text" name="weight_mass" class="form-control" placeholder="Ingrese el Peso Masa">
+                            </div>
+                        @else
+                            <input type="hidden" name="weight_mass">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="weight_mass" value="off">
-                            <input type="checkbox" class="custom-control-input" id="weight_mass" name="weight_mass" @if($volume->weight_mass == 'on') checked @endif />
-                            <label class="custom-control-label" for="weight_mass">Peso/masa (kg/m)</label>
-                        </div>
+                        @if($volume->length_m == 'on')
+                            <div class="form-group">
+                                <label for="length_m">Longitud (m)</label>
+                                <input type="text" name="length_m" class="form-control" placeholder="Ingrese la longitud (m)">
+                            </div>
+                        @else
+                            <input type="hidden" name="length_m">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="length_m" value="off">
-                            <input type="checkbox" class="custom-control-input" id="length_m" name="length_m" @if($volume->length_m == 'on') checked @endif />
-                            <label class="custom-control-label" for="length_m">Longitud (m)</label>
-                        </div>
+                        @if($volume->weight_kg == 'on')
+                            <div class="form-group">
+                                <label for="weight_kg">Peso (kg): Se realiza el calculo entre Cantidad * Peso (kg) * longitud (m) </label>
+                            </div>
+                        @else
+                            <input type="hidden" name="weight_kg">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="weight_kg" value="off">
-                            <input type="checkbox" class="custom-control-input" id="weight_kg" name="weight_kg" @if($volume->weight_kg == 'on') checked @endif />
-                            <label class="custom-control-label" for="weight_kg">Peso (kg)</label>
-                        </div>
+                        @if($volume->num == 'on')
+                            <div class="form-group">
+                                <label for="num">Num</label>
+                                <input type="text" name="num" class="form-control" placeholder="Ingrese el Num">
+                            </div>
+                        @else
+                            <input type="hidden" name="num">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="num" value="off">
-                            <input type="checkbox" class="custom-control-input" id="num" name="num" @if($volume->num == 'on') checked @endif />
-                            <label class="custom-control-label" for="num">Num</label>
-                        </div>
+                        @if($volume->part_length == 'on')
+                            <div class="form-group">
+                                <label for="part_length">Longitud Parcial</label>
+                                <input type="text" name="part_length" class="form-control" placeholder="Ingrese la longitud parcial">
+                            </div>
+                        @else
+                            <input type="hidden" name="part_length">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="part_length" value="off">
-                            <input type="checkbox" class="custom-control-input" id="part_length" name="part_length" @if($volume->part_length == 'on') checked @endif />
-                            <label class="custom-control-label" for="part_length">Long Parcial</label>
-                        </div>
+                        @if($volume->total_length == 'on')
+                            <div class="form-group">
+                                <label for="total_length">Longitud Total: Se realiza el calculo entre Num * Longitud Parcial </label>
+                            </div>
+                        @else
+                            <input type="hidden" name="total_length">
+                        @endif
 
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="total_length" value="off">
-                            <input type="checkbox" class="custom-control-input" id="total_length" name="total_length" @if($volume->total_length == 'on') checked @endif />
-                            <label class="custom-control-label" for="total_length">Long Total</label>
-                        </div>
-
-                        <div class="custom-control custom-switch">
-                            <input type="hidden" name="observations" value="off">
-                            <input type="checkbox" class="custom-control-input" id="observations" name="observations" @if($volume->observations == 'on') checked @endif />
-                            <label class="custom-control-label" for="observations">Observaciones</label>
-                        </div>
+                        @if($volume->observations == 'on')
+                            <div class="form-group">
+                                <x-adminlte-textarea name="observations" label="Observacion" rows=5 igroup-size="sm" placeholder="Ingrese la observacion...">
+                                    <x-slot name="prependSlot">
+                                        <div class="input-group-text bg-dark">
+                                            <i class="fas fa-lg fa-file-alt text-lightblue"></i>
+                                        </div>
+                                    </x-slot>
+                                    {{$volume->description}}
+                                </x-adminlte-textarea>
+                            </div>
+                        @else
+                            <input type="hidden" name="observations">
+                        @endif
                     </div>
 
                     <div class="card-footer">
