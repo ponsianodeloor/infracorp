@@ -100,7 +100,7 @@ class VolumeController extends Controller
 
         $volume->save();
 
-        return redirect()->route('projects.show', $volume->project->id);
+        return redirect()->route('projects.volumes.edit', $volume);
 
     }
 

@@ -10,6 +10,9 @@
     <h4>
         {{$volume->project->project}}
     </h4>
+
+    <a href="{{route('projects.volumes.show', $volume)}}" class="btn btn-primary mt-2 mb-4"> <i class="fa fa-edit"></i> Ingresar Unidades</a>
+
     <form action="{{route('projects.volumes.update', $volume)}}" method="post">
         @csrf
         @method('PUT')

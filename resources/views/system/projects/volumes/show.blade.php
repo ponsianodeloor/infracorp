@@ -18,6 +18,7 @@
                     <h3 class="card-title">Anexo de Volumen: {{$volume->item}}</h3>
                 </div>
                 <div class="card-body">
+                    <a href="{{route('projects.volumes.edit', $volume)}}" class="btn btn-primary mb-4"> <i class="fa fa-edit"></i>Editar Columnas</a>
                     <table class="table table-bordered">
                         <thead>
                         <tr>
@@ -46,15 +47,24 @@
             <div class="col-md-6">
                 <div class="card card-success">
                     <div class="card-header">
-                        <h3 class="card-title">Se deben de mostrar los inputs y labels habilitados</h3>
+                        <h3 class="card-title">Registro de elementos</h3>
                     </div>
 
                     <div class="card-body">
-                        <div class="custom-control custom-switch col-6">
-                            <input type="hidden" name="element_name" value="off">
-                            <input type="checkbox" class="custom-control-input" id="element_name" name="element_name" @if($volume->element_name == 'on') checked @endif />
-                            <label class="custom-control-label" for="element_name">Nombre Elemento</label>
+
+                        <div class="form-group">
+                            <label for="item">Unidades</label>
+                            <input type="text" name="u" class="form-control" id="u" placeholder="Ingrese las Unidades">
                         </div>
+
+                        @if($volume->element_name == 'on')
+                            <div class="form-group">
+                                <label for="item">Nombre del elemento</label>
+                                <input type="text" name="element_name" class="form-control" placeholder="Ingrese el nombre del elemento">
+                            </div>
+                        @else
+                            <input type="hidden" name="element_name" value="">
+                        @endif
 
                         <div class="custom-control custom-switch col-6">
                             <input type="hidden" name="mc" value="off">
