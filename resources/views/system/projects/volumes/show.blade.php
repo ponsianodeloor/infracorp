@@ -94,7 +94,7 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    @if($volume->typeItems)
+                                    @if(count($volume->typeItems)>0)
                                         <table class="table table-bordered">
                                             <thead>
                                             <tr>
