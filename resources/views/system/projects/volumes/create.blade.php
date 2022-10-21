@@ -19,7 +19,6 @@
                     <div class="card-header">
                         <h3 class="card-title">Nuevo Anexo de volumen</h3>
                     </div>
-                    <form>
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="item">Item</label>
@@ -49,7 +48,6 @@
                         <div class="card-footer">
 
                         </div>
-                    </form>
                 </div>
             </div>
 

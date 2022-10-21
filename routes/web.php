@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\VolumeController;
+use App\Http\Controllers\TypeItemsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,5 +40,10 @@ Route::middleware([
 
         Route::post('/projects/volumes', 'store')->name('projects.volumes.store');
         Route::put('/projects/volumes/{volume}', 'update')->name('projects.volumes.update');
+    });
+
+    Route::controller(TypeItemsController::class)->group(function (){
+
+        Route::post('/project/volumes/type-items/', 'store')->name('project.volumes.type-items.store');
     });
 });

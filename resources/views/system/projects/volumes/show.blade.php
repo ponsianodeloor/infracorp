@@ -40,6 +40,91 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-primary card-outline card-tabs">
+                <div class="card-header p-0 pt-1 border-bottom-0">
+                    <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="custom-tabs-three-home-tab" data-toggle="pill" href="#custom-tabs-three-home" role="tab" aria-controls="custom-tabs-three-home" aria-selected="false">Registro de Elementos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="custom-tabs-three-profile-tab" data-toggle="pill" href="#custom-tabs-three-profile" role="tab" aria-controls="custom-tabs-three-profile" aria-selected="false">Tipos de elemento</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="custom-tabs-three-messages-tab" data-toggle="pill" href="#custom-tabs-three-messages" role="tab" aria-controls="custom-tabs-three-messages" aria-selected="false">Elementos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content" id="custom-tabs-three-tabContent">
+                        <div class="tab-pane fade active show" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <a href="" class="btn btn-block btn-success">Nuevo</a>
+                                </div>
+                                <div class="card-body">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="custom-tabs-three-profile" role="tabpanel" aria-labelledby="custom-tabs-three-profile-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card card-success">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Nuevo Tipo de Elemento</h3>
+                                        </div>
+                                        <form action="{{route('project.volumes.type-items.store', $volume)}}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="volume_id" value="{{$volume->id}}">
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <label for="item">Tipo de elemento</label>
+                                                    <input type="text" name="type_item" class="form-control" placeholder="Ingrese el tipo de elemento">
+                                                    <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar">
+                                                </div>
+                                            </div>
+
+                                            <div class="card-footer">
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    @if($volume->typeItems)
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th>Tipo de Elemento</th>
+                                                <th>Accciones</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($volume->typeItems as $typeItem)
+                                                <tr>
+                                                    <td>{{$typeItem->type_item}}</td>
+                                                    <td>Edit Delete</td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="custom-tabs-three-messages" role="tabpanel" aria-labelledby="custom-tabs-three-messages-tab">
+                            Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <form action="{{route('projects.volumes.update', $volume)}}" method="post">
         @csrf
         @method('PUT')
@@ -325,6 +410,8 @@
             </div>
         </div>
     </form>
+
+
 
 @stop
 
