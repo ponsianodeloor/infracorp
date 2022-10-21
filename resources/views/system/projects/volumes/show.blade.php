@@ -52,10 +52,14 @@
 
                     <div class="card-body">
 
-                        <div class="form-group">
-                            <label for="item">Unidades</label>
-                            <input type="text" name="u" class="form-control" id="u" placeholder="Ingrese las Unidades">
-                        </div>
+                        @if($volume->units == 'on')
+                            <div class="form-group">
+                                <label for="units">Unidades</label>
+                                <input type="text" name="units" class="form-control" placeholder="Ingrese las Unidades">
+                            </div>
+                        @else
+                            <input type="hidden" name="units">
+                        @endif
 
                         @if($volume->element_name == 'on')
                             <div class="form-group">
