@@ -39,10 +39,10 @@ return new class extends Migration
             $table->decimal('part_length', 10, 2)->nullable();
             $table->decimal('total_length', 10, 2)->nullable();
             $table->text('observations')->nullable();
+            $table->unsignedBigInteger('item_type_id');
 
-            $table->unsignedBigInteger('type_id');
-            $table->foreign('type_id')
-                ->on('type_items')
+            $table->foreign('item_type_id')
+                ->on('item_types')
                 ->references('id')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');

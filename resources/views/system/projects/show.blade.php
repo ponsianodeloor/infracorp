@@ -73,36 +73,36 @@
                 <div class="card-body">
                     <div class="tab-content" id="custom-tabs-three-tabContent">
                         <div class="tab-pane fade active show" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <a href="{{route('projects.volumes.create', $project)}}" class="btn btn-block btn-success">Nuevo</a>
-                                    </div>
-                                    <div class="card-body">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                            <tr>
-                                                <th style="width: 200px">#</th>
-                                                <th>Item</th>
-                                                <th>Codigo</th>
-                                                <th>Unidad Metrica</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            @foreach($project->volumes as $volume)
-                                            <tr>
-                                                <td>
-                                                    <a href="{{route('projects.volumes.edit', $volume->id)}}" class="btn btn-block bg-gradient-primary"> <i class="fa fa-edit"></i>Editar</a>
-                                                    <a href="{{route('projects.volumes.show', $volume)}}" class="btn btn-warning btn-block"> <i class="fa fa-file"></i> Valores <span class="badge bg-success">3</span></a>
-                                                </td>
-                                                <td>{{$volume->item}}</td>
-                                                <td>{{$volume->code}}</td>
-                                                <td>{{$volume->metric_unit}}</td>
-                                            </tr>
-                                            @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <a href="{{route('projects.volumes.create', $project)}}" class="btn btn-block btn-success">Nuevo</a>
                                 </div>
+                                <div class="card-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th style="width: 200px">#</th>
+                                            <th>Item</th>
+                                            <th>Codigo</th>
+                                            <th>Unidad Metrica</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($project->volumes as $volume)
+                                        <tr>
+                                            <td>
+                                                <a href="{{route('projects.volumes.edit', $volume->id)}}" class="btn btn-block bg-gradient-primary"> <i class="fa fa-edit"></i>Editar</a>
+                                                <a href="{{route('projects.volumes.show', $volume)}}" class="btn btn-warning btn-block"> <i class="fa fa-file"></i> Valores <span class="badge bg-success">3</span></a>
+                                            </td>
+                                            <td>{{$volume->item}}</td>
+                                            <td>{{$volume->code}}</td>
+                                            <td>{{$volume->metric_unit}}</td>
+                                        </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-three-profile" role="tabpanel" aria-labelledby="custom-tabs-three-profile-tab">
                             Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris pharetra purus ut ligula tempor, et vulputate metus facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere purus ligula eu lectus. Donec nunc tellus, elementum sit amet ultricies at, posuere nec nunc. Nunc euismod pellentesque diam.

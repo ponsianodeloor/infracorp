@@ -61,9 +61,9 @@
                         <div class="tab-pane fade active show" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <form action="{{route('projects.volumes.update', $volume)}}" method="post">
+                                    <form action="{{route('projects.volumes.items.store', $volume)}}" method="post">
                                         @csrf
-                                        @method('PUT')
+                                        <input type="hidden" name="volume_id" value="{{$volume->id}}">
                                         <div class="card card-success">
                                             <div class="card-header">
                                                 <h3 class="card-title">Registro de elementos</h3>
@@ -71,14 +71,14 @@
 
                                             <div class="card-body">
 
-                                                <x-adminlte-select name="type_item_id" label="Tipo de Elemento">
+                                                <x-adminlte-select name="item_type_id" label="Tipo de Elemento">
                                                     <x-slot name="prependSlot">
                                                         <div class="input-group-text bg-gradient-info">
                                                             <i class="fas fa-sitemap"></i>
                                                         </div>
                                                     </x-slot>
-                                                    @foreach($volume->typeItems as $typeItem)
-                                                        <option value="{{$typeItem->id}}">{{$typeItem->type_item}}</option>
+                                                    @foreach($volume->itemTypes as $itemType)
+                                                        <option value="{{$itemType->id}}">{{$itemType->item_type}}</option>
                                                     @endforeach
                                                 </x-adminlte-select>
 
@@ -356,13 +356,13 @@
                                         <div class="card-header">
                                             <h3 class="card-title">Nuevo Tipo de Elemento</h3>
                                         </div>
-                                        <form action="{{route('project.volumes.type-items.store', $volume)}}" method="post">
+                                        <form action="{{route('project.volumes.item-type.store')}}" method="post">
                                             @csrf
                                             <input type="hidden" name="volume_id" value="{{$volume->id}}">
                                             <div class="card-body">
                                                 <div class="form-group">
                                                     <label for="item">Tipo de elemento</label>
-                                                    <input type="text" name="type_item" class="form-control" placeholder="Ingrese el tipo de elemento">
+                                                    <input type="text" name="item_type" class="form-control" placeholder="Ingrese el tipo de elemento">
                                                     <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar">
                                                 </div>
                                             </div>
@@ -375,7 +375,7 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    @if(count($volume->typeItems)>0)
+                                    @if(count($volume->itemTypes)>0)
                                         <table class="table table-bordered">
                                             <thead>
                                             <tr>
@@ -384,9 +384,9 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($volume->typeItems as $typeItem)
+                                            @foreach($volume->itemTypes as $itemType)
                                                 <tr>
-                                                    <td>{{$typeItem->type_item}}</td>
+                                                    <td>{{$itemType->item_type}}</td>
                                                     <td>Edit Delete</td>
                                                 </tr>
                                             @endforeach
@@ -397,11 +397,47 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-three-messages" role="tabpanel" aria-labelledby="custom-tabs-three-messages-tab">
-                            Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna.
+                            <div class="card">
+                                <div class="card-header">
+                                    <a href="" class="btn btn-block btn-success">Elementos Registrados</a>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th style="width: 10px">&nbsp;</th>
+                                            <th>Units</th>
+                                            <th>b</th>
+                                            <th>Perimetro</th>
+                                            <th>Ubicacion</th>
+                                            <th>Figura</th>
+                                            <th>Codigo</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($volume->itemTypes as $itemTypes)
+                                            <tr>
+                                            <td colspan="100%" class="text-center">{{$itemTypes->item_type}}</td>
+                                            @foreach($itemTypes->items as $item)
+                                            <tr>
+                                                <td>Edit - delete</td>
+                                                <td>{{$item->units}}</td>
+                                                <td>{{$item->b}}</td>
+                                                <td>{{$item->perimeter_m}}</td>
+                                                <td>{{$item->location}}</td>
+                                                <td>{{$item->figure}}</td>
+                                                <td>{{$item->codigo}}</td>
+                                            </tr>
+                                            @endforeach
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

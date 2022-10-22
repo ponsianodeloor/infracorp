@@ -13,7 +13,7 @@ class Volume extends Model
         return $this->belongsTo(Project::class);
     }
 
-    public function typeItems(){
-        return $this->hasMany(TypeItems::class);
+    public function itemTypes(){
+        return $this->hasMany(ItemType::class);
     }
 }
