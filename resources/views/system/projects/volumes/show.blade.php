@@ -127,6 +127,15 @@
                                                     <input type="hidden" name="type">
                                                 @endif
 
+                                                @if($volume->license_plate == 'on')
+                                                    <div class="form-group">
+                                                        <label for="type">Placa de Vehiculo</label>
+                                                        <input type="text" name="license_plate" class="form-control" placeholder="Ingrese la placa del vechiculo">
+                                                    </div>
+                                                @else
+                                                    <input type="hidden" name="license_plate">
+                                                @endif
+
                                                 @if($volume->a == 'on')
                                                     <div class="form-group">
                                                         <label for="a">a</label>

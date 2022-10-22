@@ -30,6 +30,7 @@ class VolumeController extends Controller
         $volume->mc = $request->mc;
         $volume->theta = $request->theta;
         $volume->type = $request->type;
+        $volume->license_plate = $request->license_plate;
         $volume->a = $request->a;
         $volume->b = $request->b;
         $volume->c = $request->c;
@@ -79,6 +80,7 @@ class VolumeController extends Controller
         $volume->mc = $request->mc;
         $volume->theta = $request->theta;
         $volume->type = $request->type;
+        $volume->license_plate = $request->license_plate;
         $volume->a = $request->a;
         $volume->b = $request->b;
         $volume->c = $request->c;

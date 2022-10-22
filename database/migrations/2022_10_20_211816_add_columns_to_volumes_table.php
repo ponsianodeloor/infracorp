@@ -16,6 +16,7 @@ return new class extends Migration
             $table->enum('mc', ['on', 'off'])->default('off');
             $table->enum('theta', ['on', 'off'])->default('off');
             $table->enum('type', ['on', 'off'])->default('off');
+            $table->enum('license_plate', ['on', 'off'])->default('off');
             $table->enum('a', ['on', 'off'])->default('off');
             $table->enum('b', ['on', 'off'])->default('off');
             $table->enum('c', ['on', 'off'])->default('off');

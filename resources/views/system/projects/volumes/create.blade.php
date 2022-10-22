@@ -89,6 +89,12 @@
                         </div>
 
                         <div class="custom-control custom-switch col-6">
+                            <input type="hidden" name="license_plate" value="off">
+                            <input type="checkbox" class="custom-control-input" id="license_plate" name="license_plate">
+                            <label class="custom-control-label" for="license_plate">Placa de Vehiculo</label>
+                        </div>
+
+                        <div class="custom-control custom-switch col-6">
                             <input type="hidden" name="a" value="off">
                             <input type="checkbox" class="custom-control-input" id="a" name="a">
                             <label class="custom-control-label" for="a">a</label>
