@@ -511,7 +511,13 @@
                                             <td colspan="100%" class="text-center">{{$itemTypes->item_type}}</td>
                                             @foreach($itemTypes->items as $item)
                                             <tr>
-                                                <td>Edit - delete</td>
+                                                <td>
+                                                    <form action="{{route('projects.volumes.items.destroy', $item)}}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <input type="submit" class="btn btn-outline-danger" value="Eliminar">
+                                                    </form>
+                                                </td>
                                                 @if($volume->units == 'on')
                                                     <td>{{$item->units}}</td>
                                                 @endif

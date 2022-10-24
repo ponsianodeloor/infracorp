@@ -51,6 +51,7 @@ Route::middleware([
     Route::controller(ItemController::class)->group(function (){
 
         Route::post('/projects/volumes/items', 'store')->name('projects.volumes.items.store');
+        Route::delete('/projects/volumes/items/{item}', 'destroy')->name('projects.volumes.items.destroy');
     });
 
 });

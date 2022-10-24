@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\ItemType;
 use App\Models\Volume;
 use Illuminate\Http\Request;
 
@@ -82,6 +83,12 @@ class ItemController extends Controller
     }
 
     public function destroy(Item $item){
+        $item_type_id = $item->item_type_id;
+        $itemType = ItemType::find($item_type_id);
+        $volume = Volume::find($itemType->volume_id);
+        $item->delete();
 
+        return redirect()->route('projects.volumes.show', compact('volume'));
+        //return view('system.projects.volumes.show', compact('volume'));
     }
 }
