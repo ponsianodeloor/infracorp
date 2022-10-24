@@ -172,9 +172,18 @@
                                                     <input type="hidden" name="g">
                                                 @endif
 
+                                                @if($volume->h == 'on')
+                                                    <div class="form-group">
+                                                        <label for="h">h</label>
+                                                        <input type="text" name="h" class="form-control" placeholder="Ingrese la h">
+                                                    </div>
+                                                @else
+                                                    <input type="hidden" name="h">
+                                                @endif
+
                                                 @if($volume->perimeter_m == 'on')
                                                     <div class="form-group">
-                                                        <label for="total_m3">Perimetro (m): Se realiza el calculo entre Unidades * b</label>
+                                                        <label for="perimeter_m">Perimetro (m): Se realiza el calculo entre Unidades * b</label>
                                                     </div>
                                                 @else
                                                     <input type="hidden" name="perimeter_m">
@@ -182,8 +191,7 @@
 
                                                 @if($volume->area_m2 == 'on')
                                                     <div class="form-group">
-                                                        <label for="area_m2">Area m2</label>
-                                                        <input type="text" name="area_m2" class="form-control" placeholder="Ingrese el area m2">
+                                                        <label for="area_m2">Area (m2): Se realiza el calculo entre Unidades * a * b</label>
                                                     </div>
                                                 @else
                                                     <input type="hidden" name="area_m2">
@@ -406,12 +414,93 @@
                                         <thead>
                                         <tr>
                                             <th style="width: 10px">&nbsp;</th>
-                                            <th>Units</th>
-                                            <th>b</th>
-                                            <th>Perimetro</th>
-                                            <th>Ubicacion</th>
-                                            <th>Figura</th>
-                                            <th>Codigo</th>
+                                            @if($volume->units == 'on')
+                                                <th>Unidades</th>
+                                            @endif
+                                            @if($volume->element_name == 'on')
+                                                <th>Nombre elemento</th>
+                                            @endif
+                                            @if($volume->mc == 'on')
+                                                <th>MC</th>
+                                            @endif
+                                            @if($volume->theta == 'on')
+                                                <th>Ø</th>
+                                            @endif
+                                            @if($volume->type == 'on')
+                                                <th>Tipo</th>
+                                            @endif
+                                            @if($volume->license_plate == 'on')
+                                                <th>Placa Vehiculo</th>
+                                            @endif
+                                            @if($volume->a == 'on')
+                                                <th>a</th>
+                                            @endif
+                                            @if($volume->b == 'on')
+                                                <th>b</th>
+                                            @endif
+                                            @if($volume->c == 'on')
+                                                <th>c</th>
+                                            @endif
+                                            @if($volume->g == 'on')
+                                                <th>g</th>
+                                            @endif
+                                            @if($volume->h == 'on')
+                                                <th>h</th>
+                                            @endif
+                                            @if($volume->perimeter_m == 'on')
+                                                <th>Perimetro (m)</th>
+                                            @endif
+                                            @if($volume->area_m2 == 'on')
+                                                <th>Area (m2)</th>
+                                            @endif
+                                            @if($volume->volume_m3 == 'on')
+                                                <th>Volumen (m3)</th>
+                                            @endif
+                                            @if($volume->location == 'on')
+                                                <th>Ubicacion</th>
+                                            @endif
+                                            @if($volume->figure == 'on')
+                                                <th>Figura</th>
+                                            @endif
+                                            @if($volume->codigo == 'on')
+                                                <th>Codigo</th>
+                                            @endif
+                                            @if($volume->travels == 'on')
+                                                <th>Viajes</th>
+                                            @endif
+                                            @if($volume->referential_income == 'on')
+                                                <th>Ingreso Referencial</th>
+                                            @endif
+                                            @if($volume->total_m3 == 'on')
+                                                <th>Total (m3)</th>
+                                            @endif
+                                            @if($volume->section == 'on')
+                                                <th>Seccion</th>
+                                            @endif
+                                            @if($volume->amount == 'on')
+                                                <th>Cantidad</th>
+                                            @endif
+                                            @if($volume->weight_mass == 'on')
+                                                <th>Peso Masa</th>
+                                            @endif
+                                            @if($volume->length_m == 'on')
+                                                <th>Longitud (m)</th>
+                                            @endif
+                                            @if($volume->weight_kg == 'on')
+                                                <th>Peso (kg)</th>
+                                            @endif
+                                            @if($volume->num == 'on')
+                                                <th>Num</th>
+                                            @endif
+                                            @if($volume->part_length == 'on')
+                                                <th>Longitud Parcial</th>
+                                            @endif
+                                            @if($volume->total_length == 'on')
+                                                <th>Logitud Total</th>
+                                            @endif
+                                            @if($volume->observations == 'on')
+                                                <th>Observaciones</th>
+                                            @endif
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -421,12 +510,93 @@
                                             @foreach($itemTypes->items as $item)
                                             <tr>
                                                 <td>Edit - delete</td>
-                                                <td>{{$item->units}}</td>
-                                                <td>{{$item->b}}</td>
-                                                <td>{{$item->perimeter_m}}</td>
-                                                <td>{{$item->location}}</td>
-                                                <td>{{$item->figure}}</td>
-                                                <td>{{$item->codigo}}</td>
+                                                @if($volume->units == 'on')
+                                                    <td>{{$item->units}}</td>
+                                                @endif
+                                                @if($volume->element_name == 'on')
+                                                    <td>{{$item->element_name}}</td>
+                                                @endif
+                                                @if($volume->mc == 'on')
+                                                    <td>{{$item->mc}}</td>
+                                                @endif
+                                                @if($volume->theta == 'on')
+                                                    <td>{{$item->theta}}</td>
+                                                @endif
+                                                @if($volume->type == 'on')
+                                                    <td>{{$item->type}}</td>
+                                                @endif
+                                                @if($volume->license_plate == 'on')
+                                                    <td>{{$item->license_plate}}</td>
+                                                @endif
+                                                @if($volume->a == 'on')
+                                                    <td>{{$item->a}}</td>
+                                                @endif
+                                                @if($volume->b == 'on')
+                                                    <td>{{$item->a}}</td>
+                                                @endif
+                                                @if($volume->c == 'on')
+                                                    <td>{{$item->c}}</td>
+                                                @endif
+                                                @if($volume->g == 'on')
+                                                    <td>{{$item->g}}</td>
+                                                @endif
+                                                @if($volume->h == 'on')
+                                                    <td>{{$item->h}}</td>
+                                                @endif
+                                                @if($volume->perimeter_m == 'on')
+                                                    <td>{{$item->perimeter_m}}</td>
+                                                @endif
+                                                @if($volume->area_m2 == 'on')
+                                                    <td>{{$item->area_m2}}</td>
+                                                @endif
+                                                @if($volume->volume_m3 == 'on')
+                                                    <td>{{$item->volume_m3}}</td>
+                                                @endif
+                                                @if($volume->location == 'on')
+                                                    <td>{{$item->location}}</td>
+                                                @endif
+                                                @if($volume->figure == 'on')
+                                                    <td>{{$item->figure}}</td>
+                                                @endif
+                                                @if($volume->codigo == 'on')
+                                                    <td>{{$item->codigo}}</td>
+                                                @endif
+                                                @if($volume->travels == 'on')
+                                                    <td>{{$item->travels}}</td>
+                                                @endif
+                                                @if($volume->referential_income == 'on')
+                                                    <td>{{$item->referential_income}}</td>
+                                                @endif
+                                                @if($volume->total_m3 == 'on')
+                                                    <td>{{$item->total_m3}}</td>
+                                                @endif
+                                                @if($volume->section == 'on')
+                                                    <td>{{$item->section}}</td>
+                                                @endif
+                                                @if($volume->amount == 'on')
+                                                    <td>{{$item->amount}}</td>
+                                                @endif
+                                                @if($volume->weight_mass == 'on')
+                                                    <td>{{$item->weight_mass}}</td>
+                                                @endif
+                                                @if($volume->length_m == 'on')
+                                                    <td>{{$item->length_m}}</td>
+                                                @endif
+                                                @if($volume->weight_kg == 'on')
+                                                    <td>{{$item->weight_kg}}</td>
+                                                @endif
+                                                @if($volume->num == 'on')
+                                                    <td>{{$item->num}}</td>
+                                                @endif
+                                                @if($volume->part_length == 'on')
+                                                    <td>{{$item->part_length}}</td>
+                                                @endif
+                                                @if($volume->total_length == 'on')
+                                                    <td>{{$item->total_length}}</td>
+                                                @endif
+                                                @if($volume->observations == 'on')
+                                                    <td>{{$item->total_length}}</td>
+                                                @endif
                                             </tr>
                                             @endforeach
                                             </tr>

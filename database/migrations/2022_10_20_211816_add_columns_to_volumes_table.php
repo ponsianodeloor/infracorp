@@ -21,6 +21,7 @@ return new class extends Migration
             $table->enum('b', ['on', 'off'])->default('off');
             $table->enum('c', ['on', 'off'])->default('off');
             $table->enum('g', ['on', 'off'])->default('off');
+            $table->enum('h', ['on', 'off'])->default('off');
             $table->enum('perimeter_m', ['on', 'off'])->default('off');
             $table->enum('area_m2', ['on', 'off'])->default('off');
             $table->enum('volume_m3', ['on', 'off'])->default('off');

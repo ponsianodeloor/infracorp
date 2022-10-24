@@ -92,7 +92,7 @@
                                         <tr>
                                             <td>
                                                 <a href="{{route('projects.volumes.edit', $volume->id)}}" class="btn btn-block bg-gradient-primary"> <i class="fa fa-edit"></i>Editar</a>
-                                                <a href="{{route('projects.volumes.show', $volume)}}" class="btn btn-warning btn-block"> <i class="fa fa-file"></i> Valores <span class="badge bg-success">3</span></a>
+                                                <a href="{{route('projects.volumes.show', $volume)}}" class="btn btn-warning btn-block"> <i class="fa fa-file"></i> Elementos <span class="badge bg-success">0</span></a>
                                             </td>
                                             <td>{{$volume->item}}</td>
                                             <td>{{$volume->code}}</td>

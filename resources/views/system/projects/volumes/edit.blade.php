@@ -125,6 +125,12 @@
                         </div>
 
                         <div class="custom-control custom-switch">
+                            <input type="hidden" name="h" value="off">
+                            <input type="checkbox" class="custom-control-input" id="h" name="h" @if($volume->h == 'on') checked @endif />
+                            <label class="custom-control-label" for="h">h</label>
+                        </div>
+
+                        <div class="custom-control custom-switch">
                             <input type="hidden" name="perimeter_m" value="off">
                             <input type="checkbox" class="custom-control-input" id="perimeter_m" name="perimeter_m" @if($volume->perimeter_m == 'on') checked @endif />
                             <label class="custom-control-label" for="perimeter_m">Perimetro (m)</label>

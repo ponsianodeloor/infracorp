@@ -21,6 +21,7 @@ return new class extends Migration
             $table->decimal('b', 10, 2)->nullable();
             $table->decimal('c', 10, 2)->nullable();
             $table->decimal('g', 10, 2)->nullable();
+            $table->decimal('h', 10, 2)->nullable();
             $table->decimal('perimeter_m', 10, 2)->nullable();
             $table->decimal('area_m2', 10, 2)->nullable();
             $table->decimal('volume_m3', 10, 2)->nullable();

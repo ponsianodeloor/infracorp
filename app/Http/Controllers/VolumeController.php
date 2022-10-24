@@ -35,6 +35,7 @@ class VolumeController extends Controller
         $volume->b = $request->b;
         $volume->c = $request->c;
         $volume->g = $request->g;
+        $volume->h = $request->h;
         $volume->perimeter_m = $request->perimeter_m;
         $volume->area_m2 = $request->area_m2;
         $volume->volume_m3 = $request->volume_m3;
@@ -85,6 +86,7 @@ class VolumeController extends Controller
         $volume->b = $request->b;
         $volume->c = $request->c;
         $volume->g = $request->g;
+        $volume->h = $request->h;
         $volume->perimeter_m = $request->perimeter_m;
         $volume->area_m2 = $request->area_m2;
         $volume->volume_m3 = $request->volume_m3;

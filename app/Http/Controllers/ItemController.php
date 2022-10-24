@@ -29,6 +29,7 @@ class ItemController extends Controller
         $item->b = $request->b;
         $item->c = $request->c;
         $item->g = $request->g;
+        $item->h = $request->h;
         $item->perimeter_m = $request->perimeter_m;
         $item->area_m2 = $request->area_m2;
         $item->volume_m3 = $request->volume_m3;
@@ -55,6 +56,11 @@ class ItemController extends Controller
         //campo perimeter_m Perimetro (m): Se realiza el calculo entre Unidades * b
         if ($volume->perimeter_m == 'on'){
             $item->perimeter_m = $request->units * $request->b;
+        }
+
+        //campo area_m2 Area (m2): Se realiza el calculo entre Unidades * a * b
+        if ($volume->area_m2 == 'on'){
+            $item->area_m2 = $request->units * $request->a * $request->b;
         }
 
         $item->save();
