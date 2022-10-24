@@ -19,6 +19,7 @@
                 </div>
                 <div class="card-body">
                     <a href="{{route('projects.volumes.edit', $volume)}}" class="btn btn-primary mb-4"> <i class="fa fa-edit"></i>Editar Columnas</a>
+                    <a href="{{route('projects.show', $volume->project)}}" class="btn btn-danger mb-4">Volver al Proyecto</a>
                     <table class="table table-bordered">
                         <thead>
                         <tr>
@@ -347,6 +348,7 @@
 
                                             <div class="card-footer">
                                                 <input type="submit" class="btn btn-primary btn-block" value="Guardar">
+                                                <a class="btn btn-danger btn-block" href="{{route('projects.show', $volume->project)}}">Cancelar</a>
                                             </div>
 
                                         </div>
@@ -532,7 +534,7 @@
                                                     <td>{{$item->a}}</td>
                                                 @endif
                                                 @if($volume->b == 'on')
-                                                    <td>{{$item->a}}</td>
+                                                    <td>{{$item->b}}</td>
                                                 @endif
                                                 @if($volume->c == 'on')
                                                     <td>{{$item->c}}</td>

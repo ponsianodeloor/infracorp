@@ -12,6 +12,7 @@
     </h4>
 
     <a href="{{route('projects.volumes.show', $volume)}}" class="btn btn-primary mt-2 mb-4"> <i class="fa fa-edit"></i> Ingresar Elementos</a>
+    <a href="{{route('projects.show', $volume->project)}}" class="btn btn-danger mt-2 mb-4">Volver al Proyecto</a>
 
     <form action="{{route('projects.volumes.update', $volume)}}" method="post">
         @csrf
@@ -253,6 +254,7 @@
                     </div>
                     <div class="card-body">
                         <input type="submit" class="btn btn-primary btn-block" value="Guardar">
+                        <a class="btn btn-danger btn-block" href="{{route('projects.show', $volume->project)}}">Cancelar</a>
                     </div>
                     <div class="card-footer">
 

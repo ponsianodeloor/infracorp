@@ -250,6 +250,7 @@
                     </div>
                     <div class="card-body">
                         <input type="submit" class="btn btn-primary btn-block" value="Guardar">
+                        <a class="btn btn-danger btn-block" href="{{route('projects.show', $project)}}">Cancelar</a>
                     </div>
                     <div class="card-footer">
 
