@@ -64,6 +64,11 @@ class ItemController extends Controller
             $item->area_m2 = $request->units * $request->a * $request->b;
         }
 
+        //campo volumen_m3 Area (m3): Se realiza el calculo entre Unidades * a * b * h
+        if ($volume->volume_m3 == 'on'){
+            $item->volume_m3 = $request->units * $request->a * $request->b * $request->h;
+        }
+
         $item->save();
 
         return redirect()->route('projects.volumes.show', $volume);

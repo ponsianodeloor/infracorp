@@ -200,8 +200,7 @@
 
                                                 @if($volume->volume_m3 == 'on')
                                                     <div class="form-group">
-                                                        <label for="volume_m3">Volume m3</label>
-                                                        <input type="text" name="volume_m3" class="form-control" placeholder="Ingrese el Volumen m3">
+                                                        <label for="volume_m3">Volumen (m3): Se realiza el calculo entre Unidades * a * b * h</label>
                                                     </div>
                                                 @else
                                                     <input type="hidden" name="volume_m3">
