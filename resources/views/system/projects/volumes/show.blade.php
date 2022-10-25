@@ -337,7 +337,6 @@
                                                                     <i class="fas fa-lg fa-file-alt text-lightblue"></i>
                                                                 </div>
                                                             </x-slot>
-                                                            {{$volume->description}}
                                                         </x-adminlte-textarea>
                                                     </div>
                                                 @else

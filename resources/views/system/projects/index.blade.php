@@ -30,8 +30,8 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            @foreach($projects as $project)
+                        @foreach($projects as $project)
+                            <tr>
                                 <td>
                                     <a href="{{route('projects.show', $project->id)}}" class="btn btn-block bg-gradient-primary">Editar</a>
                                 </td>
@@ -47,8 +47,8 @@
                                     </div>
                                 </td>
                                 <td><span class="badge bg-danger">55%</span></td>
-                            @endforeach
-                        </tr>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

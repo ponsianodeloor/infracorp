@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\Project;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -20,14 +22,20 @@ class EventServiceProvider extends ServiceProvider
         ],
     ];
 
-    /**
-     * Register any events for your application.
-     *
-     * @return void
-     */
     public function boot()
     {
-        //
+        Event::listen(BuildingMenu::class, function (BuildingMenu $event){
+            $contarProyectos = Project::all()->count();
+            $event->menu->add(
+                [
+                    'text'        => 'Proyectos',
+                    'url'         => 'projects',
+                    'icon'        => 'far fa-fw fa-file',
+                    'label'       => $contarProyectos,
+                    'label_color' => 'success',
+                ],
+            );
+        });
     }
 
     /**
