@@ -21,6 +21,7 @@
                     <table class="table table-bordered">
                         <thead>
                         <tr>
+                            <th>&nbsp;</th>
                             <th>Contractor</th>
                             <th>Fiscalizador</th>
                             <th>Lugar</th>
@@ -32,17 +33,20 @@
                         </thead>
                         <tbody>
                         <tr>
-                                <td>{{$project->contractor}}</td>
-                                <td>{{$project->inspection}}</td>
-                                <td>{{$project->place}}</td>
-                                <td>{{$project->date_start}}</td>
-                                <td>{{$project->date_end}}</td>
-                                <td>
-                                    <div class="progress progress-xs">
-                                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-danger">55%</span></td>
+                            <td>
+                                <a class="btn btn-outline-info" href="{{route('projects.print_inspection_report', $project)}}" target="_blank"><span class="fa fa-file-pdf"></span></a>
+                            </td>
+                            <td>{{$project->contractor}}</td>
+                            <td>{{$project->inspection}}</td>
+                            <td>{{$project->place}}</td>
+                            <td>{{$project->date_start}}</td>
+                            <td>{{$project->date_end}}</td>
+                            <td>
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                </div>
+                            </td>
+                            <td><span class="badge bg-danger">55%</span></td>
                         </tr>
                         </tbody>
                     </table>
@@ -73,7 +77,59 @@
                 <div class="card-body">
                     <div class="tab-content" id="custom-tabs-three-tabContent">
                         <div class="tab-pane fade active show" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
-                            Informe de fiscalizacion
+
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h3>1.- Generalidades</h3>
+                                </div>
+                            </div>
+
+                            <div class="card collapsed-card">
+                                <div class="card-header panel box box-primary">
+                                    <h3 class="card-title">1.1.- Antecedentes</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <textarea id="editor" name="antecedente">
+
+                                    </textarea>
+
+                                    <button class="btn btn-primary btn-block mt-4"> Guardar</button>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">1.2 Contrato fiscalizado</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <textarea id="editor_2" name="justificacion">
+
+                                    </textarea>
+                                    <button class="btn btn-primary btn-block mt-4"> Guardar</button>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+
+
+
+
+
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-three-profile" role="tabpanel" aria-labelledby="custom-tabs-three-profile-tab">
                             <div class="card">
@@ -126,7 +182,32 @@
 @stop
 
 @section('js')
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.2.0/classic/ckeditor.js"></script>
     <script>
-
+        ClassicEditor
+        .create( document.querySelector( '#editor' ), {
+                // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+            } )
+            .then( editor => {
+                window.editor = editor;
+            } )
+            .catch( err => {
+                console.error( err.stack );
+            } );
     </script>
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor_2' ), {
+                // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+            } )
+            .then( editor_2 => {
+                window.editor_2 = editor_2;
+            } )
+            .catch( err => {
+                console.error( err.stack );
+            } );
+    </script>
+
+
 @stop

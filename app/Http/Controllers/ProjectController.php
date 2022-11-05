@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ProjectController extends Controller
 {
@@ -35,5 +36,10 @@ class ProjectController extends Controller
 
     public function destroy(Project $project){
 
+    }
+
+    public function printInspectionReport(Project $project){
+        $pdf = PDF::loadView('system.projects.inspection_report', compact('project'));
+        return $pdf->download('inpection_report.pdf');
     }
 }
