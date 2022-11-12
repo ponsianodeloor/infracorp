@@ -5,6 +5,8 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\VolumeController;
 use App\Http\Controllers\ItemTypeController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\InspectionReportController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +35,12 @@ Route::middleware([
         Route::get('/projects', 'index')->name('projects.index');
         Route::get('/projects/show/{id}', 'show')->name('projects.show');
         Route::get('projects/print_inspection_report/{project}', 'printInspectionReport')->name('projects.print_inspection_report');
+    });
 
+    Route::controller(InspectionReportController::class)->group(function(){
+        Route::put('projects/inspection_reports/antecedent/{inspectionReport}', 'updateAntecedent')->name('projects.inspection_reports.antecedent.update');
+        Route::put('projects/inspection_reports/audited_contract/{inspectionReport}', 'updateAuditedContract')->name('projects.inspection_reports.audited_contract.update');
+        Route::put('projects/inspection_reports/resume_contract/{inspectionReport}', 'updateResumeContract')->name('projects.inspection_reports.resume_contract.update');
     });
 
     Route::controller(VolumeController::class)->group(function (){

@@ -47,7 +47,7 @@
 </footer>
 
 <!-- Envuelva el contenido de su PDF dentro de una etiqueta principal -->
-<main>
+<div id="content">
     <h1>INFORME DE FISCALIZACION</h1>
     <h3>ELABORACION DE ESTUDIOS DEFINITIVOS</h3>
     <p>PERIODO:</p>
@@ -80,6 +80,26 @@
     <hr>
     <p><strong>1.- Generalidades</strong></p>
     <p><strong>1.1.- Antecedentes</strong></p>
-</main>
+    <div style="text-align: justify">
+        @php
+            echo html_entity_decode($project->inspectionReport->antecedent);
+        @endphp
+    </div>
+
+    <p><strong>1.2.- Contrato fiscalizado</strong></p>
+    <div style="text-align: justify">
+        @php
+            echo html_entity_decode($project->inspectionReport->audited_contract);
+        @endphp
+    </div>
+
+    <p><strong>1.2.1- Resumen del Contrato</strong></p>
+    <div style="text-align: justify">
+        @php
+            echo html_entity_decode($project->inspectionReport->resume_contract);
+        @endphp
+    </div>
+
+</div>
 </body>
 </html>

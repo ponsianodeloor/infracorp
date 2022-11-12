@@ -95,11 +95,14 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <textarea id="editor" name="antecedente">
-
-                                    </textarea>
-
-                                    <button class="btn btn-primary btn-block mt-4"> Guardar</button>
+                                    <form action="{{route('projects.inspection_reports.antecedent.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+                                        <textarea id="editor" name="antecedent">
+                                            {{$project->inspectionReport->antecedent}}
+                                        </textarea>
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Antecedente">
+                                    </form>
                                 </div>
                                 <!-- /.card-body -->
                             </div>
@@ -107,7 +110,7 @@
 
                             <div class="card collapsed-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">1.2 Contrato fiscalizado</h3>
+                                    <h3 class="card-title">1.2.- Contrato fiscalizado</h3>
                                     <div class="card-tools">
                                         <!-- Collapse Button -->
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
@@ -116,10 +119,44 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <textarea id="editor_2" name="justificacion">
+                                    <form action="{{route('projects.inspection_reports.audited_contract.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+                                        <textarea id="editor_2" name="audited_contract">
+                                            {{$project->inspectionReport->audited_contract}}
+                                        </textarea>
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Antecedente">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
 
-                                    </textarea>
-                                    <button class="btn btn-primary btn-block mt-4"> Guardar</button>
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">1.2.1.- Resumen del Contrato</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.resume_contract.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        <x-adminlte-textarea name="resume_contract" label="Resumen del Contrato" rows=5 igroup-size="sm" placeholder="Insert resumen...">
+                                            <x-slot name="prependSlot">
+                                                <div class="input-group-text bg-dark">
+                                                    <i class="fas fa-lg fa-file-alt text-lightblue"></i>
+                                                </div>
+                                            </x-slot>
+                                            {{$project->inspectionReport->resume_contract}}
+                                        </x-adminlte-textarea>
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Antecedente">
+                                    </form>
                                 </div>
                                 <!-- /.card-body -->
                             </div>
