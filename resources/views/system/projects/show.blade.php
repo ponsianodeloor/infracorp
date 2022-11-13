@@ -80,7 +80,7 @@
 
                             <div class="card card-outline card-primary">
                                 <div class="card-header">
-                                    <h3>1.- Generalidades</h3>
+                                    <h3>1.- GENERALIDADES</h3>
                                 </div>
                             </div>
 
@@ -125,7 +125,7 @@
                                         <textarea id="editor_2" name="audited_contract">
                                             {{$project->inspectionReport->audited_contract}}
                                         </textarea>
-                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Antecedente">
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Contrato Fiscalizado">
                                     </form>
                                 </div>
                                 <!-- /.card-body -->
@@ -155,16 +155,158 @@
                                             </x-slot>
                                             {{$project->inspectionReport->resume_contract}}
                                         </x-adminlte-textarea>
-                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Antecedente">
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Resumen">
                                     </form>
                                 </div>
                                 <!-- /.card-body -->
                             </div>
                             <!-- /.card -->
 
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h3>2.- OBRA INTERVENIDA</h3>
+                                </div>
+                            </div>
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">2.1.- Identificacion</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.resume_contract.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+                                        Formulario Identificacion
 
 
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Formulario de Identificacion">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
 
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">2.2.- Ubicacion Geografica del proyecto</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.geographic_location.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        <x-adminlte-textarea name="geographic_location" label="Ubicacion Geografica" rows=5 igroup-size="sm" placeholder="Insertar ubicacion geografica...">
+                                            <x-slot name="prependSlot">
+                                                <div class="input-group-text bg-dark">
+                                                    <i class="fas fa-lg fa-file-alt text-lightblue"></i>
+                                                </div>
+                                            </x-slot>
+                                            {{$project->inspectionReport->geographic_location}}
+                                        </x-adminlte-textarea>
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Resumen">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">2.3.- Gráfico del Proyecto</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.resume_contract.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        <x-adminlte-textarea name="resume_contract" label="Ubicacion Geografica" rows=5 igroup-size="sm" placeholder="Insert resumen...">
+                                            <x-slot name="prependSlot">
+                                                <div class="input-group-text bg-dark">
+                                                    <i class="fas fa-lg fa-file-alt text-lightblue"></i>
+                                                </div>
+                                            </x-slot>
+                                            {{$project->inspectionReport->resume_contract}}
+                                        </x-adminlte-textarea>
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Resumen">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h3>3.- CONTRATO DE FISCALIZACION</h3>
+                                </div>
+                            </div>
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">3.1.- Fiscalizacion Temporal Anterior</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.previous_temporary_control.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        <textarea id="editor_3" name="contracted_control">
+                                            {{$project->inspectionReport->previous_temporary_control}}
+                                        </textarea>
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Temporal Anterior">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">3.2.- Fiscalizacion Contratada</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.contracted_control.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        <textarea id="editor_4" name="contracted_control">
+                                            {{$project->inspectionReport->contracted_control}}
+                                        </textarea>
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Contratada">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
 
 
                         </div>
@@ -240,6 +382,32 @@
             } )
             .then( editor_2 => {
                 window.editor_2 = editor_2;
+            } )
+            .catch( err => {
+                console.error( err.stack );
+            } );
+    </script>
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor_3' ), {
+                // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+            } )
+            .then( editor_3 => {
+                window.editor_3 = editor_3;
+            } )
+            .catch( err => {
+                console.error( err.stack );
+            } );
+    </script>
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor_4' ), {
+                // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+            } )
+            .then( editor_4 => {
+                window.editor_4 = editor_4;
             } )
             .catch( err => {
                 console.error( err.stack );

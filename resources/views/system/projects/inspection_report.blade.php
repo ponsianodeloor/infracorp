@@ -100,6 +100,35 @@
         @endphp
     </div>
 
+    <p><strong>Valor Referencial del Contrato:</strong></p>
+
+    <p><strong>2.- OBRA INTERVENIDA</strong></p>
+    <p><strong>2.1- Identificacion</strong></p>
+
+    <p><strong>2.2- Ubicacion Geografica del proyecto</strong></p>
+    <div style="text-align: justify">
+        @php
+            echo html_entity_decode($project->inspectionReport->geographic_location);
+        @endphp
+    </div>
+
+    <p><strong>2.3- Grafico del Proyecto</strong></p>
+
+    <p><strong>3.- CONTRATO DE FISCALIZACION</strong></p>
+    <p><strong>3.1- Fiscalizacion Temporal anterior</strong></p>
+    <div style="text-align: justify">
+        @php
+            echo html_entity_decode($project->inspectionReport->previous_temporary_control);
+        @endphp
+    </div>
+
+    <p><strong>3.2- Fiscalizacion contratada</strong></p>
+    <div style="text-align: justify">
+        @php
+            echo html_entity_decode($project->inspectionReport->contracted_control);
+        @endphp
+    </div>
+
 </div>
 </body>
 </html>

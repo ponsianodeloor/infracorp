@@ -58,6 +58,33 @@ class InspectionReportController extends Controller
         return redirect()->route('projects.show', $project);
     }
 
+    public function updateGeographicLocation(Request $request, InspectionReport $inspectionReport){
+        $inspectionReport->geographic_location = $request->geographic_location;
+        $inspectionReport->save();
+
+        $project = $inspectionReport->project->id;
+
+        return redirect()->route('projects.show', $project);
+    }
+
+    public function updatePreviousTemporaryControl(Request $request, InspectionReport $inspectionReport){
+        $inspectionReport->previous_temporary_control = $request->previous_temporary_control;
+        $inspectionReport->save();
+
+        $project = $inspectionReport->project->id;
+
+        return redirect()->route('projects.show', $project);
+    }
+
+    public function updateContractedControl(Request $request, InspectionReport $inspectionReport){
+        $inspectionReport->contracted_control = $request->contracted_control;
+        $inspectionReport->save();
+
+        $project = $inspectionReport->project->id;
+
+        return redirect()->route('projects.show', $project);
+    }
+
     public function destroy(InspectionReport $inspectionReport){
 
     }
