@@ -15,8 +15,9 @@ return new class extends Migration
             $table->text('resume_contract')->nullable();
             $table->text('geographic_location')->nullable();
             $table->string('geographic_location_url_img', 255)->nullable();
-            $table->text('previous_temporary_control', 255)->nullable();
+            $table->text('previous_temporary_control')->nullable();
             $table->text('contracted_control')->nullable();
+            $table->string('resume_audited_contract', 255)->nullable();
             $table->unsignedBigInteger('project_id');
 
             $table->foreign('project_id')

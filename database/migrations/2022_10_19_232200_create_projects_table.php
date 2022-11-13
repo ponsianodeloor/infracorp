@@ -17,6 +17,18 @@ return new class extends Migration
             $table->string('place');
             $table->date('date_start')->nullable();
             $table->date('date_end')->nullable();
+            $table->double('reference_value_contract')->nullable();
+            $table->string('date_start_text', 255)->nullable();
+            $table->string('advance_payment_date_text')->nullable();
+            $table->string('project_term_start_date_text')->nullable();
+            $table->integer('contract_term')->nullable();
+            $table->integer('term_extensions')->nullable();
+            $table->string('contract_termination_date_text')->nullable();
+            $table->integer('advance')->nullable();
+            $table->enum('price_adjustments', ['SI', 'NO'])->default('NO');
+            $table->text('readjustment_formula')->nullable();
+            $table->text('way_to_pay')->nullable();
+            $table->double('total_current_amount')->nullable();
             $table->unsignedBigInteger('user_id');
 
             $table->foreign('user_id')

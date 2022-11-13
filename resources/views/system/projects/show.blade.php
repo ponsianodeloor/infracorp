@@ -21,7 +21,7 @@
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th>&nbsp;</th>
+                            <th colspan="2">&nbsp;</th>
                             <th>Contractor</th>
                             <th>Fiscalizador</th>
                             <th>Lugar</th>
@@ -34,7 +34,10 @@
                         <tbody>
                         <tr>
                             <td>
-                                <a class="btn btn-outline-info" href="{{route('projects.print_inspection_report', $project)}}" target="_blank"><span class="fa fa-file-pdf"></span></a>
+                                <a class="btn btn-outline-info" href="{{route('projects.edit', $project)}}" title="Editar"><span class="fa fa-list"></span></a>
+                            </td>
+                            <td>
+                                <a class="btn btn-outline-info" href="{{route('projects.print_inspection_report', $project)}}" title="Imprimir reporte" target="_blank"><span class="fa fa-file-pdf"></span></a>
                             </td>
                             <td>{{$project->contractor}}</td>
                             <td>{{$project->inspection}}</td>
@@ -302,6 +305,233 @@
                                             {{$project->inspectionReport->contracted_control}}
                                         </textarea>
                                         <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Contratada">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">3.3.- Resumen del Contrato de fiscalización</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.resume_audited_contract.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        <x-adminlte-textarea name="resume_audited_contract" label="Resumen del Contrato de fiscalizacion" rows=5 igroup-size="sm" placeholder="Insert resumen...">
+                                            <x-slot name="prependSlot">
+                                                <div class="input-group-text bg-dark">
+                                                    <i class="fas fa-lg fa-file-alt text-lightblue"></i>
+                                                </div>
+                                            </x-slot>
+                                            {{$project->inspectionReport->resume_audited_contract}}
+                                        </x-adminlte-textarea>
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Resumen del Contrato de Fiscalizacion">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">3.4.- Valor referencial del contrato de fiscalización</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.contracted_control.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        formulario
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Resumen del Contrato de Fiscalizacion">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h3>4.- Ejecucion del Contrato</h3>
+                                </div>
+                            </div>
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">4.1.- Estado de Ejecucion de los Estudios</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.previous_temporary_control.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        formulario
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Temporal Anterior">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">4.2.- Monto ejecutado y aprobado de los estudios</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.previous_temporary_control.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        formulario
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Temporal Anterior">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">4.3- Personal del Contratista</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.previous_temporary_control.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        formulario
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Temporal Anterior">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h3>5.- Productos de los trabajos ejecutados por la empresa contratista</h3>
+                                </div>
+                            </div>
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">En el presente periodo de trabajos el contratista realiza:</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.previous_temporary_control.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        descarga y carga desde excel
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Temporal Anterior">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h3>6.- RESULTADOS DE LA REVISION DE ESTUDIOS DEFINITIVOS</h3>
+                                </div>
+                            </div>
+
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h3>7.- EVALUACION DE LOS ESTUDIOS DE PRESUPUESTOS DE ESTUDIOS DEFINITIVOS</h3>
+                                </div>
+                            </div>
+
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h3>8.- CONTROL DE CUMPLIMIENTO DE CRONOGRAMA</h3>
+                                </div>
+                            </div>
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Se lo realiza, analizando lo ejecutado, versus lo programado</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.previous_temporary_control.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        descarga y carga desde excel
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Temporal Anterior">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h3>9.- LABORES DE FISCALIZACION.-</h3>
+                                </div>
+                            </div>
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">9.1.- Revisión de documentación del proyecto:</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.previous_temporary_control.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        descarga y carga desde excel
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Temporal Anterior">
                                     </form>
                                 </div>
                                 <!-- /.card-body -->

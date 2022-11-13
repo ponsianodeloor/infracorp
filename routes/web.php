@@ -33,8 +33,11 @@ Route::middleware([
 
     Route::controller(ProjectController::class)->group(function (){
         Route::get('/projects', 'index')->name('projects.index');
-        Route::get('/projects/show/{id}', 'show')->name('projects.show');
-        Route::get('projects/print_inspection_report/{project}', 'printInspectionReport')->name('projects.print_inspection_report');
+        Route::get('/projects/show/{project}', 'show')->name('projects.show');
+        Route::get('/projects/edit/{project}', 'edit')->name('projects.edit');
+        Route::get('/projects/print_inspection_report/{project}', 'printInspectionReport')->name('projects.print_inspection_report');
+
+        Route::put('/projects/update/{project}', 'update')->name('projects.update');
     });
 
     Route::controller(InspectionReportController::class)->group(function(){
@@ -44,6 +47,7 @@ Route::middleware([
         Route::put('projects/inspection_reports/geographic_location/{inspectionReport}', 'updateGeographicLocation')->name('projects.inspection_reports.geographic_location.update');
         Route::put('projects/inspection_reports/previous_temporary_control/{inspectionReport}', 'updatePreviousTemporaryControl')->name('projects.inspection_reports.previous_temporary_control.update');
         Route::put('projects/inspection_reports/contracted_control/{inspectionReport}', 'updateContractedControl')->name('projects.inspection_reports.contracted_control.update');
+        Route::put('projects/inspection_reports/resume_audited_contract/{inspectionReport}', 'updateResumeAuditedContract')->name('projects.inspection_reports.resume_audited_contract.update');
     });
 
     Route::controller(VolumeController::class)->group(function (){

@@ -85,6 +85,15 @@ class InspectionReportController extends Controller
         return redirect()->route('projects.show', $project);
     }
 
+    public function updateResumeAuditedContract(Request $request, InspectionReport $inspectionReport){
+        $inspectionReport->resume_audited_contract = $request->resume_audited_contract;
+        $inspectionReport->save();
+
+        $project = $inspectionReport->project->id;
+
+        return redirect()->route('projects.show', $project);
+    }
+
     public function destroy(InspectionReport $inspectionReport){
 
     }

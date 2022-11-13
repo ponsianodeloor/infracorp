@@ -94,11 +94,149 @@
     </div>
 
     <p><strong>1.2.1- Resumen del Contrato</strong></p>
-    <div style="text-align: justify">
+    <div style="text-align: justify; margin-bottom: 10px;">
         @php
             echo html_entity_decode($project->inspectionReport->resume_contract);
         @endphp
     </div>
+
+    <table border="1">
+        <tr>
+            <td style="width: 20%;">
+                Proyecto
+            </td>
+            <td style="width: 500px">
+                {{$project->project}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Localizacion
+            </td>
+            <td>
+                {{$project->place}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Contratista
+            </td>
+            <td>
+                {{$project->contractor}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Fiscalizacion
+            </td>
+            <td>
+                {{$project->inspection}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Valor Referencial del Contrato
+            </td>
+            <td>
+                <?php echo "$ ".number_format($project->reference_value_contract, 2); ?>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Fecha de Subcripcion del contrato
+            </td>
+            <td>
+                {{$project->date_start_text}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Fecha de pago de anticipo
+            </td>
+            <td>
+                {{$project->advance_payment_date_text}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Fecha de inicio del plazo del Proyecto
+            </td>
+            <td>
+                {{$project->project_term_start_date_text}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Plazo contractual
+            </td>
+            <td>
+                {{$project->contract_term}} días
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Ampliaciones de plazo
+            </td>
+            <td>
+                {{$project->term_extensions}} días
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Fecha de Terminacion Contractual
+            </td>
+            <td>
+                {{$project->contract_termination_date_text}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Anticipo
+            </td>
+            <td>
+                {{$project->advance}} del valor del contrato
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Reajuste de precios
+            </td>
+            <td>
+                {{$project->price_adjustments}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Formula de Reajuste
+            </td>
+            <td>
+                <div style=" width:500px; word-wrap: break-word !important;">
+                    {{$project->readjustment_formula}}
+                </div>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Forma de pago
+            </td>
+            <td>
+                <div style="width:500px; word-wrap: break-word !important;">
+                    {{$project->way_to_pay}}
+                </div>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Monto Total vigente
+            </td>
+            <td>
+                <?php echo "$ ".number_format($project->total_current_amount, 2); ?>
+            </td>
+        </tr>
+
+    </table>
 
     <p><strong>Valor Referencial del Contrato:</strong></p>
 
@@ -128,6 +266,56 @@
             echo html_entity_decode($project->inspectionReport->contracted_control);
         @endphp
     </div>
+
+    <p><strong>3.3 Resumen del Contrato de fiscalización</strong></p>
+    <div style="text-align: justify">
+        @php
+            echo html_entity_decode($project->inspectionReport->resume_audited_contract);
+        @endphp
+    </div>
+
+    <p><strong>3.4.- Valor referencial del contrato de fiscalización.</strong></p>
+
+    <p><strong>4.- EJECUCION DEL CONTRATO</strong></p>
+    <p><strong>4.1.- ESTADO DE EJECUCION DE LOS ESTUDIOS</strong></p>
+    <p><strong>4.3- Personal del Contratista</strong></p>
+
+    <p><strong>5.- Productos de los trabajos ejecutados por la empresa contratista</strong></p>
+    <p>En el presente periodo de trabajos el contratista realiza:</p>
+
+    <p><strong>6.- RESULTADOS DE LA REVISION DE ESUDIOS DEFINITIVOS</strong></p>
+    <p><strong>7.- EVALUACION DE LOS ESTUDIOS DE PRESUPUESTOS DE ESTUDIOS DEFINITIVOS</strong></p>
+    <p><strong>8.- CONTROL DE CUMPLIMIENTO DE CRONOGRAMA.-</strong></p>
+    <p>Se lo realiza, analizando lo ejecutado, versus lo programado</p>
+
+    <p><strong>9.- LABORES DE FISCALIZACION</strong></p>
+    <p><strong>9.1.- Revisión de documentación del proyecto:</strong></p>
+
+    <p><strong>9.2.- Revisión de Garantías:</strong></p>
+
+    <p><strong>9.3.- Actividades de Fiscalización en el periodo</strong></p>
+
+    <p><strong>10.- PERSONAL DE LA FISCALIZACION</strong></p>
+
+    <p><strong>11.- Estado económico del contrato de fiscalización</strong></p>
+
+    <p><strong>12.- INFORMACION DEL PROCESO DE APROBACION DE PLANOS:</strong></p>
+    <p><strong>12.1.- INGRESO DE ESTUDIOS A MUNICIPIO</strong></p>
+
+    <p><strong>13.- CONCLUSIONES Y RECOMENDACIONES (ENTREGA RECEPCION)</strong></p>
+
+    <p><strong>14.- ASUNTOS PENDIENTES</strong></p>
+    <p><strong>14.1.- Atención a asuntos pendientes</strong></p>
+
+    <p><strong>14.2 DOCUMENTACION CURSADA</strong></p>
+
+    <p><strong>15.- Anexos.-</strong></p>
+
+    <p>Atentamente,</p>
+
+
+
+
 
 </div>
 </body>
