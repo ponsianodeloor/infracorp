@@ -257,7 +257,64 @@
                                         </div>
                                         <div class="tab-pane fade" id="custom-tabs-three-profile" role="tabpanel"
                                              aria-labelledby="custom-tabs-three-profile-tab">
-                                            Tipo
+                                            <form action="{{route('projects.infraestructures.types.store')}}" method="post">
+                                                @csrf
+                                                <x-adminlte-select name="infraestructure_id" label="Infraestructura">
+                                                    <x-slot name="prependSlot">
+                                                        <div class="input-group-text bg-gradient-info">
+                                                            <i class="fas fa-sitemap"></i>
+                                                        </div>
+                                                    </x-slot>
+                                                    @foreach($project->infraestructures as $infraestructure)
+                                                        <option value="{{$infraestructure->id}}">{{$infraestructure->infraestructure}}</option>
+                                                    @endforeach
+                                                </x-adminlte-select>
+
+                                                <x-adminlte-input name="type" label="Tipo" placeholder="Tipo"
+                                                                  label-class="text-lightblue">
+                                                    <x-slot name="prependSlot">
+                                                        <div class="input-group-text">
+                                                            <i class="fas fa-user text-lightblue"></i>
+                                                        </div>
+                                                    </x-slot>
+                                                </x-adminlte-input>
+
+                                                <x-adminlte-input name="amount" label="Monto" placeholder="Monto"
+                                                                  label-class="text-lightblue">
+                                                    <x-slot name="prependSlot">
+                                                        <div class="input-group-text">
+                                                            <i class="fas fa-user text-lightblue"></i>
+                                                        </div>
+                                                    </x-slot>
+                                                </x-adminlte-input>
+                                                <input type="hidden" name="project_id" value="{{$project->id}}">
+
+                                                <x-adminlte-button label="Guardar" theme="primary btn-block" icon="fas fa-save" type="submit"/>
+                                            </form>
+
+                                            @foreach($project->infraestructures as $infraestructure)
+                                                <table class="table">
+                                                    <tr>
+                                                        <td>
+                                                            {{$infraestructure->infraestructure}}
+                                                            <table>
+
+                                                                @foreach($infraestructure->types as $type)
+                                                                    <tr>
+                                                                        <td>
+                                                                            {{$type->type}}
+                                                                        </td>
+                                                                        <td>
+                                                                            {{$type->amount}}
+                                                                        </td>
+                                                                    </tr>
+                                                               @endforeach
+
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            @endforeach
                                         </div>
                                         <div class="tab-pane fade" id="custom-tabs-three-messages" role="tabpanel"
                                              aria-labelledby="custom-tabs-three-messages-tab">
@@ -275,6 +332,27 @@
 
                                                 <x-adminlte-button label="Guardar" theme="primary btn-block" icon="fas fa-save" type="submit"/>
                                             </form>
+                                            <table class="table table-hover w-full">
+                                                <tr>
+                                                    <td>
+
+                                                    </td>
+                                                    <td>
+                                                        Infraestructure
+                                                    </td>
+                                                </tr>
+                                                @foreach($project->infraestructures as $infraestructure)
+                                                    <tr>
+                                                        <td>
+
+                                                        </td>
+                                                        <td>
+                                                            {{$infraestructure->infraestructure}}
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+
+                                            </table>
                                         </div>
                                     </div>
                                 </div>

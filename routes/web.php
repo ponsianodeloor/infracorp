@@ -7,6 +7,7 @@ use App\Http\Controllers\ItemTypeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\InspectionReportController;
 use App\Http\Controllers\InfraestructureController;
+use App\Http\Controllers\InfraestructureTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,12 @@ Route::middleware([
     Route::controller(InfraestructureController::class)->group(function (){
         Route::post('/projects/infraestructures', 'store')->name('projects.infraestructures.store');
     });
+
+    Route::controller(InfraestructureTypeController::class)->group(function (){
+        Route::post('projects/infraestructures/types', 'store')->name('projects.infraestructures.types.store');
+    });
+
+
 
 
     Route::controller(InspectionReportController::class)->group(function(){
