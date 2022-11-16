@@ -20,4 +20,8 @@ class Project extends Model
     public function inspectionReport(){
         return $this->hasOne(InspectionReport::class);
     }
+
+    public function infraestructures(){
+        return $this->hasMany(Infraestructure::class);
+    }
 }

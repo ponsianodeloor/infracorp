@@ -6,6 +6,7 @@ use App\Http\Controllers\VolumeController;
 use App\Http\Controllers\ItemTypeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\InspectionReportController;
+use App\Http\Controllers\InfraestructureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,11 @@ Route::middleware([
 
         Route::put('/projects/update/{project}', 'update')->name('projects.update');
     });
+
+    Route::controller(InfraestructureController::class)->group(function (){
+        Route::post('/projects/infraestructures', 'store')->name('projects.infraestructures.store');
+    });
+
 
     Route::controller(InspectionReportController::class)->group(function(){
         Route::put('projects/inspection_reports/antecedent/{inspectionReport}', 'updateAntecedent')->name('projects.inspection_reports.antecedent.update');

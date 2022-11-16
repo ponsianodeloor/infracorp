@@ -261,8 +261,19 @@
                                         </div>
                                         <div class="tab-pane fade" id="custom-tabs-three-messages" role="tabpanel"
                                              aria-labelledby="custom-tabs-three-messages-tab">
-                                            <form>
+                                            <form action="{{route('projects.infraestructures.store')}}" method="post">
+                                                @csrf
+                                                <x-adminlte-input name="infraestructure" label="Infraestructura" placeholder="Infraestructura"
+                                                                  label-class="text-lightblue">
+                                                    <x-slot name="prependSlot">
+                                                        <div class="input-group-text">
+                                                            <i class="fas fa-user text-lightblue"></i>
+                                                        </div>
+                                                    </x-slot>
+                                                </x-adminlte-input>
+                                                <input type="hidden" name="project_id" value="{{$project->id}}">
 
+                                                <x-adminlte-button label="Guardar" theme="primary btn-block" icon="fas fa-save" type="submit"/>
                                             </form>
                                         </div>
                                     </div>
