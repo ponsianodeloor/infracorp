@@ -185,7 +185,212 @@
                                     <form action="{{route('projects.inspection_reports.resume_contract.update', $project->inspectionReport)}}" method="post">
                                         @csrf
                                         @method('PUT')
-                                        Formulario Identificacion
+                                        <table class="table table-bordered table-striped">
+                                            <tr>
+                                                <td colspan="7">
+                                                    <x-adminlte-input name="identificacion" label="Identificacion" placeholder="Identificacion" label-class="text-lightblue" value="{{$project->place}}">
+                                                        <x-slot name="prependSlot">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-file text-lightblue"></i>
+                                                            </div>
+                                                        </x-slot>
+                                                    </x-adminlte-input>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="5">Datos Referenciales</td>
+                                                <td># Obra</td>
+                                                <td>001</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tipo de Unidad:</td>
+                                                <td>Nobol 1</td>
+                                                <td>UPC</td>
+                                                <td>Tipologia:</td>
+                                                <td>A2</td>
+                                                <td>Etapa:</td>
+                                                <td>1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ubicacion</td>
+                                                <td>Provincia:</td>
+                                                <td>Guayas</td>
+                                                <td>Canton:</td>
+                                                <td>Nobol</td>
+                                                <td>Parroquia</td>
+                                                <td>Nobol</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Coordenadas</td>
+                                                <td>X:</td>
+                                                <td>555</td>
+                                                <td>Y:</td>
+                                                <td>888</td>
+                                                <td>Altitud</td>
+                                                <td>4</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="7">
+                                                    <x-adminlte-textarea name="existing_documentation" label="Documentacion Existente" rows=5
+                                                                         label-class="text-lightblue"
+                                                                         igroup-size="sm" placeholder="Insert Short description...">
+                                                        <x-slot name="prependSlot">
+                                                            <div class="input-group-text bg-dark">
+                                                                <i class="fas fa-lg fa-file-alt text-lightblue"></i>
+                                                            </div>
+                                                        </x-slot>
+                                                        {{$project->project}}
+                                                    </x-adminlte-textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td colspan="3">
+                                                    <x-adminlte-input name="property_deeds" label="Escrituras Predio" placeholder="Localización" label-class="text-lightblue" value="{{$project->place}}">
+                                                        <x-slot name="prependSlot">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-file text-lightblue"></i>
+                                                            </div>
+                                                        </x-slot>
+                                                    </x-adminlte-input>
+                                                </td>
+                                                <td colspan="3">
+                                                    <x-adminlte-input name="date_deeds" label="Fecha Predio" placeholder="Localización" label-class="text-lightblue" value="{{$project->place}}">
+                                                        <x-slot name="prependSlot">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-calendar text-lightblue"></i>
+                                                            </div>
+                                                        </x-slot>
+                                                    </x-adminlte-input>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td colspan="2">
+                                                    <x-adminlte-input name="municipality" label="Municipio" placeholder="Municipio" label-class="text-lightblue" value="{{$project->place}}">
+                                                        <x-slot name="prependSlot">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-file text-lightblue"></i>
+                                                            </div>
+                                                        </x-slot>
+                                                    </x-adminlte-input>
+                                                </td>
+                                                <td colspan="2">
+                                                    <x-adminlte-input name="property" label="Predio" placeholder="Predio" label-class="text-lightblue" value="{{$project->place}}">
+                                                        <x-slot name="prependSlot">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-file text-lightblue"></i>
+                                                            </div>
+                                                        </x-slot>
+                                                    </x-adminlte-input>
+                                                </td>
+                                                <td colspan="2">
+                                                    <x-adminlte-input name="irm_fech" label="IRM/FECH" placeholder="IRM/FECH" label-class="text-lightblue" value="{{$project->place}}">
+                                                        <x-slot name="prependSlot">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-file text-lightblue"></i>
+                                                            </div>
+                                                        </x-slot>
+                                                    </x-adminlte-input>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td colspan="2">
+                                                    <x-adminlte-input name="cos_total" label="COS Total" placeholder="COS Total" label-class="text-lightblue" value="{{$project->place}}">
+                                                        <x-slot name="prependSlot">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-file text-lightblue"></i>
+                                                            </div>
+                                                        </x-slot>
+                                                    </x-adminlte-input>
+                                                </td>
+                                                <td colspan="2">
+                                                    <x-adminlte-input name="pisos" label="Pisos" placeholder="Pisos" label-class="text-lightblue" value="{{$project->place}}">
+                                                        <x-slot name="prependSlot">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-file text-lightblue"></i>
+                                                            </div>
+                                                        </x-slot>
+                                                    </x-adminlte-input>
+                                                </td>
+                                                <td colspan="2">
+                                                    <x-adminlte-input name="cos_pb" label="COS PB" placeholder="COS PB" label-class="text-lightblue" value="{{$project->place}}">
+                                                        <x-slot name="prependSlot">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-file text-lightblue"></i>
+                                                            </div>
+                                                        </x-slot>
+                                                    </x-adminlte-input>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <x-adminlte-input name="retiro_frontal" label="Retiro Frontal" placeholder="Retiro Frontal" label-class="text-lightblue" value="{{$project->place}}">
+                                                        <x-slot name="prependSlot">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-file text-lightblue"></i>
+                                                            </div>
+                                                        </x-slot>
+                                                    </x-adminlte-input>
+                                                </td>
+                                                <td>
+                                                    <x-adminlte-input name="bloque" label="Bloque" placeholder="Bloque" label-class="text-lightblue" value="{{$project->place}}">
+                                                        <x-slot name="prependSlot">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-file text-lightblue"></i>
+                                                            </div>
+                                                        </x-slot>
+                                                    </x-adminlte-input>
+                                                </td>
+                                                <td colspan="2">
+                                                    <x-adminlte-input name="retiro_pst" label="Retiro PST" placeholder="Retiro PST" label-class="text-lightblue" value="{{$project->place}}">
+                                                        <x-slot name="prependSlot">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-file text-lightblue"></i>
+                                                            </div>
+                                                        </x-slot>
+                                                    </x-adminlte-input>
+                                                </td>
+                                                <td colspan="2">
+                                                    <x-adminlte-input name="retiro_lat" label="Retiro LAT" placeholder="Retiro LAT" label-class="text-lightblue" value="{{$project->place}}">
+                                                        <x-slot name="prependSlot">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-file text-lightblue"></i>
+                                                            </div>
+                                                        </x-slot>
+                                                    </x-adminlte-input>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <x-adminlte-input name="fecha_entrega_del_predio" label="Fecha Entrega del Predio" placeholder="Fecha de entrega del predio" label-class="text-lightblue" value="{{$project->place}}">
+                                                        <x-slot name="prependSlot">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-calendar text-lightblue"></i>
+                                                            </div>
+                                                        </x-slot>
+                                                    </x-adminlte-input>
+                                                </td>
+                                                <td colspan="4">
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <x-adminlte-input name="fecha_entrega_de_planos" label="Fecha Entrega de Planos" placeholder="Fecha de entrega del predio" label-class="text-lightblue" value="{{$project->place}}">
+                                                        <x-slot name="prependSlot">
+                                                            <div class="input-group-text">
+                                                                <i class="fas fa-calendar text-lightblue"></i>
+                                                            </div>
+                                                        </x-slot>
+                                                    </x-adminlte-input>
+                                                </td>
+                                                <td colspan="4">
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                        </table>
 
 
                                         <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Formulario de Identificacion">
