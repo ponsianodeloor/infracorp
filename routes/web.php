@@ -42,6 +42,7 @@ Route::middleware([
 
     Route::controller(InfraestructureActivityController::class)->group(function (){
         Route::post('/projects/infraestructures/activities', 'store')->name('projects.infraestructures.activities.store');
+        Route::delete('/projects/infraestructures/activities/{infraestructureActivity}', 'destroy')->name('projects.infraestructures.activities.destroy');
     });
 
     Route::controller(InspectionReportController::class)->group(function(){

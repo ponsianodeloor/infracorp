@@ -12,6 +12,150 @@
     </h4>
 
     <div class="row">
+        <div class="col-12">
+            <div class="card collapsed-card">
+                <div class="card-header panel box box-primary">
+                    <h3 class="card-title">Tabla de valores referenciales</h3>
+                    <div class="card-tools">
+                        <!-- Collapse Button -->
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <!-- /.card-tools -->
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <div class="card mt-2">
+                        <div class="card-header">
+                            <h3 class="card-title">Tipos de Infraestructura</h3>
+                        </div>
+
+                        <div class="card-body">
+                            @foreach($project->infraestructures as $infraestructure)
+                                <table class="table table-bordered mt-2">
+                                    <tr>
+                                        <td>
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <strong>{{$infraestructure->infraestructure}}</strong>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <strong>Tipo</strong>
+                                                    </td>
+                                                    <td>
+                                                        <strong>Cantidad</strong>
+                                                    </td>
+                                                    <td colspan="2">
+
+                                                    </td>
+                                                </tr>
+                                                @foreach($infraestructure->types as $type)
+                                                    <tr>
+                                                        <td>
+                                                            {{$type->type}}
+                                                        </td>
+                                                        <td>
+                                                            {{$type->amount}}
+                                                        </td>
+                                                        <td colspan="2">
+                                                            @if(count($type->activities) > 0)
+                                                                <table class="table table-bordered">
+                                                                    <tr>
+                                                                        <td>
+                                                                            Acciones
+                                                                        </td>
+                                                                        <td>
+                                                                            <strong>Actividad</strong>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="text-right">
+                                                                                <strong>Monto Referencial</strong>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="text-right">
+                                                                                <strong>Monto Referencial Fiscalizacion</strong>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    @php
+                                                                        $sum_activity_reference_value = 0;
+                                                                        $sum_activity_reference_value_inspection = 0;
+                                                                    @endphp
+                                                                    @foreach($type->activities as $infraestructureActivity)
+                                                                        <tr>
+                                                                            <td>
+                                                                                <form action="{{route('projects.infraestructures.activities.destroy', $infraestructureActivity)}}" method="post">
+                                                                                    @csrf
+                                                                                    @method('DELETE')
+                                                                                    <x-adminlte-button theme="btn btn-outline-danger" icon="fas fa-trash" type="submit"/>
+                                                                                </form>
+                                                                            </td>
+                                                                            <td>
+                                                                                {{$infraestructureActivity->activity}}
+                                                                            </td>
+                                                                            <td>
+                                                                                <div class="text-right">
+                                                                                    <?php echo "$ ".number_format($infraestructureActivity->reference_value, 2); ?>
+                                                                                    @php
+                                                                                        $sum_activity_reference_value +=  $infraestructureActivity->reference_value
+                                                                                    @endphp
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>
+                                                                                <div class="text-right">
+                                                                                        <?php echo "$ ".number_format($infraestructureActivity->reference_value_inspection, 2); ?>
+                                                                                    @php
+                                                                                        $sum_activity_reference_value_inspection += + $infraestructureActivity->reference_value_inspection
+                                                                                    @endphp
+                                                                                </div>
+                                                                            </td>
+
+                                                                        </tr>
+                                                                    @endforeach
+                                                                    <tr>
+                                                                        <td>
+                                                                            <strong>TOTAL {{$type->type}}:</strong>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="text-right">
+                                                                                <strong><?php echo "$ ".number_format($sum_activity_reference_value, 2); ?></strong>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="text-right">
+                                                                                <strong><?php echo "$ ".number_format($sum_activity_reference_value_inspection, 2); ?></strong>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            @endif
+
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            @endforeach
+                        </div>
+
+                        <div class="card-footer clearfix">
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
@@ -375,6 +519,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

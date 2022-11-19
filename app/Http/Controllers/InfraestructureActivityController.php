@@ -43,6 +43,12 @@ class InfraestructureActivityController extends Controller
     }
 
     public function destroy(InfraestructureActivity $infraestructureActivity){
+        $type = $infraestructureActivity->infraestructureType;
+        $infraestructure = $type->infraestructure;
+        $project = $infraestructure->project;
 
+        $infraestructureActivity->delete();
+
+        return redirect()->route('projects.edit', $project);
     }
 }
