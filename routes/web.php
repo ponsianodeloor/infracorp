@@ -8,17 +8,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\InspectionReportController;
 use App\Http\Controllers\InfraestructureController;
 use App\Http\Controllers\InfraestructureTypeController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\InfraestructureActivityController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,11 +37,12 @@ Route::middleware([
     });
 
     Route::controller(InfraestructureTypeController::class)->group(function (){
-        Route::post('projects/infraestructures/types', 'store')->name('projects.infraestructures.types.store');
+        Route::post('/projects/infraestructures/types', 'store')->name('projects.infraestructures.types.store');
     });
 
-
-
+    Route::controller(InfraestructureActivityController::class)->group(function (){
+        Route::post('/projects/infraestructures/activities', 'store')->name('projects.infraestructures.activities.store');
+    });
 
     Route::controller(InspectionReportController::class)->group(function(){
         Route::put('projects/inspection_reports/antecedent/{inspectionReport}', 'updateAntecedent')->name('projects.inspection_reports.antecedent.update');

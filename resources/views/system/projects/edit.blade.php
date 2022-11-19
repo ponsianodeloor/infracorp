@@ -251,7 +251,10 @@
                                 <div class="card-body">
                                     <div class="tab-content" id="custom-tabs-three-tabContent">
                                         <div class="tab-pane fade active show" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
-                                            @livewire('project.reference-value.activity')
+                                            <form action="{{route('projects.infraestructures.activities.store')}}" method="post">
+                                                @csrf
+                                                @livewire('project.reference-value.activity')
+                                            </form>
                                         </div>
                                         <div class="tab-pane fade" id="custom-tabs-three-profile" role="tabpanel"
                                              aria-labelledby="custom-tabs-three-profile-tab">

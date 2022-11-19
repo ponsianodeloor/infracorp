@@ -12,4 +12,8 @@ class InfraestructureType extends Model
     public function infraestructure(){
         return $this->belongsTo(Infraestructure::class);
     }
+
+    public function activities(){
+        return $this->hasMany(InfraestructureActivity::class);
+    }
 }

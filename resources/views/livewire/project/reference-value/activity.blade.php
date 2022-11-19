@@ -1,7 +1,7 @@
 <div>
     {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
 
-    <x-adminlte-select  wire:model="lst_infraestructures" name="lst_infraestructures" label="Infraestructure"
+    <x-adminlte-select  wire:model="lst_infraestructures" name="lst_infraestructures" label="Infraestructura"
                        label-class="text-lightblue">
         <x-slot name="prependSlot">
             <div class="input-group-text bg-gradient-info">
@@ -37,7 +37,7 @@
             </x-slot>
         </x-adminlte-input>
 
-        <x-adminlte-input name="reference_amount"
+        <x-adminlte-input name="reference_value"
                           label="Monto Referencial"
                           placeholder="Monto Referencial" label-class="text-lightblue">
             <x-slot name="prependSlot">
@@ -47,7 +47,7 @@
             </x-slot>
         </x-adminlte-input>
 
-        <x-adminlte-input name="reference_amount_inspection"
+        <x-adminlte-input name="reference_value_inspection"
                           label="Monto Referencial Fiscalizacion"
                           placeholder="Monto Referencial Fiscalizacion" label-class="text-lightblue">
             <x-slot name="prependSlot">
