@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('infraestructure_types', function (Blueprint $table) {
             $table->id();
             $table->string('type');
-            $table->decimal('amount', 10, 2);
+            $table->integer('amount');
             $table->unsignedBigInteger('infraestructure_id');
 
             $table->foreign('infraestructure_id')

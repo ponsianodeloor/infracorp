@@ -250,10 +250,8 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="tab-content" id="custom-tabs-three-tabContent">
-                                        <div class="tab-pane fade active show" id="custom-tabs-three-home"
-                                             role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
-                                            Actividad
-
+                                        <div class="tab-pane fade active show" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
+                                            @livewire('project.reference-value.activity')
                                         </div>
                                         <div class="tab-pane fade" id="custom-tabs-three-profile" role="tabpanel"
                                              aria-labelledby="custom-tabs-three-profile-tab">
@@ -279,7 +277,7 @@
                                                     </x-slot>
                                                 </x-adminlte-input>
 
-                                                <x-adminlte-input name="amount" label="Monto" placeholder="Monto"
+                                                <x-adminlte-input name="amount" label="Cantidad" placeholder="Cantidad"
                                                                   label-class="text-lightblue">
                                                     <x-slot name="prependSlot">
                                                         <div class="input-group-text">
@@ -293,7 +291,7 @@
                                             </form>
 
                                             @foreach($project->infraestructures as $infraestructure)
-                                                <table class="table">
+                                                <table class="table mt-5">
                                                     <tr>
                                                         <td>
                                                             {{$infraestructure->infraestructure}}
@@ -332,15 +330,7 @@
 
                                                 <x-adminlte-button label="Guardar" theme="primary btn-block" icon="fas fa-save" type="submit"/>
                                             </form>
-                                            <table class="table table-hover w-full">
-                                                <tr>
-                                                    <td>
-
-                                                    </td>
-                                                    <td>
-                                                        Infraestructure
-                                                    </td>
-                                                </tr>
+                                            <table class="table table-hover mt-5">
                                                 @foreach($project->infraestructures as $infraestructure)
                                                     <tr>
                                                         <td>
@@ -351,7 +341,6 @@
                                                         </td>
                                                     </tr>
                                                 @endforeach
-
                                             </table>
                                         </div>
                                     </div>
@@ -369,8 +358,9 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    @livewireStyles
 @stop
 
 @section('js')
-
+    @livewireScripts
 @stop
