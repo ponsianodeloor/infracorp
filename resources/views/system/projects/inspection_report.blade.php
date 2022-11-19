@@ -43,7 +43,7 @@
 </header>
 
 <footer>
-    <img src="{{env('APP_URL')}}/storage/images/footer.png" width="100%" height="100%"/>
+{{--    <img src="{{env('APP_URL')}}/storage/images/footer.png" width="100%" height="100%"/>--}}
 </footer>
 
 <!-- Envuelva el contenido de su PDF dentro de una etiqueta principal -->
@@ -239,6 +239,140 @@
     </table>
 
     <p><strong>Valor Referencial del Contrato:</strong></p>
+    @php
+        $total_infraestructures = 0;
+    @endphp
+    @foreach($project->infraestructures as $infraestructure)
+        <table border="1" class="table table-bordered mt-2">
+            <tr>
+                <td>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td colspan="3">
+                                <strong>Infraestructura: {{$infraestructure->infraestructure}}</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Tipo</strong>
+                            </td>
+                            <td>
+                                <strong>Cantidad</strong>
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        @php
+                            $sum_infraestructure = 0;
+                        @endphp
+                        @foreach($infraestructure->types as $type)
+                            <tr>
+                                <td>
+                                    {{$type->type}}
+                                </td>
+                                <td>
+                                    {{$type->amount}}
+                                </td>
+                                <td>
+                                    @if(count($type->activities) > 0)
+                                        <table class="table table-bordered">
+                                            <tr>
+                                                <td>
+                                                    Acciones
+                                                </td>
+                                                <td>
+                                                    <strong>Actividad</strong>
+                                                </td>
+                                                <td>
+                                                    <div class="text-right">
+                                                        <strong>Monto Referencial</strong>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            @php
+                                                $sum_activity_reference_value = 0;
+                                            @endphp
+                                            @foreach($type->activities as $infraestructureActivity)
+                                                <tr>
+                                                    <td>
+
+                                                    </td>
+                                                    <td>
+                                                        {{$infraestructureActivity->activity}}
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-right">
+                                                                <?php echo "$ ".number_format($infraestructureActivity->reference_value, 2); ?>
+                                                            @php
+                                                                $sum_activity_reference_value +=  $infraestructureActivity->reference_value
+                                                            @endphp
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="text-right">
+                                                        <strong>TOTAL {{$type->type}}:</strong>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="text-right">
+                                                        <strong><?php echo "$ ".number_format($sum_activity_reference_value, 2); ?></strong>
+                                                        @php
+                                                            $sum_infraestructure += $sum_activity_reference_value;
+                                                        @endphp
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    @endif
+
+                                </td>
+                            </tr>
+                        @endforeach
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Total <strong>{{$infraestructure->infraestructure}}</strong></td>
+                            @php
+                                $total_infraestructures += $sum_infraestructure;
+                            @endphp
+                            <td style="align-items: center">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>
+                                            Infraestructura
+                                        </td>
+                                        <td>
+                                            <div class="text-right">
+                                                <strong><?php echo "$ ".number_format($sum_infraestructure, 2); ?></strong>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+        </table>
+    @endforeach
+    <table border="1" class="table table-bordered">
+        <tr>
+            <td>
+                Total
+            </td>
+            <td>
+                <div class="text-right">
+                    <strong><?php echo "$ ".number_format($total_infraestructures, 2); ?></strong>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+
 
     <p><strong>2.- OBRA INTERVENIDA</strong></p>
     <p><strong>2.1- Identificacion</strong></p>
