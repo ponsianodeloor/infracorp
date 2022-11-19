@@ -23,7 +23,7 @@
             </x-slot>
             <option value=''>Seleccionar</option>
             @foreach($infraestructure_types as $infraestructure_type)
-                <option value="{{$infraestructure_type->id}}">{{$infraestructure_type->type}}</option>
+                <option value="{{$infraestructure_type->id}}">{{$infraestructure_type->type}} - {{$infraestructure_type->amount}}</option>
             @endforeach
         </x-adminlte-select>
 

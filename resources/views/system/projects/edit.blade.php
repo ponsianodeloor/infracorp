@@ -290,29 +290,52 @@
                                                 <x-adminlte-button label="Guardar" theme="primary btn-block" icon="fas fa-save" type="submit"/>
                                             </form>
 
-                                            @foreach($project->infraestructures as $infraestructure)
-                                                <table class="table mt-5">
-                                                    <tr>
-                                                        <td>
-                                                            {{$infraestructure->infraestructure}}
-                                                            <table>
+                                            <div class="card mt-5">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Tipos de Infraestructura</h3>
+                                                </div>
 
-                                                                @foreach($infraestructure->types as $type)
-                                                                    <tr>
-                                                                        <td>
-                                                                            {{$type->type}}
-                                                                        </td>
-                                                                        <td>
-                                                                            {{$type->amount}}
-                                                                        </td>
-                                                                    </tr>
-                                                               @endforeach
+                                                <div class="card-body">
+                                                    @foreach($project->infraestructures as $infraestructure)
+                                                        <table class="table table-bordered mt-1">
+                                                            <tr>
+                                                                <td>
+                                                                    <table class="table table-bordered">
+                                                                        <tr>
+                                                                            <td colspan="2">
+                                                                                <strong>{{$infraestructure->infraestructure}}</strong>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <strong>Tipo</strong>
+                                                                            </td>
+                                                                            <td>
+                                                                                <strong>Cantidad</strong>
+                                                                            </td>
+                                                                        </tr>
+                                                                        @foreach($infraestructure->types as $type)
+                                                                            <tr>
+                                                                                <td>
+                                                                                    {{$type->type}}
+                                                                                </td>
+                                                                                <td>
+                                                                                    {{$type->amount}}
+                                                                                </td>
+                                                                            </tr>
+                                                                        @endforeach
 
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            @endforeach
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    @endforeach
+                                                </div>
+
+                                                <div class="card-footer clearfix">
+
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="tab-pane fade" id="custom-tabs-three-messages" role="tabpanel"
                                              aria-labelledby="custom-tabs-three-messages-tab">
