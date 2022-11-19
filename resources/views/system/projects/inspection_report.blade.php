@@ -409,6 +409,139 @@
     </div>
 
     <p><strong>3.4.- Valor referencial del contrato de fiscalización.</strong></p>
+    @php
+        $total_infraestructures = 0;
+    @endphp
+    @foreach($project->infraestructures as $infraestructure)
+        <table border="1" class="table table-bordered mt-2">
+            <tr>
+                <td>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td colspan="4">
+                                <strong> Infraestructura:</strong> {{$infraestructure->infraestructure}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Tipo</strong>
+                            </td>
+                            <td>
+                                <strong>Cantidad</strong>
+                            </td>
+                            <td colspan="2">
+
+                            </td>
+                        </tr>
+                        @php
+                            $sum_inspection = 0;
+                        @endphp
+                        @foreach($infraestructure->types as $type)
+                            <tr>
+                                <td>
+                                    {{$type->type}}
+                                </td>
+                                <td>
+                                    {{$type->amount}}
+                                </td>
+                                <td>
+                                    @if(count($type->activities) > 0)
+                                        <table class="table table-bordered">
+                                            <tr>
+                                                <td>
+                                                    Acciones
+                                                </td>
+                                                <td>
+                                                    <strong>Actividad</strong>
+                                                </td>
+                                                <td>
+                                                    <div class="text-right">
+                                                        <strong>Monto Referencial</strong>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            @php
+                                                $sum_activity_reference_value_inspection = 0;
+                                            @endphp
+                                            @foreach($type->activities as $infraestructureActivity)
+                                                <tr>
+                                                    <td>
+
+                                                    </td>
+                                                    <td>
+                                                        {{$infraestructureActivity->activity}}
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-right">
+                                                            <?php echo "$ ".number_format($infraestructureActivity->reference_value_inspection, 2); ?>
+                                                            @php
+                                                                $sum_activity_reference_value_inspection += + $infraestructureActivity->reference_value_inspection
+                                                            @endphp
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+                                            @endforeach
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="text-right">
+                                                        <strong>TOTAL {{$type->type}}:</strong>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="text-right">
+                                                        <strong><?php echo "$ ".number_format($sum_activity_reference_value_inspection, 2); ?></strong>
+                                                        @php
+                                                            $sum_inspection += $sum_activity_reference_value_inspection;
+                                                        @endphp
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    @endif
+
+                                </td>
+                            </tr>
+                        @endforeach
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Total <strong>{{$infraestructure->infraestructure}}</strong></td>
+                            @php
+                                $total_infraestructures += $sum_inspection;
+                            @endphp
+                            <td>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>
+                                            Fiscalizacion
+                                        </td>
+                                        <td>
+                                            <div class="text-right">
+                                                <strong><?php echo "$ ".number_format($sum_inspection, 2); ?></strong>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    @endforeach
+    <table border="1" class="table table-bordered">
+        <tr>
+            <td>
+                Total
+            </td>
+            <td>
+                <div class="text-right">
+                    <strong><?php echo "$ ".number_format($total_infraestructures, 2); ?></strong>
+                </div>
+            </td>
+        </tr>
+    </table>
+
 
     <p><strong>4.- EJECUCION DEL CONTRATO</strong></p>
     <p><strong>4.1.- ESTADO DE EJECUCION DE LOS ESTUDIOS</strong></p>
