@@ -17,6 +17,10 @@ class Project extends Model
         return $this->hasMany(Volume::class);
     }
 
+    public function inspectionContract(){
+        return $this->hasOne(InspectionContract::class);
+    }
+
     public function inspectionReport(){
         return $this->hasOne(InspectionReport::class);
     }

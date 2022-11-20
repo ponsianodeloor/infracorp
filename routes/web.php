@@ -10,6 +10,7 @@ use App\Http\Controllers\InfraestructureController;
 use App\Http\Controllers\InfraestructureTypeController;
 use App\Http\Controllers\InfraestructureActivityController;
 use App\Http\Controllers\IntervenedWorkIdentificationController;
+use App\Http\Controllers\InspectionContractController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -45,6 +46,10 @@ Route::middleware([
     Route::controller(InfraestructureActivityController::class)->group(function (){
         Route::post('/projects/infraestructures/activities', 'store')->name('projects.infraestructures.activities.store');
         Route::delete('/projects/infraestructures/activities/{infraestructureActivity}', 'destroy')->name('projects.infraestructures.activities.destroy');
+    });
+
+    Route::controller(InspectionContractController::class)->group(function (){
+        Route::put('/projects/inspection_contracts/{inspectionContract}', 'update')->name('projects.inspections_contract.update');
     });
 
     Route::controller(InspectionReportController::class)->group(function(){

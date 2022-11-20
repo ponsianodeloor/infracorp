@@ -441,10 +441,10 @@
                                 <div class="tab-pane fade" id="custom-tabs-three-profile" role="tabpanel"
                                      aria-labelledby="custom-tabs-three-profile-tab">
 
-                                    <form action="{{route('projects.update', $project)}}" method="post">
+                                    <form action="{{route('projects.inspections_contract.update', $project->inspectionContract)}}" method="post">
                                         @csrf
                                         @method('PUT')
-                                        <x-adminlte-textarea name="project" label="Fiscalizacion del Proyecto" rows=5
+                                        <x-adminlte-textarea name="project_inspection" label="Fiscalizacion del Proyecto" rows=5
                                                              label-class="text-lightblue"
                                                              igroup-size="sm" placeholder="Insert Short description...">
                                             <x-slot name="prependSlot">
@@ -452,47 +452,20 @@
                                                     <i class="fas fa-lg fa-file-alt text-lightblue"></i>
                                                 </div>
                                             </x-slot>
-                                            {{$project->project}}
+                                            {{$project->inspectionContract->project_inspection}}
                                         </x-adminlte-textarea>
 
                                         <x-adminlte-input name="place" label="Localización" placeholder="Localización"
-                                                          label-class="text-lightblue" value="{{$project->place}}">
+                                                          label-class="text-lightblue" value="{{$project->inspectionContract->place}}">
                                             <x-slot name="prependSlot">
                                                 <div class="input-group-text">
                                                     <i class="fas fa-user text-lightblue"></i>
-                                                </div>
-                                            </x-slot>
-                                        </x-adminlte-input>
-
-                                        <x-adminlte-input name="date_start" label="Fecha de Inicio" placeholder="Fecha de inicio"
-                                                          label-class="text-lightblue" value="{{$project->date_start}}">
-                                            <x-slot name="prependSlot">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-calendar text-lightblue"></i>
-                                                </div>
-                                            </x-slot>
-                                        </x-adminlte-input>
-
-                                        <x-adminlte-input name="date_end" label="Fecha Final" placeholder="Fecha final"
-                                                          label-class="text-lightblue" value="{{$project->date_end}}">
-                                            <x-slot name="prependSlot">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-calendar text-lightblue"></i>
                                                 </div>
                                             </x-slot>
                                         </x-adminlte-input>
 
                                         <x-adminlte-input name="contractor" label="Contratista" placeholder="Contratista"
-                                                          label-class="text-lightblue" value="{{$project->contractor}}">
-                                            <x-slot name="prependSlot">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-user text-lightblue"></i>
-                                                </div>
-                                            </x-slot>
-                                        </x-adminlte-input>
-
-                                        <x-adminlte-input name="inspection" label="Fiscalizacion" placeholder="Fiscalizacion"
-                                                          label-class="text-lightblue" value="{{$project->inspection}}">
+                                                          label-class="text-lightblue" value="{{$project->inspectionContract->contractor}}">
                                             <x-slot name="prependSlot">
                                                 <div class="input-group-text">
                                                     <i class="fas fa-user text-lightblue"></i>
@@ -503,7 +476,7 @@
                                         <x-adminlte-input name="reference_value_contract"
                                                           label="Valor Referencial del Contrato (usar . para decimales .00)"
                                                           placeholder="Valor Referencial del Contrato" label-class="text-lightblue"
-                                                          value="{{$project->reference_value_contract}}">
+                                                          value="{{$project->inspectionContract->reference_value_contract}}">
                                             <x-slot name="prependSlot">
                                                 <div class="input-group-text">
                                                     <i class="fas fa-user text-lightblue"></i>
@@ -513,17 +486,7 @@
 
                                         <x-adminlte-input name="date_start_text" label="Fecha de Suscripcion del Contrato"
                                                           placeholder="Fecha de Suscripcion del Contrato" label-class="text-lightblue"
-                                                          value="{{$project->date_start_text}}">
-                                            <x-slot name="prependSlot">
-                                                <div class="input-group-text">
-                                                    <i class="fas fa-user text-lightblue"></i>
-                                                </div>
-                                            </x-slot>
-                                        </x-adminlte-input>
-
-                                        <x-adminlte-input name="advance_payment_date_text" label="Fecha de Pago de Anticipo"
-                                                          placeholder="Fecha de Pago de Anticipo" label-class="text-lightblue"
-                                                          value="{{$project->advance_payment_date_text}}">
+                                                          value="{{$project->inspectionContract->date_start_text}}">
                                             <x-slot name="prependSlot">
                                                 <div class="input-group-text">
                                                     <i class="fas fa-user text-lightblue"></i>
@@ -535,7 +498,7 @@
                                                           label="Fecha de Inicio del plazo del Proyecto"
                                                           placeholder="Fecha de Inicio del plazo del Proyecto"
                                                           label-class="text-lightblue"
-                                                          value="{{$project->project_term_start_date_text}}">
+                                                          value="{{$project->inspectionContract->project_term_start_date_text}}">
                                             <x-slot name="prependSlot">
                                                 <div class="input-group-text">
                                                     <i class="fas fa-user text-lightblue"></i>
@@ -545,7 +508,7 @@
 
                                         <x-adminlte-input name="contract_term" label="Plazo Contractual (Dias Calendario)"
                                                           placeholder="Plazo Contractual" label-class="text-lightblue"
-                                                          value="{{$project->contract_term}}">
+                                                          value="{{$project->inspectionContract->contract_term}}">
                                             <x-slot name="prependSlot">
                                                 <div class="input-group-text">
                                                     <i class="fas fa-user text-lightblue"></i>
@@ -555,7 +518,7 @@
 
                                         <x-adminlte-input name="term_extensions" label="Ampliaciones de Plazo (dias)"
                                                           placeholder="Ampliaciones de Plazo (dias)" label-class="text-lightblue"
-                                                          value="{{$project->term_extensions}}">
+                                                          value="{{$project->inspectionContract->term_extensions}}">
                                             <x-slot name="prependSlot">
                                                 <div class="input-group-text">
                                                     <i class="fas fa-user text-lightblue"></i>
@@ -565,7 +528,7 @@
 
                                         <x-adminlte-input name="contract_termination_date_text" label="Fecha terminacion contractual"
                                                           placeholder="Fecha terminacion contractual" label-class="text-lightblue"
-                                                          value="{{$project->contract_termination_date_text}}">
+                                                          value="{{$project->inspectionContract->contract_termination_date_text}}">
                                             <x-slot name="prependSlot">
                                                 <div class="input-group-text">
                                                     <i class="fas fa-user text-lightblue"></i>
@@ -574,7 +537,7 @@
                                         </x-adminlte-input>
 
                                         <x-adminlte-input name="advance" label="Anticipo (%) porcentaje del valor del proyecto"
-                                                          placeholder="%" label-class="text-lightblue" value="{{$project->advance}}">
+                                                          placeholder="%" label-class="text-lightblue" value="{{$project->inspectionContract->advance}}">
                                             <x-slot name="prependSlot">
                                                 <div class="input-group-text">
                                                     <i class="fas fa-user text-lightblue"></i>
@@ -583,7 +546,7 @@
                                         </x-adminlte-input>
 
                                         <?php
-                                        $price_adjustments_selected = $project->price_adjustments;
+                                        $price_adjustments_selected = $project->inspectionContract->price_adjustments;
                                         ?>
                                         <x-adminlte-select name="price_adjustments" label="Ajuste de precios"
                                                            label-class="text-lightblue">
@@ -610,7 +573,7 @@
                                                     <i class="fas fa-lg fa-file-alt text-lightblue"></i>
                                                 </div>
                                             </x-slot>
-                                            {{$project->readjustment_formula}}
+                                            {{$project->inspectionContract->readjustment_formula}}
                                         </x-adminlte-textarea>
 
                                         <x-adminlte-textarea name="way_to_pay" label="Forma de pago" rows=5
@@ -621,13 +584,13 @@
                                                     <i class="fas fa-lg fa-file-alt text-lightblue"></i>
                                                 </div>
                                             </x-slot>
-                                            {{$project->way_to_pay}}
+                                            {{$project->inspectionContract->way_to_pay}}
                                         </x-adminlte-textarea>
 
                                         <x-adminlte-input name="total_current_amount"
                                                           label="Monto Total Vigente (usar . para decimales .00)"
                                                           placeholder="Monto Total Vigente" label-class="text-lightblue"
-                                                          value="{{$project->total_current_amount}}">
+                                                          value="{{$project->inspectionContract->total_current_amount}}">
                                             <x-slot name="prependSlot">
                                                 <div class="input-group-text">
                                                     <i class="fas fa-user text-lightblue"></i>
