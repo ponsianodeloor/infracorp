@@ -558,6 +558,133 @@
         @endphp
     </div>
 
+    <table border="1">
+        <tr>
+            <td>
+                <strong>Proyecto</strong>
+            </td>
+            <td>
+                <div style="text-align: justify">
+                    @php
+                        echo html_entity_decode($project->inspectionContract->project_inspection);
+                    @endphp
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Localización</strong>
+            </td>
+            <td>
+                {{$project->inspectionContract->place}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Contratista</strong>
+            </td>
+            <td>
+                {{$project->inspectionContract->contractor}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Valor referencial del Contrato</strong>
+            </td>
+            <td>
+                {{$project->inspectionContract->reference_value_contract}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Fecha de suscripción del contrato</strong>
+            </td>
+            <td>
+                {{$project->inspectionContract->date_start_text}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Fecha de Inicio del plazo del Proyecto</strong>
+            </td>
+            <td>
+                {{$project->inspectionContract->project_term_start_date_text}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Plazo contractual</strong>
+            </td>
+            <td>
+                {{$project->inspectionContract->contract_term}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Ampliaciones de plazo</strong>
+            </td>
+            <td>
+                {{$project->inspectionContract->term_extensions}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Fecha de terminación contractual</strong>
+            </td>
+            <td>
+                {{$project->inspectionContract->contract_termination_date_text}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Anticipo</strong>
+            </td>
+            <td>
+                {{$project->inspectionContract->advance}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Proyecto</strong>
+            </td>
+            <td>
+                {{$project->inspectionContract->project_inspection}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Reajuste de precios</strong>
+            </td>
+            <td>
+                {{$project->inspectionContract->price_adjustments}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Fórmula de Reajuste</strong>
+            </td>
+            <td>
+                {{$project->inspectionContract->readjustment_formula}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Forma de pago</strong>
+            </td>
+            <td>
+                {{$project->inspectionContract->way_to_pay}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Forma de pago</strong>
+            </td>
+            <td>
+                {{$project->inspectionContract->total_current_amount}}
+            </td>
+        </tr>
+    </table>
+
     <p><strong>3.4.- Valor referencial del contrato de fiscalización.</strong></p>
     @php
         $total_infraestructures = 0;
@@ -695,6 +822,9 @@
 
     <p><strong>4.- EJECUCION DEL CONTRATO</strong></p>
     <p><strong>4.1.- ESTADO DE EJECUCION DE LOS ESTUDIOS</strong></p>
+
+    <p><strong>4.2- Monto Ejecutado y aprobado de los estudios</strong></p>
+
     <p><strong>4.3- Personal del Contratista</strong></p>
 
     <p><strong>5.- Productos de los trabajos ejecutados por la empresa contratista</strong></p>
