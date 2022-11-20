@@ -24,4 +24,8 @@ class Project extends Model
     public function infraestructures(){
         return $this->hasMany(Infraestructure::class);
     }
+
+    public function intervenedWorkIdentification(){
+        return $this->hasOne(IntervenedWorkIdentification::class);
+    }
 }

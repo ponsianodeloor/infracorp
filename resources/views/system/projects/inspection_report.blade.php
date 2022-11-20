@@ -377,7 +377,157 @@
     <p><strong>2.- OBRA INTERVENIDA</strong></p>
     <p><strong>2.1- Identificacion</strong></p>
 
-    <p><strong>2.2- Ubicacion Geografica del proyecto</strong></p>
+    <table border="1" class="table table-bordered table-striped">
+        <tr>
+            <td colspan="4">
+                {{$project->intervenedWorkIdentification->identification}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">Datos Referenciales:</td>
+            <td>
+                <strong>Numero de Obra:</strong>
+                {{$project->intervenedWorkIdentification->work_number}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Tipo de Unidad:</strong>
+                {{$project->intervenedWorkIdentification->drive_type}}
+            </td>
+            <td colspan="2">
+                <strong>Tipologia:</strong>
+                {{$project->intervenedWorkIdentification->typology}}
+            </td>
+            <td>
+                <strong>Etapa:</strong>
+                {{$project->intervenedWorkIdentification->stage}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Ubicacion:</strong>
+                {{$project->intervenedWorkIdentification->location}}
+            </td>
+            <td>
+                <strong>Provincia:</strong>
+                {{$project->intervenedWorkIdentification->province}}
+            </td>
+            </td>
+            <td>
+                <strong>Canton:</strong>
+                {{$project->intervenedWorkIdentification->canton}}
+            </td>
+            <td>
+                <strong>Parroquia:</strong>
+                {{$project->intervenedWorkIdentification->parish}}
+            </td>
+        </tr>
+        <tr>
+            <td>Coordenadas:</td>
+            <td>
+                <strong>X:</strong>
+                {{$project->intervenedWorkIdentification->coordinate_x}}
+            </td>
+            <td>
+                <strong>Y:</strong>
+                {{$project->intervenedWorkIdentification->coordinate_y}}
+            </td>
+            <td>
+                <strong>Altitud:</strong>
+                {{$project->intervenedWorkIdentification->altitude}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <strong>Documentacion Existente:</strong>
+                <div style="text-align: justify">
+                    @php
+                        echo html_entity_decode($project->intervenedWorkIdentification->existing_documentation);
+                    @endphp
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <strong>Localización:</strong>
+                {{$project->intervenedWorkIdentification->land_deeds}}
+            </td>
+            <td colspan="2">
+                <strong>Fecha Predio: </strong>
+                {{$project->intervenedWorkIdentification->date_deeds}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <strong>Municipio:</strong>
+                {{$project->intervenedWorkIdentification->municipality}}
+            </td>
+            <td>
+                <strong>Predio:</strong>
+                {{$project->intervenedWorkIdentification->cadastral_code}}
+            </td>
+            <td>
+                <strong>IRM/FECH:</strong>
+                {{$project->intervenedWorkIdentification->irm_date}}
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                <strong>COS Total:</strong>
+                {{$project->intervenedWorkIdentification->total_cos}}
+            </td>
+            <td>
+                <strong>Pisos:</strong>
+                {{$project->intervenedWorkIdentification->floors}}
+
+            </td>
+            <td>
+                <strong>COS PB:</strong>
+                {{$project->intervenedWorkIdentification->pb_cos}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Retiro Frontal:</strong>
+                {{$project->intervenedWorkIdentification->front_removal}}
+            </td>
+            <td>
+                <strong>Bloque:</strong>
+                {{$project->intervenedWorkIdentification->block}}
+            </td>
+            <td>
+                <strong>Retiro PST:</strong>
+                {{$project->intervenedWorkIdentification->pst_removal}}
+            </td>
+            <td>
+                <strong>Retiro LAT:</strong>
+                {{$project->intervenedWorkIdentification->side_removal}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Fecha Entrega del Predio:</strong>
+            </td>
+            <td colspan="3">
+                {{$project->intervenedWorkIdentification->delivery_date_property}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Fecha Entrega de Planos:</strong>
+            </td>
+            <td colspan="3">
+                {{$project->intervenedWorkIdentification->delivery_date_plans}}
+            </td>
+        </tr>
+    </table>
+
+    <p><strong>2.2- Ubicacion Geografica del proyecto:</strong></p>
     <div style="text-align: justify">
         @php
             echo html_entity_decode($project->inspectionReport->geographic_location);

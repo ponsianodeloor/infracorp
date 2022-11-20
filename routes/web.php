@@ -9,6 +9,7 @@ use App\Http\Controllers\InspectionReportController;
 use App\Http\Controllers\InfraestructureController;
 use App\Http\Controllers\InfraestructureTypeController;
 use App\Http\Controllers\InfraestructureActivityController;
+use App\Http\Controllers\IntervenedWorkIdentificationController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -53,6 +54,10 @@ Route::middleware([
         Route::put('projects/inspection_reports/previous_temporary_control/{inspectionReport}', 'updatePreviousTemporaryControl')->name('projects.inspection_reports.previous_temporary_control.update');
         Route::put('projects/inspection_reports/contracted_control/{inspectionReport}', 'updateContractedControl')->name('projects.inspection_reports.contracted_control.update');
         Route::put('projects/inspection_reports/resume_audited_contract/{inspectionReport}', 'updateResumeAuditedContract')->name('projects.inspection_reports.resume_audited_contract.update');
+    });
+
+    Route::controller(IntervenedWorkIdentificationController::class)->group(function (){
+        Route::put('/projects/intervened_work_identification/{intervenedWorkIdentification}', 'update')->name('projects.intervened_work_identification.update');
     });
 
     Route::controller(VolumeController::class)->group(function (){
