@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\InspectionReport;
+use App\Models\IntervenedWorkIdentification;
 use Illuminate\Database\Seeder;
 
 use Illuminate\Support\Facades\Hash;
@@ -47,5 +49,15 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
+
+        InspectionReport::create([
+            'project_id' => 1
+        ]);
+
+        IntervenedWorkIdentification::create([
+            'project_id'=>1
+        ]);
+
+
     }
 }
