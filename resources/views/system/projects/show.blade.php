@@ -702,12 +702,19 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <form action="{{route('projects.inspection_reports.previous_temporary_control.update', $project->inspectionReport)}}" method="post">
+                                    <form action="{{route('projects.update.url_image_location', $project)}}" method="post" enctype="multipart/form-data">
                                         @csrf
-                                        @method('PUT')
-
-                                        formulario
-                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Temporal Anterior">
+                                        @method('put')
+                                        <x-adminlte-input-file name="file_xls_executed_approved_amount" label="Subir Archivo XLS" placeholder="Choose a File Executed and approved amount...">
+                                            <x-slot name="prependSlot">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-file-excel text-lightblue"></i>
+                                                </div>
+                                            </x-slot>
+                                            <x-slot name="bottomSlot">
+                                            </x-slot>
+                                        </x-adminlte-input-file>
+                                        <x-adminlte-button label="Cargar Archivo XLS " theme="primary btn-block" icon="fas fa-save" type="submit"/>
                                     </form>
                                 </div>
                                 <!-- /.card-body -->
