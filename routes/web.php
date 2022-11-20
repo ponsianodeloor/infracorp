@@ -47,13 +47,13 @@ Route::middleware([
     });
 
     Route::controller(InspectionReportController::class)->group(function(){
-        Route::put('projects/inspection_reports/antecedent/{inspectionReport}', 'updateAntecedent')->name('projects.inspection_reports.antecedent.update');
-        Route::put('projects/inspection_reports/audited_contract/{inspectionReport}', 'updateAuditedContract')->name('projects.inspection_reports.audited_contract.update');
-        Route::put('projects/inspection_reports/resume_contract/{inspectionReport}', 'updateResumeContract')->name('projects.inspection_reports.resume_contract.update');
-        Route::put('projects/inspection_reports/geographic_location/{inspectionReport}', 'updateGeographicLocation')->name('projects.inspection_reports.geographic_location.update');
-        Route::put('projects/inspection_reports/previous_temporary_control/{inspectionReport}', 'updatePreviousTemporaryControl')->name('projects.inspection_reports.previous_temporary_control.update');
-        Route::put('projects/inspection_reports/contracted_control/{inspectionReport}', 'updateContractedControl')->name('projects.inspection_reports.contracted_control.update');
-        Route::put('projects/inspection_reports/resume_audited_contract/{inspectionReport}', 'updateResumeAuditedContract')->name('projects.inspection_reports.resume_audited_contract.update');
+        Route::put('/projects/inspection_reports/antecedent/{inspectionReport}', 'updateAntecedent')->name('projects.inspection_reports.antecedent.update');
+        Route::put('/projects/inspection_reports/audited_contract/{inspectionReport}', 'updateAuditedContract')->name('projects.inspection_reports.audited_contract.update');
+        Route::put('/projects/inspection_reports/resume_contract/{inspectionReport}', 'updateResumeContract')->name('projects.inspection_reports.resume_contract.update');
+        Route::put('/projects/inspection_reports/geographic_location/{inspectionReport}', 'updateGeographicLocation')->name('projects.inspection_reports.geographic_location.update');
+        Route::put('/projects/inspection_reports/previous_temporary_control/{inspectionReport}', 'updatePreviousTemporaryControl')->name('projects.inspection_reports.previous_temporary_control.update');
+        Route::put('/projects/inspection_reports/contracted_control/{inspectionReport}', 'updateContractedControl')->name('projects.inspection_reports.contracted_control.update');
+        Route::put('/projects/inspection_reports/resume_audited_contract/{inspectionReport}', 'updateResumeAuditedContract')->name('projects.inspection_reports.resume_audited_contract.update');
     });
 
     Route::controller(IntervenedWorkIdentificationController::class)->group(function (){
