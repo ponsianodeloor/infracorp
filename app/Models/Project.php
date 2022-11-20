@@ -32,4 +32,8 @@ class Project extends Model
     public function intervenedWorkIdentification(){
         return $this->hasOne(IntervenedWorkIdentification::class);
     }
+
+    public function executeApprovedAmounts(){
+        return $this->hasMany(ExecutedApprovedMount::class);
+    }
 }
