@@ -517,19 +517,36 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <form action="{{route('projects.inspection_reports.resume_contract.update', $project->inspectionReport)}}" method="post">
-                                        @csrf
-                                        @method('PUT')
 
-                                        <x-adminlte-textarea name="resume_contract" label="Ubicacion Geografica" rows=5 igroup-size="sm" placeholder="Insert resumen...">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <p>Imagen de Localizacion</p>
+                                        </div>
+                                        <div class="card-body">
+                                            @if($project->url_image_location)
+                                                <div style="overflow: hidden;">
+                                                    <img src="{{asset($project->url_image_location)}}" alt="image project">
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <div class="card-footer">
+
+                                        </div>
+                                    </div>
+                                    <form action="{{route('projects.update.url_image_location', $project)}}" method="post" enctype="multipart/form-data">
+                                        @csrf
+                                        @method('put')
+                                        <x-adminlte-input-file name="file_url_image_location" label="Subir imagen" placeholder="Choose a Location Picture...">
                                             <x-slot name="prependSlot">
-                                                <div class="input-group-text bg-dark">
-                                                    <i class="fas fa-lg fa-file-alt text-lightblue"></i>
+                                                <div class="input-group-text">
+                                                    <i class="fas fa-image text-lightblue"></i>
                                                 </div>
                                             </x-slot>
-                                            {{$project->inspectionReport->resume_contract}}
-                                        </x-adminlte-textarea>
-                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Resumen">
+                                            <x-slot name="bottomSlot">
+                                            </x-slot>
+                                        </x-adminlte-input-file>
+                                        <x-adminlte-button label="Cargar Imagen " theme="primary btn-block" icon="fas fa-save" type="submit"/>
+
                                     </form>
                                 </div>
                                 <!-- /.card-body -->

@@ -31,6 +31,7 @@ Route::middleware([
         Route::get('/projects/print_inspection_report/{project}', 'printInspectionReport')->name('projects.print_inspection_report');
 
         Route::put('/projects/update/{project}', 'update')->name('projects.update');
+        Route::put('/projects/update/url_image_location/{project}', 'updateUrlImageLocation')->name('projects.update.url_image_location');
     });
 
     Route::controller(InfraestructureController::class)->group(function (){

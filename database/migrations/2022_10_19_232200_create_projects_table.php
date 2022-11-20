@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('contractor');
             $table->string('inspection');
             $table->string('place');
+            $table->string('url_image_location')->nullable();
             $table->date('date_start')->nullable();
             $table->date('date_end')->nullable();
             $table->double('reference_value_contract')->nullable();

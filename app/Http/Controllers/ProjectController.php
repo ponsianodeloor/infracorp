@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -54,6 +55,18 @@ class ProjectController extends Controller
         return redirect()->route('projects.show', compact('project'));
 
         //return view('system.projects.show', compact('project'));
+    }
+
+    public function updateUrlImageLocation(Request $request, Project $project){
+        $request->validate([
+            'file_url_image_location' => 'required|image|max:2048'
+        ]);
+        $file_url_image_location = $request->file('file_url_image_location')->store('public/images/projects');
+        $url_image_location = Storage::url($file_url_image_location);
+        $project->url_image_location = $url_image_location;
+        $project->save();
+
+        return redirect()->route('projects.show', compact(['project']));
     }
 
     public function destroy(Project $project){
