@@ -2,84 +2,46 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\ExecutedApprovedMountImport;
 use App\Models\ExecutedApprovedMount;
+use App\Models\Project;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ExecutedApprovedMountController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function index(){
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function create(){
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\ExecutedApprovedMount  $executedApprovedMount
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ExecutedApprovedMount $executedApprovedMount)
-    {
-        //
+    public function storeExcel(Project $project, Request $request){
+        $file_xls_executed_approved_amount = $request->file('file_xls_executed_approved_amount');
+        Excel::import(new ExecutedApprovedMountImport($project->id), $file_xls_executed_approved_amount);
+
+        return redirect()->route('projects.show', compact('project'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\ExecutedApprovedMount  $executedApprovedMount
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ExecutedApprovedMount $executedApprovedMount)
-    {
-        //
+    public function show(ExecutedApprovedMount $executedApprovedMount){
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ExecutedApprovedMount  $executedApprovedMount
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ExecutedApprovedMount $executedApprovedMount)
-    {
-        //
+    public function edit(ExecutedApprovedMount $executedApprovedMount){
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\ExecutedApprovedMount  $executedApprovedMount
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ExecutedApprovedMount $executedApprovedMount)
-    {
-        //
+    public function update(Request $request, ExecutedApprovedMount $executedApprovedMount){
+
+    }
+
+    public function destroy(ExecutedApprovedMount $executedApprovedMount){
+
     }
 }

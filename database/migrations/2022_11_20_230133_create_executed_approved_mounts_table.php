@@ -13,7 +13,7 @@ return new class extends Migration
 
             $table->string('project')->nullable();
             $table->decimal('value_definitive_studies', 10, 2)->nullable();
-            $table->decimal('value_approbed_studies', 10, 2)->nullable();
+            $table->decimal('value_approved_studies', 10, 2)->nullable();
             $table->unsignedBigInteger('project_id');
 
             $table->foreign('project_id')

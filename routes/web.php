@@ -11,6 +11,7 @@ use App\Http\Controllers\InfraestructureTypeController;
 use App\Http\Controllers\InfraestructureActivityController;
 use App\Http\Controllers\IntervenedWorkIdentificationController;
 use App\Http\Controllers\InspectionContractController;
+use App\Http\Controllers\ExecutedApprovedMountController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -64,6 +65,10 @@ Route::middleware([
 
     Route::controller(IntervenedWorkIdentificationController::class)->group(function (){
         Route::put('/projects/intervened_work_identification/{intervenedWorkIdentification}', 'update')->name('projects.intervened_work_identification.update');
+    });
+
+    Route::controller(ExecutedApprovedMountController::class)->group(function (){
+        Route::post('/projects/execute_approved_mounts/imports_excel/{project}', 'storeExcel')->name('projects.execute_approved_mounts.imports_excel.store_excel');
     });
 
     Route::controller(VolumeController::class)->group(function (){

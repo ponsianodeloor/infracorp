@@ -702,9 +702,8 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <form action="{{route('projects.update.url_image_location', $project)}}" method="post" enctype="multipart/form-data">
+                                    <form action="{{route('projects.execute_approved_mounts.imports_excel.store_excel', $project)}}" method="post" enctype="multipart/form-data">
                                         @csrf
-                                        @method('put')
                                         <x-adminlte-input-file name="file_xls_executed_approved_amount" label="Subir Archivo XLS" placeholder="Choose a File Executed and approved amount...">
                                             <x-slot name="prependSlot">
                                                 <div class="input-group-text">
