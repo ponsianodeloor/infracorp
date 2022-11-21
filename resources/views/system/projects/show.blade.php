@@ -715,6 +715,41 @@
                                         </x-adminlte-input-file>
                                         <x-adminlte-button label="Cargar Archivo XLS " theme="primary btn-block" icon="fas fa-save" type="submit"/>
                                     </form>
+
+                                    @if(count($project->executeApprovedAmounts)>0)
+                                        <table class="table table-bordered table-striped mt-3">
+                                            <tr>
+                                                <td>Proyecto</td>
+                                                <td>Monto Estudios Definitivos</td>
+                                                <td>Monto Aprobado Estudios</td>
+                                            </tr>
+                                            @php
+                                                $sum_value_definitive_studies = 0;
+                                            @endphp
+                                            @foreach($project->executeApprovedAmounts as $executeApprovedAmount)
+                                                <tr>
+                                                    <td>{{$executeApprovedAmount->project}}</td>
+                                                    <td><?php echo "$ ".number_format($executeApprovedAmount->value_definitive_studies, 2); ?></td>
+                                                    <td><?php echo "$ ".number_format($executeApprovedAmount->value_approved_studies, 2); ?></td>
+                                                </tr>
+                                                @php
+                                                    $sum_value_definitive_studies += $executeApprovedAmount->value_definitive_studies;
+                                                @endphp
+                                            @endforeach
+                                            <tr>
+                                                <td>
+                                                    <strong>Total: </strong>
+                                                </td>
+                                                <td>
+                                                    <?php echo "$ ".number_format($sum_value_definitive_studies, 2); ?>
+                                                </td>
+                                                <td>
+                                                    &nbsp;
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    @endif
+
                                 </div>
                                 <!-- /.card-body -->
                             </div>

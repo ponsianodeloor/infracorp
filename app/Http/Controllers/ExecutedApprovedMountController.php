@@ -23,6 +23,7 @@ class ExecutedApprovedMountController extends Controller
     }
 
     public function storeExcel(Project $project, Request $request){
+        ExecutedApprovedMount::where('project_id', $project->id)->delete();
         $file_xls_executed_approved_amount = $request->file('file_xls_executed_approved_amount');
         Excel::import(new ExecutedApprovedMountImport($project->id), $file_xls_executed_approved_amount);
 

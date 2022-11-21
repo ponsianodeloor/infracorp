@@ -825,6 +825,40 @@
 
     <p><strong>4.2- Monto Ejecutado y aprobado de los estudios</strong></p>
 
+    @if(count($project->executeApprovedAmounts)>0)
+        <table border="1">
+            <tr>
+                <td><strong>Proyecto</strong></td>
+                <td><strong>Monto Estudios Definitivos</strong></td>
+                <td><strong>Monto Aprobado Estudios</strong></td>
+            </tr>
+            @php
+                $sum_value_definitive_studies = 0;
+            @endphp
+            @foreach($project->executeApprovedAmounts as $executeApprovedAmount)
+                <tr>
+                    <td>{{$executeApprovedAmount->project}}</td>
+                    <td><?php echo "$ ".number_format($executeApprovedAmount->value_definitive_studies, 2); ?></td>
+                    <td><?php echo "$ ".number_format($executeApprovedAmount->value_approved_studies, 2); ?></td>
+                    @php
+                        $sum_value_definitive_studies += $executeApprovedAmount->value_definitive_studies;
+                    @endphp
+                </tr>
+            @endforeach
+                <tr>
+                    <td>
+                        <strong>Total:</strong>
+                    </td>
+                    <td>
+                        <?php echo "$ ".number_format($sum_value_definitive_studies, 2); ?>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+        </table>
+    @endif
+
     <p><strong>4.3- Personal del Contratista</strong></p>
 
     <p><strong>5.- Productos de los trabajos ejecutados por la empresa contratista</strong></p>
