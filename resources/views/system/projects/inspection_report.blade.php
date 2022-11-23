@@ -1033,6 +1033,25 @@
     <p><strong>12.- INFORMACION DEL PROCESO DE APROBACION DE PLANOS:</strong></p>
     <p><strong>12.1.- INGRESO DE ESTUDIOS A MUNICIPIO</strong></p>
 
+    @if(count($project->entranceStudies)>0)
+        <table border="1">
+            <tr>
+                <td>Ingreso</td>
+                <td>Devolucion</td>
+                <td>Reingreso</td>
+                <td>Documento de Respaldo</td>
+            </tr>
+            @foreach($project->entranceStudies as $entranceStudy)
+                <tr>
+                    <td>{{$entranceStudy->entry}}</td>
+                    <td>{{$entranceStudy->return}}</td>
+                    <td>{{$entranceStudy->re_entry}}</td>
+                    <td>{{$entranceStudy->backup_document}}</td>
+                </tr>
+            @endforeach
+        </table>
+    @endif
+
     <p><strong>13.- CONCLUSIONES Y RECOMENDACIONES (ENTREGA RECEPCION)</strong></p>
 
     <p><strong>14.- ASUNTOS PENDIENTES</strong></p>
