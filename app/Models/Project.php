@@ -64,4 +64,8 @@ class Project extends Model
     public function entranceStudies(){
         return $this->hasMany(EntranceStudy::class);
     }
+
+    public function crossDocumentations(){
+        return $this->hasMany(CrossDocumentation::class);
+    }
 }

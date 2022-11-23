@@ -20,6 +20,7 @@ use App\Http\Controllers\WarrantyReviewController;
 use App\Http\Controllers\InspectionPersonalController;
 use App\Http\Controllers\EconomicStateController;
 use App\Http\Controllers\EntranceStudyController;
+use App\Http\Controllers\CrossDocumentationController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -109,6 +110,10 @@ Route::middleware([
 
     Route::controller(EntranceStudyController::class)->group(function (){
         Route::post('/projects/entrance_study/imports_excel/{project}', 'storeExcel')->name('projects.entrance_study.imports_excel.store_excel');
+    });
+
+    Route::controller(CrossDocumentationController::class)->group(function (){
+        Route::post('/projects/cross_documentation/imports_excel/{project}', 'storeExcel')->name('projects.cross_documentation.imports_excel.store_excel');
     });
 
     Route::controller(VolumeController::class)->group(function (){

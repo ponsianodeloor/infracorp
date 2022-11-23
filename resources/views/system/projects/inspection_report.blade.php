@@ -1059,6 +1059,27 @@
 
     <p><strong>14.2 DOCUMENTACION CURSADA</strong></p>
 
+    @if(count($project->crossDocumentations)>0)
+        <table class="table table-bordered table-striped mt-3 small">
+            <tr>
+                <td>Fecha</td>
+                <td>Oficio o Memorandum</td>
+                <td>Para</td>
+                <td>De</td>
+                <td>Asunto</td>
+            </tr>
+            @foreach($project->crossDocumentations as $cross_documentation)
+                <tr>
+                    <td>{{$cross_documentation->date}}</td>
+                    <td>{{$cross_documentation->document}}</td>
+                    <td>{{$cross_documentation->for}}</td>
+                    <td>{{$cross_documentation->of}}</td>
+                    <td>{{$cross_documentation->affair}}</td>
+                </tr>
+            @endforeach
+        </table>
+    @endif
+
     <p><strong>15.- Anexos.-</strong></p>
 
     <p>Atentamente,</p>

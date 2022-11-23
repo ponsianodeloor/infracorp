@@ -1212,6 +1212,65 @@
                             </div>
                             <!-- /.card -->
 
+                            13
+                            14
+
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h3>14 Asuntos Pendientes</h3>
+                                </div>
+                            </div>
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">14.2 Documentacion Cursada</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.cross_documentation.imports_excel.store_excel', $project)}}" method="post" enctype="multipart/form-data">
+                                        @csrf
+                                        <x-adminlte-input-file name="file_xls_cross_documentation" label="Subir Archivo XLS" placeholder="Choose a File Subir Documentacion Cruzada...">
+                                            <x-slot name="prependSlot">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-file-excel text-lightblue"></i>
+                                                </div>
+                                            </x-slot>
+                                            <x-slot name="bottomSlot">
+                                            </x-slot>
+                                        </x-adminlte-input-file>
+                                        <x-adminlte-button label="Cargar Archivo XLS " theme="primary btn-block" icon="fas fa-save" type="submit"/>
+                                    </form>
+
+                                    @if(count($project->crossDocumentations)>0)
+                                        <table class="table table-bordered table-striped mt-3 small">
+                                            <tr>
+                                                <td>Fecha</td>
+                                                <td>Oficio o Memorandum</td>
+                                                <td>Para</td>
+                                                <td>De</td>
+                                                <td>Asunto</td>
+                                            </tr>
+                                            @foreach($project->crossDocumentations as $cross_documentation)
+                                                <tr>
+                                                    <td>{{$cross_documentation->date}}</td>
+                                                    <td>{{$cross_documentation->document}}</td>
+                                                    <td>{{$cross_documentation->for}}</td>
+                                                    <td>{{$cross_documentation->of}}</td>
+                                                    <td>{{$cross_documentation->affair}}</td>
+                                                </tr>
+                                            @endforeach
+                                        </table>
+                                    @endif
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-three-profile" role="tabpanel" aria-labelledby="custom-tabs-three-profile-tab">
                             <div class="card">
