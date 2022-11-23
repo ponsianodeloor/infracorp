@@ -1099,6 +1099,65 @@
                                 <!-- /.card-body -->
                             </div>
                             <!-- /.card -->
+
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h3>11.- Estado Economico del contrato de fiscalizacion</h3>
+                                </div>
+                            </div>
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Cargar Estado Economico del contrato de fiscalizacion</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.economic_state.imports_excel.store_excel', $project)}}" method="post" enctype="multipart/form-data">
+                                        @csrf
+                                        <x-adminlte-input-file name="file_xls_economic_state" label="Subir Archivo XLS" placeholder="Choose a File Subir Personal de fiscalizacion...">
+                                            <x-slot name="prependSlot">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-file-excel text-lightblue"></i>
+                                                </div>
+                                            </x-slot>
+                                            <x-slot name="bottomSlot">
+                                            </x-slot>
+                                        </x-adminlte-input-file>
+                                        <x-adminlte-button label="Cargar Archivo XLS " theme="primary btn-block" icon="fas fa-save" type="submit"/>
+                                    </form>
+
+                                    @if(count($project->economicStates)>0)
+                                        <table class="table table-bordered table-striped mt-3 small">
+                                            <tr>
+                                                <td>Concepto</td>
+                                                <td>Periodo Ejecucion</td>
+                                                <td>Monto Total</td>
+                                                <td>Descuento Anticipo</td>
+                                                <td>Liquido</td>
+                                                <td>Porcentaje Avance Economico</td>
+                                            </tr>
+                                            @foreach($project->economicStates as $economicState)
+                                                <tr>
+                                                    <td>{{$economicState->concept}}</td>
+                                                    <td>{{$economicState->execution_period}}</td>
+                                                    <td>{{$economicState->total_amount}}</td>
+                                                    <td>{{$economicState->advance_discount}}</td>
+                                                    <td>{{$economicState->liquid}}</td>
+                                                    <td>{{$economicState->economic_progress_percentage}}</td>
+                                                </tr>
+                                            @endforeach
+                                        </table>
+                                    @endif
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-three-profile" role="tabpanel" aria-labelledby="custom-tabs-three-profile-tab">
                             <div class="card">

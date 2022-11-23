@@ -988,7 +988,47 @@
 
     <p><strong>10.- PERSONAL DE LA FISCALIZACION</strong></p>
 
+    @if(count($project->inspectionPersonals)>0)
+        <table border="1">
+            <tr>
+                <td>Nombre</td>
+                <td>Cargo</td>
+                <td>Aprobacion</td>
+            </tr>
+            @foreach($project->inspectionPersonals as $inspectionPersonal)
+                <tr>
+                    <td>{{$inspectionPersonal->name}}</td>
+                    <td>{{$inspectionPersonal->position}}</td>
+                    <td>{{$inspectionPersonal->approval}}</td>
+                </tr>
+            @endforeach
+        </table>
+    @endif
+
     <p><strong>11.- Estado económico del contrato de fiscalización</strong></p>
+
+    @if(count($project->economicStates)>0)
+        <table border="1">
+            <tr>
+                <td>Concepto</td>
+                <td>Periodo Ejecucion</td>
+                <td>Monto Total</td>
+                <td>Descuento Anticipo</td>
+                <td>Liquido</td>
+                <td>Porcentaje Avance Economico</td>
+            </tr>
+            @foreach($project->economicStates as $economicState)
+                <tr>
+                    <td>{{$economicState->concept}}</td>
+                    <td>{{$economicState->execution_period}}</td>
+                    <td>{{$economicState->total_amount}}</td>
+                    <td>{{$economicState->advance_discount}}</td>
+                    <td>{{$economicState->liquid}}</td>
+                    <td>{{$economicState->economic_progress_percentage}}</td>
+                </tr>
+            @endforeach
+        </table>
+    @endif
 
     <p><strong>12.- INFORMACION DEL PROCESO DE APROBACION DE PLANOS:</strong></p>
     <p><strong>12.1.- INGRESO DE ESTUDIOS A MUNICIPIO</strong></p>

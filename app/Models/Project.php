@@ -56,4 +56,8 @@ class Project extends Model
     public function inspectionPersonals(){
         return $this->hasMany(InspectionPersonal::class);
     }
+
+    public function economicStates(){
+        return $this->hasMany(EconomicState::class);
+    }
 }

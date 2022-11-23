@@ -18,6 +18,7 @@ use App\Http\Controllers\ScheduleComplianceControlController;
 use App\Http\Controllers\InspectionActivitiesPeriodController;
 use App\Http\Controllers\WarrantyReviewController;
 use App\Http\Controllers\InspectionPersonalController;
+use App\Http\Controllers\EconomicStateController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -99,6 +100,10 @@ Route::middleware([
 
     Route::controller(InspectionPersonalController::class)->group(function (){
         Route::post('/projects/inspection_personals/imports_excel/{project}', 'storeExcel')->name('projects.inspection_personals.imports_excel.store_excel');
+    });
+
+    Route::controller(EconomicStateController::class)->group(function (){
+        Route::post('/projects/economic_state/imports_excel/{project}', 'storeExcel')->name('projects.economic_state.imports_excel.store_excel');
     });
 
     Route::controller(VolumeController::class)->group(function (){
