@@ -12,6 +12,12 @@ use App\Http\Controllers\InfraestructureActivityController;
 use App\Http\Controllers\IntervenedWorkIdentificationController;
 use App\Http\Controllers\InspectionContractController;
 use App\Http\Controllers\ExecutedApprovedMountController;
+use App\Http\Controllers\ContractorWorkerController;
+use App\Http\Controllers\ProductWorkContractorController;
+use App\Http\Controllers\ScheduleComplianceControlController;
+use App\Http\Controllers\InspectionActivitiesPeriodController;
+use App\Http\Controllers\WarrantyReviewController;
+use App\Http\Controllers\InspectionPersonalController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -69,6 +75,30 @@ Route::middleware([
 
     Route::controller(ExecutedApprovedMountController::class)->group(function (){
         Route::post('/projects/execute_approved_mounts/imports_excel/{project}', 'storeExcel')->name('projects.execute_approved_mounts.imports_excel.store_excel');
+    });
+
+    Route::controller(ContractorWorkerController::class)->group(function (){
+        Route::post('/projects/contractor_workers/imports_excel/{project}', 'storeExcel')->name('projects.contractor_workers.imports_excel.store_excel');
+    });
+
+    Route::controller(ProductWorkContractorController::class)->group(function (){
+        Route::post('/projects/product_work_contractors/imports_excel/{project}', 'storeExcel')->name('projects.product_work_contractors.imports_excel.store_excel');
+    });
+
+    Route::controller(ScheduleComplianceControlController::class)->group(function (){
+        Route::post('/projects/schedule_compliance_control/imports_excel/{project}', 'storeExcel')->name('projects.schedule_compliance_control.imports_excel.store_excel');
+    });
+
+    Route::controller(InspectionActivitiesPeriodController::class)->group(function (){
+        Route::post('/projects/inspection_activities_period/imports_excel/{project}', 'storeExcel')->name('projects.inspection-activities-period.imports-excel.store_excel');
+    });
+
+    Route::controller(WarrantyReviewController::class)->group(function (){
+        Route::post('/projects/warranty_review/imports_excel/{project}', 'storeExcel')->name('projects.warranty_review.imports_excel.store_excel');
+    });
+
+    Route::controller(InspectionPersonalController::class)->group(function (){
+        Route::post('/projects/inspection_personals/imports_excel/{project}', 'storeExcel')->name('projects.inspection_personals.imports_excel.store_excel');
     });
 
     Route::controller(VolumeController::class)->group(function (){

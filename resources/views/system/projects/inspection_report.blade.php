@@ -536,6 +536,12 @@
 
     <p><strong>2.3- Grafico del Proyecto</strong></p>
 
+    @if($project->url_image_location)
+        <div style="overflow: hidden;">
+            <img src="{{env('APP_URL')}}{{$project->url_image_location}}" width="100%" alt="image project">
+        </div>
+    @endif
+
     <p><strong>3.- CONTRATO DE FISCALIZACION</strong></p>
     <p><strong>3.1- Fiscalizacion Temporal anterior</strong></p>
     <div style="text-align: justify">
@@ -861,18 +867,122 @@
 
     <p><strong>4.3- Personal del Contratista</strong></p>
 
+    @if(count($project->contractorWorkers)>0)
+        <table border="1">
+            <tr>
+                <td><strong>Cargo</strong></td>
+                <td><strong>Cantidad</strong></td>
+                <td><strong>Nombre</strong></td>
+                <td><strong>Observaciones</strong></td>
+            </tr>
+            @foreach($project->contractorWorkers as $contractorWorker)
+                <tr>
+                    <td>{{$contractorWorker->position}}</td>
+                    <td>{{$contractorWorker->amount}}</td>
+                    <td>{{$contractorWorker->name}}</td>
+                    <td>{{$contractorWorker->observations}}</td>
+                </tr>
+            @endforeach
+        </table>
+    @endif
+
     <p><strong>5.- Productos de los trabajos ejecutados por la empresa contratista</strong></p>
     <p>En el presente periodo de trabajos el contratista realiza:</p>
+
+    @if(count($project->productWorkContractors)>0)
+        <table border="1" style=" font-size: 8px;" width="100%">
+            <tr>
+                <td>"#"</td>
+                <td>MDG</td>
+                <td>Subcircuito</td>
+                <td>TipoGrafica</td>
+                <td>Estudio Suelos</td>
+                <td>Certificado Ambiental</td>
+                <td>Revision Topografica</td>
+                <td>Implantaciones</td>
+                <td>Memorias Arquitectonicas</td>
+                <td>Estructural</td>
+                <td>Electrica Electronica</td>
+                <td>Hidrosanitario</td>
+                <td>Estudio Mecanico</td>
+            </tr>
+            @foreach($project->productWorkContractors as $productWorkContractor)
+                <tr>
+                    <td>{{$productWorkContractor->number}}</td>
+                    <td>{{$productWorkContractor->mdg}}</td>
+                    <td>{{$productWorkContractor->sub_circuit}}</td>
+                    <td>{{$productWorkContractor->typography}}</td>
+                    <td>{{$productWorkContractor->soil_study}}</td>
+                    <td>{{$productWorkContractor->environmental_certificate}}</td>
+                    <td>{{$productWorkContractor->typographical_revision}}</td>
+                    <td>{{$productWorkContractor->implantations}}</td>
+                    <td>{{$productWorkContractor->architectural_memories}}</td>
+                    <td>{{$productWorkContractor->structural}}</td>
+                    <td>{{$productWorkContractor->electrical_electronic}}</td>
+                    <td>{{$productWorkContractor->hydro_sanitary}}</td>
+                    <td>{{$productWorkContractor->mechanical_study}}</td>
+                </tr>
+            @endforeach
+        </table>
+    @endif
 
     <p><strong>6.- RESULTADOS DE LA REVISION DE ESUDIOS DEFINITIVOS</strong></p>
     <p><strong>7.- EVALUACION DE LOS ESTUDIOS DE PRESUPUESTOS DE ESTUDIOS DEFINITIVOS</strong></p>
     <p><strong>8.- CONTROL DE CUMPLIMIENTO DE CRONOGRAMA.-</strong></p>
     <p>Se lo realiza, analizando lo ejecutado, versus lo programado</p>
 
+    @if(count($project->scheduleComplianceControls)>0)
+        <table border="1">
+            <tr>
+                <td>Mes</td>
+                <td>Calendario</td>
+                <td>Programado Acumumulado</td>
+                <td>Ejecutado Acumulado</td>
+                <td>Porcentaje de Cumplimiento</td>
+                <td>Diferencia en Mora</td>
+            </tr>
+            @foreach($project->scheduleComplianceControls as $scheduleComplianceControl)
+                <tr>
+                    <td>{{$scheduleComplianceControl->month}}</td>
+                    <td>{{$scheduleComplianceControl->calendar}}</td>
+                    <td>{{$scheduleComplianceControl->cumulative_scheduled}}</td>
+                    <td>{{$scheduleComplianceControl->executed_scheduled}}</td>
+                    <td>{{$scheduleComplianceControl->compliance_percentage}}</td>
+                    <td>{{$scheduleComplianceControl->difference_in_arrears}}</td>
+                </tr>
+            @endforeach
+        </table>
+    @endif
+
     <p><strong>9.- LABORES DE FISCALIZACION</strong></p>
     <p><strong>9.1.- Revisión de documentación del proyecto:</strong></p>
 
     <p><strong>9.2.- Revisión de Garantías:</strong></p>
+
+    @if(count($project->warrantyReviews)>0)
+        <table border="1" style="font-size: 10px" class="table table-bordered table-striped mt-3 small">
+            <tr>
+                <td>Tipo Garantia</td>
+                <td>Entidad Emisora</td>
+                <td>Numero</td>
+                <td>Referencia</td>
+                <td>Monto</td>
+                <td>Vigencia desde</td>
+                <td>Vigencia hasta</td>
+            </tr>
+            @foreach($project->warrantyReviews as $warrantyReview)
+                <tr>
+                    <td>{{$warrantyReview->type_guarantee}}</td>
+                    <td>{{$warrantyReview->issuing_entity}}</td>
+                    <td>{{$warrantyReview->number}}</td>
+                    <td>{{$warrantyReview->reference}}</td>
+                    <td>{{$warrantyReview->amount}}</td>
+                    <td>{{$warrantyReview->valid_since}}</td>
+                    <td>{{$warrantyReview->valid_until}}</td>
+                </tr>
+            @endforeach
+        </table>
+    @endif
 
     <p><strong>9.3.- Actividades de Fiscalización en el periodo</strong></p>
 

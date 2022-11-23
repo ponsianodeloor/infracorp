@@ -36,4 +36,24 @@ class Project extends Model
     public function executeApprovedAmounts(){
         return $this->hasMany(ExecutedApprovedMount::class);
     }
+
+    public function contractorWorkers(){
+        return $this->hasMany(ContractorWorker::class);
+    }
+
+    public function productWorkContractors(){
+        return $this->hasMany(ProductWorkContractor::class);
+    }
+
+    public function scheduleComplianceControls(){
+        return $this->hasMany(ScheduleComplianceControl::class);
+    }
+
+    public function warrantyReviews(){
+        return $this->hasMany(WarrantyReview::class);
+    }
+
+    public function inspectionPersonals(){
+        return $this->hasMany(InspectionPersonal::class);
+    }
 }

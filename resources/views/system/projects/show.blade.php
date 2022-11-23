@@ -679,13 +679,7 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <form action="{{route('projects.inspection_reports.previous_temporary_control.update', $project->inspectionReport)}}" method="post">
-                                        @csrf
-                                        @method('PUT')
-
-                                        formulario
-                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Temporal Anterior">
-                                    </form>
+                                    Esta informacion se edita en el formulario de Proyecto y Fiscalizacion
                                 </div>
                                 <!-- /.card-body -->
                             </div>
@@ -766,13 +760,38 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <form action="{{route('projects.inspection_reports.previous_temporary_control.update', $project->inspectionReport)}}" method="post">
+                                    <form action="{{route('projects.contractor_workers.imports_excel.store_excel', $project)}}" method="post" enctype="multipart/form-data">
                                         @csrf
-                                        @method('PUT')
-
-                                        formulario
-                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Temporal Anterior">
+                                        <x-adminlte-input-file name="file_xls_contractor_workers" label="Subir Archivo XLS" placeholder="Choose a File Personal del Contratista...">
+                                            <x-slot name="prependSlot">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-file-excel text-lightblue"></i>
+                                                </div>
+                                            </x-slot>
+                                            <x-slot name="bottomSlot">
+                                            </x-slot>
+                                        </x-adminlte-input-file>
+                                        <x-adminlte-button label="Cargar Archivo XLS " theme="primary btn-block" icon="fas fa-save" type="submit"/>
                                     </form>
+
+                                    @if(count($project->contractorWorkers)>0)
+                                        <table class="table table-bordered table-striped mt-3">
+                                            <tr>
+                                                <td>Cargo</td>
+                                                <td>Cantidad</td>
+                                                <td>Nombre</td>
+                                                <td>Observaciones</td>
+                                            </tr>
+                                            @foreach($project->contractorWorkers as $contractorWorker)
+                                                <tr>
+                                                    <td>{{$contractorWorker->position}}</td>
+                                                    <td>{{$contractorWorker->amount}}</td>
+                                                    <td>{{$contractorWorker->name}}</td>
+                                                    <td>{{$contractorWorker->observations}}</td>
+                                                </tr>
+                                            @endforeach
+                                        </table>
+                                    @endif
                                 </div>
                                 <!-- /.card-body -->
                             </div>
@@ -786,7 +805,7 @@
 
                             <div class="card collapsed-card">
                                 <div class="card-header">
-                                    <h3 class="card-title">En el presente periodo de trabajos el contratista realiza:</h3>
+                                    <h3 class="card-title">Productos de los trabajos ejecutados por la empresa contratista:</h3>
                                     <div class="card-tools">
                                         <!-- Collapse Button -->
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
@@ -795,13 +814,57 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <form action="{{route('projects.inspection_reports.previous_temporary_control.update', $project->inspectionReport)}}" method="post">
+                                    <form action="{{route('projects.product_work_contractors.imports_excel.store_excel', $project)}}" method="post" enctype="multipart/form-data">
                                         @csrf
-                                        @method('PUT')
-
-                                        descarga y carga desde excel
-                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Temporal Anterior">
+                                        <x-adminlte-input-file name="file_xls_product_work_contractor" label="Subir Archivo XLS" placeholder="Choose a File Productos de los trabajos ejecutados...">
+                                            <x-slot name="prependSlot">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-file-excel text-lightblue"></i>
+                                                </div>
+                                            </x-slot>
+                                            <x-slot name="bottomSlot">
+                                            </x-slot>
+                                        </x-adminlte-input-file>
+                                        <x-adminlte-button label="Cargar Archivo XLS " theme="primary btn-block" icon="fas fa-save" type="submit"/>
                                     </form>
+
+                                    @if(count($project->productWorkContractors)>0)
+                                        <table class="table table-bordered table-striped mt-3 small">
+                                            <tr>
+                                                <td>"#"</td>
+                                                <td>MDG</td>
+                                                <td>Subcircuito</td>
+                                                <td>TipoGrafica</td>
+                                                <td>Estudio Suelos</td>
+                                                <td>Certificado Ambiental</td>
+                                                <td>Revision Topografica</td>
+                                                <td>Implantaciones</td>
+                                                <td>Memorias Arquitectonicas</td>
+                                                <td>Estructural</td>
+                                                <td>Electrica Electronica</td>
+                                                <td>Hidrosanitario</td>
+                                                <td>Estudio Mecanico</td>
+                                            </tr>
+                                            @foreach($project->productWorkContractors as $productWorkContractor)
+                                                <tr>
+                                                    <td>{{$productWorkContractor->number}}</td>
+                                                    <td>{{$productWorkContractor->mdg}}</td>
+                                                    <td>{{$productWorkContractor->sub_circuit}}</td>
+                                                    <td>{{$productWorkContractor->typography}}</td>
+                                                    <td>{{$productWorkContractor->soil_study}}</td>
+                                                    <td>{{$productWorkContractor->environmental_certificate}}</td>
+                                                    <td>{{$productWorkContractor->typographical_revision}}</td>
+                                                    <td>{{$productWorkContractor->implantations}}</td>
+                                                    <td>{{$productWorkContractor->architectural_memories}}</td>
+                                                    <td>{{$productWorkContractor->structural}}</td>
+                                                    <td>{{$productWorkContractor->electrical_electronic}}</td>
+                                                    <td>{{$productWorkContractor->hydro_sanitary}}</td>
+                                                    <td>{{$productWorkContractor->mechanical_study}}</td>
+                                                </tr>
+                                            @endforeach
+                                        </table>
+                                    @endif
+
                                 </div>
                                 <!-- /.card-body -->
                             </div>
@@ -836,13 +899,42 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <form action="{{route('projects.inspection_reports.previous_temporary_control.update', $project->inspectionReport)}}" method="post">
+                                    <form action="{{route('projects.schedule_compliance_control.imports_excel.store_excel', $project)}}" method="post" enctype="multipart/form-data">
                                         @csrf
-                                        @method('PUT')
-
-                                        descarga y carga desde excel
-                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Temporal Anterior">
+                                        <x-adminlte-input-file name="file_xls_schedule_compliance_control" label="Subir Archivo XLS" placeholder="Choose a File Control de cumpliento de cronograma...">
+                                            <x-slot name="prependSlot">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-file-excel text-lightblue"></i>
+                                                </div>
+                                            </x-slot>
+                                            <x-slot name="bottomSlot">
+                                            </x-slot>
+                                        </x-adminlte-input-file>
+                                        <x-adminlte-button label="Cargar Archivo XLS " theme="primary btn-block" icon="fas fa-save" type="submit"/>
                                     </form>
+
+                                    @if(count($project->scheduleComplianceControls)>0)
+                                        <table class="table table-bordered table-striped mt-3 small">
+                                            <tr>
+                                                <td>Mes</td>
+                                                <td>Calendario</td>
+                                                <td>Programado Acumumulado</td>
+                                                <td>Ejecutado Acumulado</td>
+                                                <td>Porcentaje de Cumplimiento</td>
+                                                <td>Diferencia en Mora</td>
+                                            </tr>
+                                            @foreach($project->scheduleComplianceControls as $scheduleComplianceControl)
+                                                <tr>
+                                                    <td>{{$scheduleComplianceControl->month}}</td>
+                                                    <td>{{$scheduleComplianceControl->calendar}}</td>
+                                                    <td>{{$scheduleComplianceControl->cumulative_scheduled}}</td>
+                                                    <td>{{$scheduleComplianceControl->executed_scheduled}}</td>
+                                                    <td>{{$scheduleComplianceControl->compliance_percentage}}</td>
+                                                    <td>{{$scheduleComplianceControl->difference_in_arrears}}</td>
+                                                </tr>
+                                            @endforeach
+                                        </table>
+                                    @endif
                                 </div>
                                 <!-- /.card-body -->
                             </div>
@@ -877,7 +969,136 @@
                             </div>
                             <!-- /.card -->
 
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">9.2.- Revisión de Garantias:</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.warranty_review.imports_excel.store_excel', $project)}}" method="post" enctype="multipart/form-data">
+                                        @csrf
+                                        <x-adminlte-input-file name="file_xls_warranty_review" label="Subir Archivo XLS" placeholder="Choose a File Control de cumpliento de cronograma...">
+                                            <x-slot name="prependSlot">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-file-excel text-lightblue"></i>
+                                                </div>
+                                            </x-slot>
+                                            <x-slot name="bottomSlot">
+                                            </x-slot>
+                                        </x-adminlte-input-file>
+                                        <x-adminlte-button label="Cargar Archivo XLS " theme="primary btn-block" icon="fas fa-save" type="submit"/>
+                                    </form>
 
+                                    @if(count($project->warrantyReviews)>0)
+                                        <table class="table table-bordered table-striped mt-3 small">
+                                            <tr>
+                                                <td>Tipo Garantia</td>
+                                                <td>Entidad Emisora</td>
+                                                <td>Numero</td>
+                                                <td>Referencia</td>
+                                                <td>Monto</td>
+                                                <td>Vigencia desde</td>
+                                                <td>Vigencia hasta</td>
+                                            </tr>
+                                            @foreach($project->warrantyReviews as $warrantyReview)
+                                                <tr>
+                                                    <td>{{$warrantyReview->type_guarantee}}</td>
+                                                    <td>{{$warrantyReview->issuing_entity}}</td>
+                                                    <td>{{$warrantyReview->number}}</td>
+                                                    <td>{{$warrantyReview->reference}}</td>
+                                                    <td>{{$warrantyReview->amount}}</td>
+                                                    <td>{{$warrantyReview->valid_since}}</td>
+                                                    <td>{{$warrantyReview->valid_until}}</td>
+                                                </tr>
+                                            @endforeach
+                                        </table>
+                                    @endif
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">9.3.- Actividades de fiscalizacion en el periodo</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.previous_temporary_control.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        descarga y carga desde excel
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Temporal Anterior">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h3>10.- Personal Fiscalizacion.-</h3>
+                                </div>
+                            </div>
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Cargar personal de fiscalizacion</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_personals.imports_excel.store_excel', $project)}}" method="post" enctype="multipart/form-data">
+                                        @csrf
+                                        <x-adminlte-input-file name="file_xls_inspection_personals" label="Subir Archivo XLS" placeholder="Choose a File Subir Personal de fiscalizacion...">
+                                            <x-slot name="prependSlot">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-file-excel text-lightblue"></i>
+                                                </div>
+                                            </x-slot>
+                                            <x-slot name="bottomSlot">
+                                            </x-slot>
+                                        </x-adminlte-input-file>
+                                        <x-adminlte-button label="Cargar Archivo XLS " theme="primary btn-block" icon="fas fa-save" type="submit"/>
+                                    </form>
+
+                                    @if(count($project->inspectionPersonals)>0)
+                                        <table class="table table-bordered table-striped mt-3 small">
+                                            <tr>
+                                                <td>Nombre</td>
+                                                <td>Cargo</td>
+                                                <td>Aprobacion</td>
+                                            </tr>
+                                            @foreach($project->inspectionPersonals as $inspectionPersonal)
+                                                <tr>
+                                                    <td>{{$inspectionPersonal->name}}</td>
+                                                    <td>{{$inspectionPersonal->position}}</td>
+                                                    <td>{{$inspectionPersonal->approval}}</td>
+                                                </tr>
+                                            @endforeach
+                                        </table>
+                                    @endif
+
+
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-three-profile" role="tabpanel" aria-labelledby="custom-tabs-three-profile-tab">
                             <div class="card">
