@@ -19,6 +19,7 @@ use App\Http\Controllers\InspectionActivitiesPeriodController;
 use App\Http\Controllers\WarrantyReviewController;
 use App\Http\Controllers\InspectionPersonalController;
 use App\Http\Controllers\EconomicStateController;
+use App\Http\Controllers\EntranceStudyController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -104,6 +105,10 @@ Route::middleware([
 
     Route::controller(EconomicStateController::class)->group(function (){
         Route::post('/projects/economic_state/imports_excel/{project}', 'storeExcel')->name('projects.economic_state.imports_excel.store_excel');
+    });
+
+    Route::controller(EntranceStudyController::class)->group(function (){
+        Route::post('/projects/entrance_study/imports_excel/{project}', 'storeExcel')->name('projects.entrance_study.imports_excel.store_excel');
     });
 
     Route::controller(VolumeController::class)->group(function (){

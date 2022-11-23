@@ -1158,6 +1158,60 @@
                             </div>
                             <!-- /.card -->
 
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h3>12.- Estado Economico del contrato de fiscalizacion</h3>
+                                </div>
+                            </div>
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">12.1 Ingreso de Estudios a Municipio</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.entrance_study.imports_excel.store_excel', $project)}}" method="post" enctype="multipart/form-data">
+                                        @csrf
+                                        <x-adminlte-input-file name="file_xls_entrance_study" label="Subir Archivo XLS" placeholder="Choose a File Subir Ingreso de Estudios a Municipio...">
+                                            <x-slot name="prependSlot">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-file-excel text-lightblue"></i>
+                                                </div>
+                                            </x-slot>
+                                            <x-slot name="bottomSlot">
+                                            </x-slot>
+                                        </x-adminlte-input-file>
+                                        <x-adminlte-button label="Cargar Archivo XLS " theme="primary btn-block" icon="fas fa-save" type="submit"/>
+                                    </form>
+
+                                    @if(count($project->entranceStudies)>0)
+                                        <table class="table table-bordered table-striped mt-3 small">
+                                            <tr>
+                                                <td>Ingreso</td>
+                                                <td>Devolucion</td>
+                                                <td>Reingreso</td>
+                                                <td>Documento de Respaldo</td>
+                                            </tr>
+                                            @foreach($project->entranceStudies as $entranceStudy)
+                                                <tr>
+                                                    <td>{{$entranceStudy->entry}}</td>
+                                                    <td>{{$entranceStudy->return}}</td>
+                                                    <td>{{$entranceStudy->re_entry}}</td>
+                                                    <td>{{$entranceStudy->backup_document}}</td>
+                                                </tr>
+                                            @endforeach
+                                        </table>
+                                    @endif
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-three-profile" role="tabpanel" aria-labelledby="custom-tabs-three-profile-tab">
                             <div class="card">

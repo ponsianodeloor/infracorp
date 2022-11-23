@@ -60,4 +60,8 @@ class Project extends Model
     public function economicStates(){
         return $this->hasMany(EconomicState::class);
     }
+
+    public function entranceStudies(){
+        return $this->hasMany(EntranceStudy::class);
+    }
 }
