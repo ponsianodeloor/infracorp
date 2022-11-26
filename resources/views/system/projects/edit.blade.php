@@ -224,20 +224,20 @@
                         <div class="card-header p-0 pt-1 border-bottom-0">
                             <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="custom-tabs-three-home-tab"
-                                       data-toggle="pill" href="#custom-tabs-three-home" role="tab"
-                                       aria-controls="custom-tabs-three-home" aria-selected="false">Proyecto</a>
+                                    <a class="nav-link active" id="custom-tabs-three-project-tab"
+                                       data-toggle="pill" href="#custom-tabs-three-project" role="tab"
+                                       aria-controls="custom-tabs-three-project" aria-selected="false">Proyecto</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="custom-tabs-three-profile-tab" data-toggle="pill"
-                                       href="#custom-tabs-three-profile" role="tab"
-                                       aria-controls="custom-tabs-three-profile" aria-selected="false">Fiscalizacion</a>
+                                    <a class="nav-link" id="custom-tabs-three-inspection-tab" data-toggle="pill"
+                                       href="#custom-tabs-three-inspection" role="tab"
+                                       aria-controls="custom-tabs-three-inspection" aria-selected="false">Fiscalizacion</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="card-body">
                             <div class="tab-content" id="custom-tabs-three-tabContent">
-                                <div class="tab-pane fade active show" id="custom-tabs-three-home" role="tabpanel" aria-labelledby="custom-tabs-three-home-tab">
+                                <div class="tab-pane fade active show" id="custom-tabs-three-project" role="tabpanel" aria-labelledby="custom-tabs-three-project-tab">
 
                                     <form action="{{route('projects.update', $project)}}" method="post">
                                         @csrf
@@ -438,8 +438,8 @@
                                     </form>
 
                                 </div>
-                                <div class="tab-pane fade" id="custom-tabs-three-profile" role="tabpanel"
-                                     aria-labelledby="custom-tabs-three-profile-tab">
+                                <div class="tab-pane fade" id="custom-tabs-three-inspection" role="tabpanel"
+                                     aria-labelledby="custom-tabs-three-inspection-tab">
 
                                     <form action="{{route('projects.inspections_contract.update', $project->inspectionContract)}}" method="post">
                                         @csrf
@@ -629,7 +629,7 @@
                                                aria-controls="custom-tabs-three-home" aria-selected="false">Actividad</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="custom-tabs-three-profile-tab" data-toggle="pill"
+                                                <a class="nav-link" id="custom-tabs-three-profile-tab" data-toggle="pill"
                                                href="#custom-tabs-three-profile" role="tab"
                                                aria-controls="custom-tabs-three-profile" aria-selected="false">Tipo</a>
                                         </li>
