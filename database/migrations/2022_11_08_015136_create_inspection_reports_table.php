@@ -18,6 +18,12 @@ return new class extends Migration
             $table->text('previous_temporary_control')->nullable();
             $table->text('contracted_control')->nullable();
             $table->string('resume_audited_contract', 255)->nullable();
+            $table->text('project_documentation_review')->nullable();
+            $table->text('warranty_review',)->nullable();
+            $table->text('conclusions_recommendations')->nullable();
+            $table->text('attention_pending_issues')->nullable();
+            $table->text('annexes')->nullable();
+            $table->text('signature')->nullable();
             $table->unsignedBigInteger('project_id');
 
             $table->foreign('project_id')

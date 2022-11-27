@@ -94,6 +94,60 @@ class InspectionReportController extends Controller
         return redirect()->route('projects.show', $project);
     }
 
+    public function updateProjectDocumentationReview(Request $request, InspectionReport $inspectionReport){
+        $inspectionReport->project_documentation_review = $request->project_documentation_review;
+        $inspectionReport->save();
+
+        $project = $inspectionReport->project;
+
+        return redirect()->route('projects.show', $project);
+    }
+
+    public function updateWarrantyReview(Request $request, InspectionReport $inspectionReport){
+        $inspectionReport->warranty_review = $request->warranty_review;
+        $inspectionReport->save();
+
+        $project = $inspectionReport->project;
+
+        return redirect()->route('projects.show', $project);
+    }
+
+    public function updateConclusionsRecommendations(Request $request, InspectionReport $inspectionReport){
+        $inspectionReport->attention_pending_issues = $request->attention_pending_issues;
+        $inspectionReport->save();
+
+        $project = $inspectionReport->project;
+
+        return redirect()->route('projects.show', $project);
+    }
+
+    public function updateAttentionPendingIssues(Request $request, InspectionReport $inspectionReport){
+        $inspectionReport->attention_pending_issues = $request->attention_pending_issues;
+        $inspectionReport->save();
+
+        $project = $inspectionReport->project;
+
+        return redirect()->route('projects.show', $project);
+    }
+
+    public function updateAnnexes(Request $request, InspectionReport $inspectionReport){
+        $inspectionReport->annexes = $request->annexes;
+        $inspectionReport->save();
+
+        $project = $inspectionReport->project;
+
+        return redirect()->route('projects.show', $project);
+    }
+
+    public function updateSignature(Request $request, InspectionReport $inspectionReport){
+        $inspectionReport->signature = $request->signature;
+        $inspectionReport->save();
+
+        $project = $inspectionReport->project;
+
+        return redirect()->route('projects.show', $project);
+    }
+
     public function destroy(InspectionReport $inspectionReport){
 
     }

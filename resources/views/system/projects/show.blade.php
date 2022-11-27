@@ -574,7 +574,7 @@
                                         @csrf
                                         @method('PUT')
 
-                                        <textarea id="editor_3" name="contracted_control">
+                                        <textarea id="editor_3" name="previous_temporary_control">
                                             {{$project->inspectionReport->previous_temporary_control}}
                                         </textarea>
                                         <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Temporal Anterior">
@@ -957,12 +957,14 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <form action="{{route('projects.inspection_reports.previous_temporary_control.update', $project->inspectionReport)}}" method="post">
+                                    <form action="{{route('projects.inspection_reports.project_documentation_review.update', $project->inspectionReport)}}" method="post">
                                         @csrf
                                         @method('PUT')
 
-                                        descarga y carga desde excel
-                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Temporal Anterior">
+                                        <textarea id="editor_5" name="project_documentation_review">
+                                            {{$project->inspectionReport->project_documentation_review}}
+                                        </textarea>
+                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Revisión de documentación del proyecto">
                                     </form>
                                 </div>
                                 <!-- /.card-body -->
@@ -980,6 +982,17 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
+
+                                    <form action="{{route('projects.inspection_reports.warranty_review.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        <textarea id="editor_6" name="warranty_review">
+                                            {{$project->inspectionReport->warranty_review}}
+                                        </textarea>
+                                        <input type="submit" class="btn btn-primary btn-block mt-4 mb-5" value="Guardar Revisión de Garantias">
+                                    </form>
+
                                     <form action="{{route('projects.warranty_review.imports_excel.store_excel', $project)}}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <x-adminlte-input-file name="file_xls_warranty_review" label="Subir Archivo XLS" placeholder="Choose a File Control de cumpliento de cronograma...">
@@ -1212,14 +1225,68 @@
                             </div>
                             <!-- /.card -->
 
-                            13
-                            14
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h3>13.- CONCLUSIONES Y RECOMENDACIONES (ENTREGA RECEPCION)</h3>
+                                </div>
+                            </div>
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">13.1 Guardar Conclusiones y recomendaciones</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.conclusions_recommendations.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        <textarea id="editor_7" name="conclusions_recommendations">
+                                            {{$project->inspectionReport->conclusions_recommendations}}
+                                        </textarea>
+                                        <input type="submit" class="btn btn-primary btn-block mt-4 mb-5" value="Guardar Conclusiones y recomendaciones">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
 
                             <div class="card card-outline card-primary">
                                 <div class="card-header">
                                     <h3>14 Asuntos Pendientes</h3>
                                 </div>
                             </div>
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">14.1 Atencion de asuntos pendientes</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.attention_pending_issues.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        <textarea id="editor_8" name="attention_pending_issues">
+                                            {{$project->inspectionReport->attention_pending_issues}}
+                                        </textarea>
+                                        <input type="submit" class="btn btn-primary btn-block mt-4 mb-5" value="Guardar Atencion de asuntos pendientes">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
 
                             <div class="card collapsed-card">
                                 <div class="card-header">
@@ -1266,6 +1333,62 @@
                                             @endforeach
                                         </table>
                                     @endif
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h3>15 Anexos</h3>
+                                </div>
+                            </div>
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">15.1 Guardar Anexos</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.annexes.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        <textarea id="editor_9" name="annexes">
+                                            {{$project->inspectionReport->annexes}}
+                                        </textarea>
+                                        <input type="submit" class="btn btn-primary btn-block mt-4 mb-5" value="Guardar Anexos">
+                                    </form>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <div class="card collapsed-card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Firma del Documento</h3>
+                                    <div class="card-tools">
+                                        <!-- Collapse Button -->
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <form action="{{route('projects.inspection_reports.signature.update', $project->inspectionReport)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+
+                                        <textarea id="editor_10" name="signature">
+                                            {{$project->inspectionReport->signature}}
+                                        </textarea>
+                                        <input type="submit" class="btn btn-primary btn-block mt-4 mb-5" value="Guardar Anexos">
+                                    </form>
                                 </div>
                                 <!-- /.card-body -->
                             </div>
@@ -1370,6 +1493,84 @@
             } )
             .then( editor_4 => {
                 window.editor_4 = editor_4;
+            } )
+            .catch( err => {
+                console.error( err.stack );
+            } );
+    </script>
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor_5' ), {
+                // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+            } )
+            .then( editor_5 => {
+                window.editor_5 = editor_5;
+            } )
+            .catch( err => {
+                console.error( err.stack );
+            } );
+    </script>
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor_6' ), {
+                // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+            } )
+            .then( editor_6 => {
+                window.editor_6 = editor_6;
+            } )
+            .catch( err => {
+                console.error( err.stack );
+            } );
+    </script>
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor_7' ), {
+                // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+            } )
+            .then( editor_7 => {
+                window.editor_7 = editor_7;
+            } )
+            .catch( err => {
+                console.error( err.stack );
+            } );
+    </script>
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor_8' ), {
+                // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+            } )
+            .then( editor_8 => {
+                window.editor_8 = editor_8;
+            } )
+            .catch( err => {
+                console.error( err.stack );
+            } );
+    </script>
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor_9' ), {
+                // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+            } )
+            .then( editor_9 => {
+                window.editor_9 = editor_9;
+            } )
+            .catch( err => {
+                console.error( err.stack );
+            } );
+    </script>
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor_10' ), {
+                // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+            } )
+            .then( editor_10 => {
+                window.editor_10 = editor_10;
             } )
             .catch( err => {
                 console.error( err.stack );

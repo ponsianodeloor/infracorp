@@ -70,6 +70,12 @@ Route::middleware([
         Route::put('/projects/inspection_reports/previous_temporary_control/{inspectionReport}', 'updatePreviousTemporaryControl')->name('projects.inspection_reports.previous_temporary_control.update');
         Route::put('/projects/inspection_reports/contracted_control/{inspectionReport}', 'updateContractedControl')->name('projects.inspection_reports.contracted_control.update');
         Route::put('/projects/inspection_reports/resume_audited_contract/{inspectionReport}', 'updateResumeAuditedContract')->name('projects.inspection_reports.resume_audited_contract.update');
+        Route::put('/projects/inspection_reports/project_documentation_review/{inspectionReport}', 'updateProjectDocumentationReview')->name('projects.inspection_reports.project_documentation_review.update');
+        Route::put('/projects/inspection_reports/warranty_review/{inspectionReport}', 'updateWarrantyReview')->name('projects.inspection_reports.warranty_review.update');
+        Route::put('/projects/inspection_reports/conclusions_recommendations/{inspectionReport}', 'updateConclusionsRecommendations')->name('projects.inspection_reports.conclusions_recommendations.update');
+        Route::put('/projects/inspection_reports/attention_pending_issues/{inspectionReport}', 'updateAttentionPendingIssues')->name('projects.inspection_reports.attention_pending_issues.update');
+        Route::put('/projects/inspection_reports/annexes/{inspectionReport}', 'updateAnnexes')->name('projects.inspection_reports.annexes.update');
+        Route::put('/projects/inspection_reports/signature/{inspectionReport}', 'updateSignature')->name('projects.inspection_reports.signature.update');
     });
 
     Route::controller(IntervenedWorkIdentificationController::class)->group(function (){

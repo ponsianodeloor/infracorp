@@ -957,10 +957,22 @@
     <p><strong>9.- LABORES DE FISCALIZACION</strong></p>
     <p><strong>9.1.- Revisión de documentación del proyecto:</strong></p>
 
+    <div style="text-align: left">
+        @php
+            echo html_entity_decode($project->inspectionReport->project_documentation_review);
+        @endphp
+    </div>
+
     <p><strong>9.2.- Revisión de Garantías:</strong></p>
 
+    <div style="text-align: justify">
+        @php
+            echo html_entity_decode($project->inspectionReport->warranty_review);
+        @endphp
+    </div>
+
     @if(count($project->warrantyReviews)>0)
-        <table border="1" style="font-size: 10px" class="table table-bordered table-striped mt-3 small">
+        <table border="1" style="font-size: 10px">
             <tr>
                 <td>Tipo Garantia</td>
                 <td>Entidad Emisora</td>
@@ -1054,13 +1066,25 @@
 
     <p><strong>13.- CONCLUSIONES Y RECOMENDACIONES (ENTREGA RECEPCION)</strong></p>
 
+    <div style="text-align: justify">
+        @php
+            echo html_entity_decode($project->inspectionReport->conclusions_recommendations);
+        @endphp
+    </div>
+
     <p><strong>14.- ASUNTOS PENDIENTES</strong></p>
     <p><strong>14.1.- Atención a asuntos pendientes</strong></p>
+
+    <div style="text-align: justify">
+        @php
+            echo html_entity_decode($project->inspectionReport->attention_pending_issues);
+        @endphp
+    </div>
 
     <p><strong>14.2 DOCUMENTACION CURSADA</strong></p>
 
     @if(count($project->crossDocumentations)>0)
-        <table class="table table-bordered table-striped mt-3 small">
+        <table border="1" class="table table-bordered table-striped mt-3 small">
             <tr>
                 <td>Fecha</td>
                 <td>Oficio o Memorandum</td>
@@ -1082,9 +1106,19 @@
 
     <p><strong>15.- Anexos.-</strong></p>
 
+    <div style="text-align: justify">
+        @php
+            echo html_entity_decode($project->inspectionReport->annexes);
+        @endphp
+    </div>
+
     <p>Atentamente,</p>
 
-
+    <div style="text-align: center">
+        @php
+            echo html_entity_decode($project->inspectionReport->signature);
+        @endphp
+    </div>
 
 
 
