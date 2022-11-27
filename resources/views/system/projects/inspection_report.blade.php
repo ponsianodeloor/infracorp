@@ -998,6 +998,29 @@
 
     <p><strong>9.3.- Actividades de Fiscalización en el periodo</strong></p>
 
+    @if(count($project->inspectionActivities)>0)
+        <table border="1" style="font-size: 10px">
+            <tr>
+                <td>Especialidad</td>
+                <td width="50px">Fecha</td>
+                <td>Acta Numero</td>
+                <td>Asunto</td>
+                <td>Predio Revisiado</td>
+                <td>Numero de Revision</td>
+            </tr>
+            @foreach($project->inspectionActivities as $inspection_activity)
+                <tr>
+                    <td>{{$inspection_activity->specialty}}</td>
+                    <td>{{$inspection_activity->date}}</td>
+                    <td>{{$inspection_activity->act_number}}</td>
+                    <td>{{$inspection_activity->affair}}</td>
+                    <td>{{$inspection_activity->revised_property}}</td>
+                    <td>{{$inspection_activity->revision_number}}</td>
+                </tr>
+            @endforeach
+        </table>
+    @endif
+
     <p><strong>10.- PERSONAL DE LA FISCALIZACION</strong></p>
 
     @if(count($project->inspectionPersonals)>0)

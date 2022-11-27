@@ -1047,13 +1047,42 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <form action="{{route('projects.inspection_reports.previous_temporary_control.update', $project->inspectionReport)}}" method="post">
+                                    <form action="{{route('projects.inspection_activity.imports_excel.store_excel', $project)}}" method="post" enctype="multipart/form-data">
                                         @csrf
-                                        @method('PUT')
-
-                                        descarga y carga desde excel
-                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Fiscalizacion Temporal Anterior">
+                                        <x-adminlte-input-file name="file_xls_inspection_activity" label="Subir Archivo XLS" placeholder="Choose a File Subir Actividades de Fiscalizacion...">
+                                            <x-slot name="prependSlot">
+                                                <div class="input-group-text">
+                                                    <i class="fa fa-file-excel text-lightblue"></i>
+                                                </div>
+                                            </x-slot>
+                                            <x-slot name="bottomSlot">
+                                            </x-slot>
+                                        </x-adminlte-input-file>
+                                        <x-adminlte-button label="Cargar Archivo XLS " theme="primary btn-block" icon="fas fa-save" type="submit"/>
                                     </form>
+
+                                    @if(count($project->inspectionActivities)>0)
+                                        <table class="table table-bordered table-striped mt-3 small">
+                                            <tr>
+                                                <td>Especialidad</td>
+                                                <td>Fecha</td>
+                                                <td>Acta Numero</td>
+                                                <td>Asunto</td>
+                                                <td>Predio Revisiado</td>
+                                                <td>Numero de Revision</td>
+                                            </tr>
+                                            @foreach($project->inspectionActivities as $inspection_activity)
+                                                <tr>
+                                                    <td>{{$inspection_activity->specialty}}</td>
+                                                    <td>{{$inspection_activity->date}}</td>
+                                                    <td>{{$inspection_activity->act_number}}</td>
+                                                    <td>{{$inspection_activity->affair}}</td>
+                                                    <td>{{$inspection_activity->revised_property}}</td>
+                                                    <td>{{$inspection_activity->revision_number}}</td>
+                                                </tr>
+                                            @endforeach
+                                        </table>
+                                    @endif
                                 </div>
                                 <!-- /.card-body -->
                             </div>

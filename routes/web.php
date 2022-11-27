@@ -21,6 +21,7 @@ use App\Http\Controllers\InspectionPersonalController;
 use App\Http\Controllers\EconomicStateController;
 use App\Http\Controllers\EntranceStudyController;
 use App\Http\Controllers\CrossDocumentationController;
+use App\Http\Controllers\InspectionActivityController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -120,6 +121,10 @@ Route::middleware([
 
     Route::controller(CrossDocumentationController::class)->group(function (){
         Route::post('/projects/cross_documentation/imports_excel/{project}', 'storeExcel')->name('projects.cross_documentation.imports_excel.store_excel');
+    });
+
+    Route::controller(InspectionActivityController::class)->group(function (){
+        Route::post('/projects/inspection_activity/imports_excel/{project}', 'storeExcel')->name('projects.inspection_activity.imports_excel.store_excel');
     });
 
     Route::controller(VolumeController::class)->group(function (){

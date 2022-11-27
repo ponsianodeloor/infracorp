@@ -68,4 +68,8 @@ class Project extends Model
     public function crossDocumentations(){
         return $this->hasMany(CrossDocumentation::class);
     }
+
+    public function inspectionActivities(){
+        return $this->hasMany(InspectionActivity::class);
+    }
 }
