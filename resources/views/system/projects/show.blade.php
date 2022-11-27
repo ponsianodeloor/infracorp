@@ -650,13 +650,7 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <form action="{{route('projects.inspection_reports.contracted_control.update', $project->inspectionReport)}}" method="post">
-                                        @csrf
-                                        @method('PUT')
-
-                                        formulario
-                                        <input type="submit" class="btn btn-primary btn-block mt-4" value="Guardar Resumen del Contrato de Fiscalizacion">
-                                    </form>
+                                    Los cambios se realizan en la edicion del proyecto
                                 </div>
                                 <!-- /.card-body -->
                             </div>
@@ -679,7 +673,127 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    Esta informacion se edita en el formulario de Proyecto y Fiscalizacion
+                                    <div class="card card-primary card-outline card-tabs">
+                                        <div class="card-header p-0 pt-1 border-bottom-0">
+                                            <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="custom-tabs-three-state_execution-tab" data-toggle="pill" href="#custom-tabs-three-state_execution" role="tab" aria-controls="custom-tabs-three-state_execution" aria-selected="true">Estado de Ejecucion</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="custom-tabs-three-stage-tab" data-toggle="pill" href="#custom-tabs-three-stage" role="tab" aria-controls="custom-tabs-three-stage" aria-selected="false">Etapas</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="tab-content" id="custom-tabs-three-tabContent">
+                                                <div class="tab-pane fade active show" id="custom-tabs-three-state_execution" role="tabpanel" aria-labelledby="custom-tabs-three-state_execution-tab">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <div class="card card-primary">
+                                                                <div class="card-header">
+                                                                    <h3 class="card-title">Registro de etapas</h3>
+                                                                </div>
+                                                                <div class="card-body">
+
+                                                                    <form action="{{route('projects.execution_status.store', $project)}}" method="post">
+                                                                        @csrf
+                                                                        {{-- With prepend slot --}}
+                                                                        <x-adminlte-input name="stage" label="Etapa" placeholder="Etapa" label-class="text-lightblue">
+                                                                            <x-slot name="prependSlot">
+                                                                                <div class="input-group-text">
+                                                                                    <i class="fas fa-map text-lightblue"></i>
+                                                                                </div>
+                                                                            </x-slot>
+                                                                        </x-adminlte-input>
+
+
+                                                                        {{-- With prepend slot --}}
+                                                                        <x-adminlte-input name="start_date" label="Fecha Inicio" placeholder="Fecha de Inicio" label-class="text-lightblue">
+                                                                            <x-slot name="prependSlot">
+                                                                                <div class="input-group-text">
+                                                                                    <i class="fas fa-calendar text-lightblue"></i>
+                                                                                </div>
+                                                                            </x-slot>
+                                                                        </x-adminlte-input>
+
+                                                                        {{-- With prepend slot --}}
+                                                                        <x-adminlte-input name="final_date" label="Fecha Final" placeholder="Fecha Final" label-class="text-lightblue">
+                                                                            <x-slot name="prependSlot">
+                                                                                <div class="input-group-text">
+                                                                                    <i class="fas fa-calendar text-lightblue"></i>
+                                                                                </div>
+                                                                            </x-slot>
+                                                                        </x-adminlte-input>
+
+                                                                        <input type="submit" class="btn btn-primary btn-block" value="Guardar">
+                                                                    </form>
+
+
+
+                                                                </div>
+                                                                <div class="card-footer">
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h3 class="card-title">Ejecucion</h3>
+                                                                </div>
+
+                                                                <div class="card-body p-0">
+                                                                    <table class="table table-striped">
+                                                                        <thead>
+                                                                        <tr>
+                                                                            <th>Etapas</th>
+                                                                            <th>&nbsp;</th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                        @foreach($project->executionStates as $execution_status)
+                                                                            <tr>
+                                                                                <td width="30%">
+                                                                                    {{$execution_status->stage}}
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="progress progress-xs">
+                                                                                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td colspan="2">
+                                                                                    <table class="table table-bordered">
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                Fecha Inicio: {{$execution_status->start_date}}
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                Fecha Final: {{$execution_status->final_date}}
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                        @endforeach
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="custom-tabs-three-stage" role="tabpanel" aria-labelledby="custom-tabs-three-stage-tab">
+                                                    Etapas
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
                             </div>
@@ -1472,9 +1586,27 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
 @stop
 
 @section('js')
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#start_date" ).datepicker(
+                { dateFormat: 'yy-mm-dd' }
+            );
+
+            $( "#final_date" ).datepicker(
+                { dateFormat: 'yy-mm-dd' }
+            );
+        } );
+    </script>
+
     <script src="https://cdn.ckeditor.com/ckeditor5/35.2.0/classic/ckeditor.js"></script>
     <script>
         ClassicEditor

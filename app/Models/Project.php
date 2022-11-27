@@ -25,6 +25,10 @@ class Project extends Model
         return $this->hasOne(InspectionReport::class);
     }
 
+    public function executionStates(){
+        return $this->hasMany(executionStatus::class);
+    }
+
     public function infraestructures(){
         return $this->hasMany(Infraestructure::class);
     }

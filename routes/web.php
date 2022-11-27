@@ -11,6 +11,7 @@ use App\Http\Controllers\InfraestructureTypeController;
 use App\Http\Controllers\InfraestructureActivityController;
 use App\Http\Controllers\IntervenedWorkIdentificationController;
 use App\Http\Controllers\InspectionContractController;
+use App\Http\Controllers\ExecutionStatusController;
 use App\Http\Controllers\ExecutedApprovedMountController;
 use App\Http\Controllers\ContractorWorkerController;
 use App\Http\Controllers\ProductWorkContractorController;
@@ -78,6 +79,11 @@ Route::middleware([
         Route::put('/projects/inspection_reports/annexes/{inspectionReport}', 'updateAnnexes')->name('projects.inspection_reports.annexes.update');
         Route::put('/projects/inspection_reports/signature/{inspectionReport}', 'updateSignature')->name('projects.inspection_reports.signature.update');
     });
+
+    Route::controller(ExecutionStatusController::class)->group(function (){
+        Route::post('/projects/execution_status/{project}', 'store')->name('projects.execution_status.store');
+    });
+
 
     Route::controller(IntervenedWorkIdentificationController::class)->group(function (){
         Route::put('/projects/intervened_work_identification/{intervenedWorkIdentification}', 'update')->name('projects.intervened_work_identification.update');
