@@ -12,6 +12,7 @@ use App\Http\Controllers\InfraestructureActivityController;
 use App\Http\Controllers\IntervenedWorkIdentificationController;
 use App\Http\Controllers\InspectionContractController;
 use App\Http\Controllers\ExecutionStatusController;
+use App\Http\Controllers\ExecutionStatusTypeController;
 use App\Http\Controllers\ExecutedApprovedMountController;
 use App\Http\Controllers\ContractorWorkerController;
 use App\Http\Controllers\ProductWorkContractorController;
@@ -82,6 +83,10 @@ Route::middleware([
 
     Route::controller(ExecutionStatusController::class)->group(function (){
         Route::post('/projects/execution_status/{project}', 'store')->name('projects.execution_status.store');
+    });
+
+    Route::controller(ExecutionStatusTypeController::class)->group(function (){
+        Route::post('/projects/execution_status/types/{project}', 'store')->name('projects.execution_status.types.store');
     });
 
 

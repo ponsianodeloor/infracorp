@@ -727,9 +727,6 @@
 
                                                                         <input type="submit" class="btn btn-primary btn-block" value="Guardar">
                                                                     </form>
-
-
-
                                                                 </div>
                                                                 <div class="card-footer">
                                                                 </div>
@@ -788,7 +785,39 @@
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane fade" id="custom-tabs-three-stage" role="tabpanel" aria-labelledby="custom-tabs-three-stage-tab">
-                                                    Etapas
+                                                    <form action="{{route('projects.execution_status.types.store', $project)}}" method="post">
+                                                        @csrf
+                                                        <x-adminlte-select name="execution_status_id" label="Etapa" label-class="text-lightblue">
+                                                            <x-slot name="prependSlot">
+                                                                <div class="input-group-text bg-gradient-info">
+                                                                    <i class="fas fa-sitemap"></i>
+                                                                </div>
+                                                            </x-slot>
+                                                            @foreach($project->executionStates as $execution_status)
+                                                                <option value="{{$execution_status->id}}">{{$execution_status->stage}}</option>
+                                                            @endforeach
+                                                        </x-adminlte-select>
+
+                                                        {{-- With prepend slot --}}
+                                                        <x-adminlte-input name="type" label="type" placeholder="Item" label-class="text-lightblue">
+                                                            <x-slot name="prependSlot">
+                                                                <div class="input-group-text">
+                                                                    <i class="fas fa-clone text-lightblue"></i>
+                                                                </div>
+                                                            </x-slot>
+                                                        </x-adminlte-input>
+
+                                                        {{-- With prepend slot --}}
+                                                        <x-adminlte-input name="description" label="Description" placeholder="Description" label-class="text-lightblue">
+                                                            <x-slot name="prependSlot">
+                                                                <div class="input-group-text">
+                                                                    <i class="fas fa-bars text-lightblue"></i>
+                                                                </div>
+                                                            </x-slot>
+                                                        </x-adminlte-input>
+
+                                                        <input type="submit" class="btn btn-primary btn-block" value="Guardar">
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>

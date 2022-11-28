@@ -5,11 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class executionStatus extends Model
+class ExecutionStatus extends Model
 {
     use HasFactory;
 
     public function project(){
         return $this->belongsTo(Project::class);
+    }
+
+    public function types(){
+        return $this->hasMany(ExecutionStatusType::class);
     }
 }

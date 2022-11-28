@@ -26,7 +26,7 @@ class Project extends Model
     }
 
     public function executionStates(){
-        return $this->hasMany(executionStatus::class);
+        return $this->hasMany(ExecutionStatus::class);
     }
 
     public function infraestructures(){
