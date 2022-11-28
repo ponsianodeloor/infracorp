@@ -688,7 +688,7 @@
                                             <div class="tab-content" id="custom-tabs-three-tabContent">
                                                 <div class="tab-pane fade active show" id="custom-tabs-three-state_execution" role="tabpanel" aria-labelledby="custom-tabs-three-state_execution-tab">
                                                     <div class="row">
-                                                        <div class="col-6">
+                                                        <div class="col-4">
                                                             <div class="card card-primary">
                                                                 <div class="card-header">
                                                                     <h3 class="card-title">Registro de etapas</h3>
@@ -733,7 +733,7 @@
 
                                                             </div>
                                                         </div>
-                                                        <div class="col-6">
+                                                        <div class="col-8">
 
                                                             <div class="card">
                                                                 <div class="card-header">
@@ -755,9 +755,26 @@
                                                                                     {{$execution_status->stage}}
                                                                                 </td>
                                                                                 <td>
-                                                                                    <div class="progress progress-xs">
-                                                                                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                                                                    </div>
+                                                                                    <table class="table table-bordered">
+                                                                                        <tr>
+                                                                                        @foreach($execution_status->types as $execution_status_type)
+                                                                                            @php
+                                                                                                $type_and_description = explode('$$', $execution_status_type->type_and_description);
+                                                                                            @endphp
+                                                                                            <td>
+                                                                                                {{$type_and_description[0]}}
+                                                                                                <p>
+                                                                                                    {{$type_and_description[1]}}
+                                                                                                </p>
+                                                                                                <form action="{{route('projects.execution_status.types.destroy', $execution_status_type)}}" method="post">
+                                                                                                    @csrf
+                                                                                                    @method('DELETE')
+                                                                                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                                                                                </form>
+                                                                                            </td>
+                                                                                        @endforeach
+                                                                                        </tr>
+                                                                                    </table>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>

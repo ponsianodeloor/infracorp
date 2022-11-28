@@ -39,6 +39,11 @@ class ExecutionStatusTypeController extends Controller
     }
 
     public function destroy(ExecutionStatusType $executionStatusType){
+        $executionStatus = $executionStatusType->executionStatus;
+        $project = $executionStatus->project;
+        $executionStatusType->delete();
+
+        return redirect()->route('projects.show', $project);
 
     }
 }

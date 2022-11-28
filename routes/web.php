@@ -87,6 +87,7 @@ Route::middleware([
 
     Route::controller(ExecutionStatusTypeController::class)->group(function (){
         Route::post('/projects/execution_status/types/{project}', 'store')->name('projects.execution_status.types.store');
+        Route::delete('/projects/execution_status/types/{executionStatusType}', 'destroy')->name('projects.execution_status.types.destroy');
     });
 
 

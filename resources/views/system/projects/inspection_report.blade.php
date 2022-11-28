@@ -829,6 +829,55 @@
     <p><strong>4.- EJECUCION DEL CONTRATO</strong></p>
     <p><strong>4.1.- ESTADO DE EJECUCION DE LOS ESTUDIOS</strong></p>
 
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Etapas</th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($project->executionStates as $execution_status)
+            <tr>
+                <td width="30%">
+                    {{$execution_status->stage}}
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            @foreach($execution_status->types as $execution_status_type)
+                                @php
+                                    $type_and_description = explode('$$', $execution_status_type->type_and_description);
+                                @endphp
+                                <td>
+                                    {{$type_and_description[0]}}
+                                    <p>
+                                        {{$type_and_description[1]}}
+                                    </p>
+                                </td>
+                            @endforeach
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table border="1">
+                        <tr>
+                            <td>
+                                Fecha Inicio: {{$execution_status->start_date}}
+                            </td>
+                            <td>
+                                Fecha Final: {{$execution_status->final_date}}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+
     <p><strong>4.2- Monto Ejecutado y aprobado de los estudios</strong></p>
 
     @if(count($project->executeApprovedAmounts)>0)
